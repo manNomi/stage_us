@@ -1,0 +1,196 @@
+<!-- html 파일의 기본 양식 -->
+<!-- 각 하나가 tag이다  -->
+<!DOCTYPE html>
+<!-- 설명, 다른파일 가져오는 , 설정하는 값들을 헤더 태그에 넣어 놓는다 -->
+<head>
+
+</head>
+<!-- 버튼 등은 바디 태그에 넣는다 -->
+<body>
+    
+    <!-- 네모를 그려주세요 / 가로가 무한인-->
+        <!-- 무언가를 넣을 수 있음 / 네모안에 스테이지어스를 넣은 것 -->
+
+    <!-- <div>
+        스테이지어스
+    </div> -->
+    <!-- 네모를 그려주는 태그 / 그안에 값만큼 가로를 채워줌 -->
+    <!-- span 을 두개 쓰면 가로배치가 사용 -->
+    <!-- 가로배치를 하고 싶으면 span 세로배치가 원하면 div 사용하면 된다 -->
+    <!-- <span>
+        스테이지어스
+    </span>
+    <div style="background-color: red;">
+        스테이지어스
+    </div> -->
+
+    <!-- 표를 그려주는 것으로 아래 같은 양식으로 사용한다 -->
+    <!-- tr은 행 td는 행안의 열이다 -->
+    <!-- 테이블 태그는 하나가 커지면 같은 열이 다같이 커짐  -->
+    <!-- 필요없으면 지워도 됨 그자리만 빵꾸난 것 처럼 남아있다  -->
+    <!-- table은 부모고 아래에 자식이 있는 구조다 tab이 상당히 중요하다 -->
+    <!-- <table>
+        <tr>
+            <td>1-1</td>
+            <td>1-2</td>
+            <td>1-3</td>
+        </tr>
+        <tr>
+            <td>2-1</td>
+            <td>2-2</td>
+            <td>2-3</td>
+        </tr>
+    </table> -->
+
+    <!-- a태그 : 페이지 이동을 하는 태그 -->
+    <!-- 다른 html 파일 이동할때도 사용  -->
+    <!-- <div>
+    <a href="https://naver.com">네이버</a>
+    </div>
+    <a href=main.html>메인페이지 이동</a>
+    <div> -->
+    <!-- img 태그는 닫힘 태그가 없음 자식이 없기 때문이다 -->
+    <!-- <img src="cute_dog.jpg"> -->
+    <!--  상대 경로 확인용 -->
+    <!-- <img src="image/cute_dog.jpg">   
+    </div>  -->
+    <!-- C:\Users\hanmw\OneDrive\바탕 화면\코딩\스테이지어스\백엔드 과정 시작\1주차 (24.05.15)\1주차 파일\image -->
+    <!-- 절대경로는 절대로 사용하지 말것 / 남이 못쓴다  -->
+    <!-- <div> -->
+    <!-- imput Tag 자식이 없다 type이 필수적으로 필요-->
+    <!-- <input type="text">
+    <input type="password"> -->
+    <!-- value 값에 값을 넣어줘야 버튼이 크기가 알맞다  -->
+    <!-- <input type="button" value="로그인">
+    </div>  
+    <div> -->
+
+    <!-- 설문조사 태그 -->
+    <!-- name을 이용해 그룹화 할 수있다 -->
+    <!-- <input type="radio" name="gender">
+    <span>남자</span>
+    <input type="radio" name="gender">
+    <span>여자</span>
+
+    </div>
+    <a href=main.html><img src="image/cute_dog.jpg"></a> -->
+
+<!-- div 를 이용해서 안에 넣어서 그룹화를 통해 세로 배치 -->
+
+
+<!-- naver 뼈대 만들어 보기 -->
+<!-- span을 사용할것 TEXT 띄워 놓기 위함  -->
+
+<!-- <a href="https://naver.com">
+<img src="image/naver.png">
+</a>
+<div>
+    <input type="text">
+</div>
+<div>
+    <input type="password">
+</div>
+<div>
+    <a href="https://naver.com">
+        <input type="button" value="로그인">
+    </a>
+</div>
+<div>
+    <span>
+        로그인 상태 유지
+    </span>
+    <span>
+        IP 보안 OFF
+    </span>
+</div> -->
+
+<!-- select 태그 사용할것 -->
+<!-- 5행 8열 -->
+<!-- 계층 구조 나눠서 할때 tab 잘 활용하기 TEXT 제외 -->
+<!-- select tag쓸때 value등 name 왜쓰는 지 생각하기 -->
+<div>
+    회원가입
+</div>
+<div>
+    <table>
+        <tr>
+            <td>이름</td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td>
+                <input type="password">
+            </td>
+        </tr>
+        <tr>
+            <td>비밀번호 확인</td>
+            <td>
+                <input type="password">
+            </td>
+            <td>
+                <input type="button"value="확인">
+            </td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <input type="radio" name="gender">남자
+                <input type="radio"name="gender">여자
+            </td>
+        </tr>
+        <tr>
+            <td>생년월일</td>
+            <td>
+                <input type="text">년
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>월
+            <input type="text">일</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <input type="button" value="가입">
+</div>
+
+<!-- p태그 문단 출력 값 같은 경우로 인식 -->
+<p>스테이지어스</p>
+<!-- 제목 출력하는 태그 -->
+<h1 style="font-size: 16px;">제목</h1>
+
+<!-- div 는 공백으로 인식 -->
+
+<!-- semantic tag -->
+<!-- 지켜서 개발하는 것이 SEO에 좋다 -->
+<!-- 중요한것은 ! 논리와 근거  -->
+<!-- div 와 동일한 역할을함  / 기능만 다르다 / SEO에 사용 -->
+
+<!-- 홈페이지에 가장 위 제목으로 보여줄 수 도 있음 -->
+<header></header>
+
+<!-- 가로로 되어있는 메뉴 -->
+<nav></nav>
+
+<!-- 세로 메뉴 유튜브 좌측-->
+<aside></aside>
+
+<!-- 본문 -->
+<main>
+    <!-- 작은영역 -->
+    <section></section>
+    <article></article>
+</main>
+
+<!-- 홈페이지 하단 -->
+<footer></footer>
+
+
+
+
+
+</body>
+
