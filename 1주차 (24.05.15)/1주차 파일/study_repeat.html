@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<title>1주차 수업 HTML로 정리해보기</title>
+<head>
+    <title>1주차 수업 HTML로 정리해보기</title>
+    <link rel="icon" href="image/icon.ico">
+</head>
 <h1 style="text-align: center;">1주차 수업을 정리해보자</h1>
 <div style="border: solid; text-align: center;"  >
 <div>먼저 우리는 서버-클라이언트 구조를 사용한다</div>
@@ -114,7 +117,33 @@
     </tr>
 </table>
 
-<div>https://hianna.tistory.com/300 여기 부터 이어하기</div>
+<h3 style="text-align: center;">ENTER 공백 만드는 방법</h3>
+<table border="1" style="width: 100%; height: 150px;">
+    <tr >
+        <td style="width: 10%;" >&lt;br&gt;</td>
+        <td >&lt;br&gt;태그는 닫는 태그가 따로 없다</td>
+        <td>줄바꿈 태그이다 공백 태그</td>
+        <td>사용법 띄우고 싶은 칸에 사용하면 된다</td>
+    </tr>
+    <tr>
+        <td>&lt;p&gt; &lt;/p&gt;</td>
+        <td style="width: 30%;">&lt;p&gt; &lt;/p&gt; 태그로 감싸면 태그 위 아래쪽 일정 공백이 생긴다</td>
+        <td style="height: 30px;">공백의 크기는 margin을 이용해 조정 가능하다</td>
+        <td style="height: 30px;">하나의 문단을 만들때 사용</td>
+        <td>사용법 &lt;p&gt;사과&lt;/p&gt;&lt;p&gt;바나나&lt;/p&gt;&lt;p&gt;포도&lt;/p&gt;</td>
+    </tr>
+    <tr>
+        <td>&lt;pre&gt; &lt;/pre&gt;</td>
+        <td>&lt;pre&gt; &lt;/pre&gt; 태그로 감싸면 엔터와 스페이스가 그대로 노출된다</td>
+        <td></td>
+    </tr>
+</table>
+<div>
+    <span style="display: flex; justify-content: center; font-size: 20pt;">pre 사용법</span>
+</div>
+<div style="text-align: center;">
+    <img src="image/pre_result.png">
+</div>
 
 <h3 style="text-align: left;">*본문 작성시 h1~h6까지 사용가능</h3>
 <h3 style="text-align: left;">*글자 가운데 정렬원할시</h3>
@@ -125,7 +154,63 @@
 </span>
 <span>아이콘을 favicon이라고 부른다</span>
 <span>제목은 title 칸에 작성하면 된다</span>
+<table border="1" style="text-align: center; width: 100%;">
+    <tr>
+        <td style="width: 20%;">파비콘 준비</td>
+        <td>확장자는 .icon</td>
+        <td>16X16픽셀이 기본</td>
+    </tr>
+    <tr>
+        <td>헤드 태그 영역에 추가한다</td>
+        <td>헤드 태그 안에 title도 포함할것</td>
+        <td>-> 헤드 태그는 제목을 달는 부모이기 때문 </td>
+        <td>16X16픽셀이 기본</td>
+        <
+        
+    </tr>
+</table>
+<p></p>
+<div style="text-align: center; font-size: 20px;">
+    <a href="https://icons8.kr/icons/set/favicon-ico">
+        -favicon 이미지 추천사이트-
+    </a>
+</div>
 
+<h2>시맨틱 태그(semantic Tag)</h2>
+<div style="text-align: center; border: solid; font-size: 20pt;">
+    <div>포함된 콘텐츠의 특정 의미를 정의하고 목적을 갖는 태그</div>
+    <img style="text-align: center;" src="image/semantic_tag.png">
+</div>
+<br>
+
+<table>
+    <tr>
+        <th>article</th>
+        <td>독립적인 글을 다루는 데 사용하는 태그</td>
+        <td>블로그 게시물 뉴스 기사 제품 리뷰등 독립적으로 배포하거나 재사용 할 수 있는 독립형 콘텐츠 정의</td>
+    </tr>
+    <tr>
+        <th>aside</th>
+        <td>옆에 위치하는 콘텐츠를 담는 태그</td>
+        <td>주로 문서에서 사이드바를 놓기 위해 사용</td>
+    </tr>
+    <tr>
+        <th>details</th>
+        <td>사용자가 보거나 숨길 수 있는 추가 세부 정보를 정의하는 태그</td>
+        <td>사용자와 상호작용이 가능하다는 것이 장점</td>
+        <td>summary태그는 보이는 부분을 담당하고 details의 첫번째 자식이여야한다</td>
+    </tr>
+    <tr>
+        <th>figure & figcaption</th>
+        <td>figure 태그는 일러스트레이션 다이어그램 사진 코드 등 콘텐츠</td>
+        <td>figcaption 태그는 figure 요소에 대한 캡션을 정의하며 사진의 설명을 추가하기 위해 사용</td>
+    </tr>
+
+</table>
+<div style="text-align: center;">
+    <p></p>
+    <a href="https://seo.tbwakorea.com/blog/what-is-semantic-tag/">-참고 링크-</a>
+</div>
 
 
 
