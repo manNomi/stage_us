@@ -1,0 +1,43 @@
+<!-- ! ENTER를 치면 양식이 생긴다 -->
+<!-- 언어를 kr로 바꿔주기만 하면 된다 -->
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 스타일 태그 방식 - 헤더에 스타일태그 만드는 방법 -->
+    <!-- 스타일 태그가 3순위 -->
+    <style>
+        div {
+            background-color: orange;
+        }
+    </style>
+    <!-- 참조하는 방법 -->
+    <link rel="stylesheet" type="text/css" href="week2.css">
+</head>
+<body>
+    <div style="background-color: red;">스테이지어스</div>
+    <!-- 인라인이 우선순위 -->
+    <div>스테이지어스2</div>
+    <div id="big_text" class="text tmp">스테이지어스3</div>
+    <div class="text">스테이지어스4</div>
+<!-- id는 겹쳐서는 안된다 유일해야함 -->
+<!-- class는 여러번 쓸 수 있다. -->
+
+<!-- 다중 클래스에서는 나중에 선언된 클래스 것으로 적용된다 -->
+    <br>    
+    <br>    
+
+<div>스테이지어스</div>
+    <span>스테이지어스</span>
+
+    <br>
+    <br>
+    
+    <div id="first">스테이지어스</div>
+    <div id="second">스테이지어스</div>
+    <div id="third">스테이지어스</div>
+</body>
+</html>

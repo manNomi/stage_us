@@ -1,0 +1,123 @@
+/* div <- 셀렉터 이다 선택자 : 누구누구에게 */
+/* 선택자 : selector */
+h1 {
+    background-color: green;
+    /* width: 500px; */
+    /* width: 50%; */
+    width: 300px;
+    height: fit-content;
+    margin: 30px;
+    margin-left: 10px;
+    /* 바깥쪽 여백 */
+    padding: 10px;
+    /* 안쪽 여백 */
+
+    color: rebeccapurple;
+    font-size: 10px;
+    /*  16px가 기본값임 */
+    font-weight: 800;
+    /* 400이 기본값 246만 기억*/
+    text-align: center;
+    /* text얼라인 잘안쓴다 */
+    /* 주로 핏 컨텐트 주고 좌우에 패딩을 준다 */
+    border: 5px solid blue;
+    border-radius: 10px;
+    /* 꼭짓점에 반지름이 10px인 원이 그려진다 */
+}
+/* 세미클론 붙이기 */
+/* 해상도 -> px -> 상대적으로 크기가 달라 보일 수있음을 인지 */
+
+#big_text {
+    font-size: 30px;
+    color: red;
+}
+/* 특정 태그에 요소를 입히고 싶을때 사용하는 방법 */
+
+.text{
+    color: red;
+}
+/* 텍스트 라는 클래스를 사용하는 애들한테 주고 싶다  */
+
+/* ID -> 클래스 -> 태그 순서로 우선순위가 높다 */
+/* CSS는 덮어 씌어 지며 개발된다 */
+
+.tmp{
+    color:green;
+}
+/* 다른 선택자는 사용하지 말것 */
+/* 색상: 웹색상 코드를 사용 */
+/* RGB ##(R) ##(G) ##(B)  */
+
+
+/* div span의 디스플레이 -> 가로 세로 정렬의 특징의 원인인 */
+h3 {
+    background-color: yellow;
+    display: inline-block;
+    width: 200px;
+}
+/* 디스플레이를 inline 이나 block으로 바꾼다면 속성이 변한다 */
+/* span태그를 잘 사용하지 않는 이유는 딱히 없지만 위의 방법을 사용한다 */
+h2{
+    background-color: yellowgreen;
+    display: none;
+    width: 200px;
+}
+
+/* 네이버 로그인 할때 id pw 가 세로배치를 위해서는  
+display block을 바꾸어 주면 해결 할 수 있다      */
+
+/* span의 특징 -> 가로길이를 바꿀 수 없다 
+inline은 가로길이를 바꿀 수 가 없음  */
+
+/* inline은 잘 안쓰고 inline-blcok을 사용한다
+inline-block에는 사이즈를 바꿀 수 있는 기능을 제공한다 */
+
+/* display: none -> 화면에서 사라진다
+inline / inline-block /block / none -> 4가지로 구성된다
+display : flex -> 라는 기술이 있음 
+플렉스가 생겨서 총 5가지 기술이 있다 
+*/
+
+#first{
+    background-color: red;
+    height: 300px;
+    position: absolute;
+    left: 30px;
+   
+}
+    /* position의 기본값 : static */
+/* position: relative; -> 
+미세조정으로 위치를 실상과 다른곳에 둘 수 있음 
+다른돔에 침범할때 사용가능 
+*/
+
+
+/* position: fixed; -> 가로가 fit content로 바뀌어짐 
+돔구조를 탈출해 떠다니는 형식이 된다 
+스크롤 했을때에도 그자리에 박혀있다
+*/
+
+/*position: absolute;
+-> 가로랑 세로를 핏 컨텐트 
+돔구조를 탈출시켜줌 
+스크롤을 해도 같이 올라간다
+-> 광고를 넣을때 / 를 제외하면 사용할때가 거의 없지않나 .. 
+*/
+#second{
+    background-color: yellow;
+    height: 300px;
+}
+#third{
+    background-color: yellowgreen;
+    height: 300px;
+}
+
+
+/* 
+css가 구형언어다 
+->css가 자체적으로 해놓은 설정이 많다 
+body태그 자체에도 상화좌우 여백이 있다 
+input type text <- 좌우에 여백이 있음 
+inline , inline-block 나란히 배치하면 여백이 생긴다 
+css 팁 같은 것을 검색해보기
+*/

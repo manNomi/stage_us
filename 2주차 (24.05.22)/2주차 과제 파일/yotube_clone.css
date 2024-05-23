@@ -1,0 +1,35 @@
+@import "./reset.css";
+
+/* 헤더의 요소들 위치 배치 */
+.container_row{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+/* 아이템들 가운데 정렬하기 */
+.container_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 가로 아이템간 간격 두기  */
+.margin_item{
+    margin-left: 10px;
+}
+
+/* 검색창 꾸미기 */
+#search_shape{
+    border-style: solid;
+    border-color: #CCCCCC;
+    border-radius: 30px;
+    width: 50%;
+    height: 50%;
+    
+}
+
+/* 화면이 줄어들면 자연스럽게 줄어들게 하기 위함 */
+.container_shirink{
+    flex: 1;
+}

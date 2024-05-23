@@ -1,0 +1,32 @@
+.img_class{
+    width: 200px;
+    object-fit: cover;
+    /* 가로 세로가 꽉차면서  크기조절*/
+}
+
+#login_btn {    
+    background-color: #36AC37;
+    color: #ffffff;
+    padding: 10px;
+}
+
+#ip_text{
+    text-align: right;
+}
+
+.span_text{
+    display: inline-block;
+    width: 49%;
+}
+
+.length{
+    margin-top: 10px;
+    width: 500px;
+}
+.vertical{
+    display: block;
+}
+
+/* 전체적으로 묶어주기 */
+
+/* 클래스나 id로 할것 */

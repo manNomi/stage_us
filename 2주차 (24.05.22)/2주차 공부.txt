@@ -1,0 +1,29 @@
+css reset 
+
+- 모든 태그에 적용된 서식의 margin과 padding을 제거하는 방식 
+margin 값이 알아서 들어가 있기에 화면 가득 채우는 것이 불가 
+
+안타깝게도 이 기본 서식들은 각 브라우저만의 개성이자 표준이 없던 관계로 브라우저마다
+ 서로 다른 서식을 가지게 됩니다. 특히 IE가 주류이던 그 시절은 더 심했습니다.
+우리는 작업한 결과물이 어떠한 브라우저에서던 같은 모양을 보여주길 원했고 이러한 작업을 
+크로스 브라우징(Cross Browsing)이라고 불렀습니다.
+그리고 그러기 위해서는 우선 저마다 다른 브라우저의 스타일을 하나로 통일해야 하는 선행작업이 필요했습니다.
+
+-css reset of history
+https://www.webfx.com/blog/web-design/the-history-of-css-resets/
+
+
+reset css 하는법
+
+-> 구글에 reset css 검색 
+
+-> reset.css 파일 생성후 
+
+-> 사용 css 파일에 @import 하면 된다 
+
+
+css tip
+
+
+
+https://leettle.tistory.com/17
