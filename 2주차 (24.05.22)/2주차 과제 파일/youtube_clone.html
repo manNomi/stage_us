@@ -3,26 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제목 -->
     <title>YouTube</title>
-    <link rel="icon" href="image/youtube_iocn.png">
+    <!-- 아이콘 설정 -->
+    <link rel="icon" href="image/svg/youtube_iocn.svg">
+    <!-- css 적용 -->
     <link rel="stylesheet" type="text/css" href="yotube_clone.css">
+    <!-- 폰트적용 -->
+    <link rel="stylesheet" type="text/css" href="youtube_font.css">
 </head>
 <body>
-    <header class="container_row">
-        <div class="container_center">
-            <img  class="margin_item" src="image/header.line_img.png">
-            <img class="margin_item" src="image/header.youtube_img.png">
+    <aside class="container_column sidebar_shape h100 aside_font_size  "> 
+        <div class="container_center aside_img_margin_top"  >
+            <img class="aside_width aside_img_margin_top" src="image/png/header.line_img.png" >
         </div>
-        <div class="container_center container_shirink" style="background-color: white;">
-            <input type="text" id="search_shape" value="검색">
-            <img src="image/header.mic_img.png">
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.home.PNG">
+            <P class="aside_img_margin_top">홈</P>
         </div>
-        <div class="container_center">
-            <img src="image/header.camera_img.png">
-            <img class="margin_item" src="image/header.bell_img.png">
-            <img class="margin_item" src="image/header.name_img.png">
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.shorts.PNG">
+            <P class="aside_img_margin_top">shorts</P>
         </div>
-    </header>
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.subscribe.PNG">
+            <P class="aside_img_margin_top">구독</P>
+        </div>
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.music.PNG">
+            <P class="aside_img_margin_top">Youtube Mu...</P>
+        </div>
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.me.PNG">
+            <P class="aside_img_margin_top">나</P>
+        </div>
+        <div class="container_column container_center aside_margin_top">
+            <img class="aside_width" src="image/png/aside.save.PNG">
+            <P class="aside_img_margin_top">오프라인 저...</P>
+        </div>
+    </aside>
+    <!-- 헤더 -->
+    <div id="main_group" class="container_column">
+        <header class="container_row headerimg_center" style="background-color: yellowgreen;">
+            <div class="container_center ">
+                <img  src="image/png/header.youtube_img.png">
+            </div>
+            <div class="container_center container_shirink">
+                <input type="text" id="search_shape" value="검색">
+                <img src="image/png/header.mic_img.png">
+            </div>
+            <div class="container_center  ">
+                <img src="image/png/header.camera_img.png">
+                <img class="header_img_margin_left" src="image/png/header.bell_img.png">
+                <img class="header_img_margin_left" src="image/png/header.name_img.png">
+            </div>
+        </header>
 
+        <main class="main_shape">
+            <div class="container_shirink main_space">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="text_shape container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                </div>
+            </div>
+            <div class="container_shirink main_space">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="text_shape container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                </div>
+            </div>
+            <div class="container_shirink main_space">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="text_shape container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
 </body>
 </html>

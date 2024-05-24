@@ -3,8 +3,46 @@
 /* 헤더의 요소들 위치 배치 */
 .container_row{
     display: flex;
+    flex-direction: row;
+}
+
+/* 어사이드의 요소들 위치 배치 */
+.container_column{
+    display: flex;
+    flex-direction: column;
+}
+
+/* 아이템들 가운데 정렬하기 */
+.headerimg_center{
     justify-content: space-between;
-    background-color: white;
+    align-content: center;
+}
+
+.h100{
+    height: 100%;
+}
+
+.w20{
+    width: 20%;
+}
+.aside_width{   
+    width:40%;
+}
+.aside_margin_top{
+    margin-top: 30px;
+}
+
+.aside_img_margin_top{
+    margin-top: 5px;
+}
+.header_img_margin_left{
+    margin-left: 10px;
+}
+
+/* 어사이드 설정 */
+.sidebar_shape{
+    position: fixed;
+    width: 80px;
 }
 
 /* 아이템들 가운데 정렬하기 */
@@ -24,12 +62,39 @@
     border-style: solid;
     border-color: #CCCCCC;
     border-radius: 30px;
-    width: 50%;
+    width: 60%;
     height: 50%;
-    
+    overflow: hidden;
 }
 
 /* 화면이 줄어들면 자연스럽게 줄어들게 하기 위함 */
 .container_shirink{
     flex: 1;
+}
+
+.main_shape{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text_shape{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    max-width: fit-content;
+}
+
+.main_img{
+    display: inline-flex;
+    flex: 1 100px;
+    object-fit: cover;
+}
+
+.main_space{
+    background-color: red;
+}
+
+#main_group{
+    margin-left: 80px;
 }
