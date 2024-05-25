@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="yotube_clone.css">
     <!-- 폰트적용 -->
     <link rel="stylesheet" type="text/css" href="youtube_font.css">
+    <!-- 자바스크립트 적용 -->
+    <script async src="youtube_clone.js"></script>
 </head>
 <body>
     <aside class="container_column sidebar_shape h100 aside_font_size  "> 
@@ -44,43 +46,65 @@
     </aside>
     <!-- 헤더 -->
     <div id="main_group" class="container_column">
-        <header class="container_row headerimg_center" style="background-color: yellowgreen;">
+        <header class="headerimg_center">
+            <!-- 유튜브 로고 -->
             <div class="container_center ">
-                <img  src="image/png/header.youtube_img.png">
+                <img src="image/png/header.youtube_img.png">
             </div>
-            <div class="container_center container_shirink">
-                <input type="text" id="search_shape" value="검색">
+            <!-- 유튜브 검색창 -->
+            <div id="search_out_shape" class="container_center container_shirink">
+                <div id="search_shape">
+                    <div id="search_form">
+                        <input id="search_btn_text" type="text"  placeholder="  검색">
+                        <button id="keyboard_btn" type="button">
+                            <img src="image/png/header.keyboard_img.PNG">
+                        </button>
+                    </div>
+                    <button id="search_btn" type="button">
+                        <img src="image/png/header.search_img.PNG">
+                    </button>
+                </div>
                 <img src="image/png/header.mic_img.png">
             </div>
-            <div class="container_center  ">
+            <!-- 우측 아이콘 -->
+            <div class="container_center">
                 <img src="image/png/header.camera_img.png">
-                <img class="header_img_margin_left" src="image/png/header.bell_img.png">
-                <img class="header_img_margin_left" src="image/png/header.name_img.png">
+                <img class="margin_img" src="image/png/header.bell_img.png">
+                <img src="image/png/header.name_img.png">
             </div>
+
         </header>
 
-        <main class="main_shape">
-            <div class="container_shirink main_space">
+        <main id="main">
+            <div class=" main_group_shape" style="background-color: black;">
                 <img class="main_img" src="image/png/main.play_img.PNG">
                 <div class="text_shape container_center">
                     <img src="image/png/main.playname_img.PNG">
                     <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
                 </div>
             </div>
-            <div class="container_shirink main_space">
+            <div class="main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="text_shape container_center ">
+                    <img src="image/png/main.playname_img.PNG">
+                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                </div>
+            </div>
+            <div class="main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
                 <div class="text_shape container_center">
                     <img src="image/png/main.playname_img.PNG">
                     <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
                 </div>
             </div>
-            <div class="container_shirink main_space">
+            <div class="main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
                 <div class="text_shape container_center">
                     <img src="image/png/main.playname_img.PNG">
                     <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
                 </div>
             </div>
+            
         </div>
 
     </main>

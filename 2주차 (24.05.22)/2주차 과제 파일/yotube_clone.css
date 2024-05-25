@@ -14,8 +14,20 @@
 
 /* 아이템들 가운데 정렬하기 */
 .headerimg_center{
+    display: flex;
     justify-content: space-between;
     align-content: center;
+}
+
+/* 아이템들 가운데 정렬하기 */
+.container_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search_out_shape{
+    max-width: 60%;
 }
 
 .h100{
@@ -39,18 +51,17 @@
     margin-left: 10px;
 }
 
+.margin_img{
+    margin: 0px 10px;
+}
+
 /* 어사이드 설정 */
 .sidebar_shape{
     position: fixed;
     width: 80px;
 }
 
-/* 아이템들 가운데 정렬하기 */
-.container_center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 /* 가로 아이템간 간격 두기  */
 .margin_item{
@@ -59,12 +70,50 @@
 
 /* 검색창 꾸미기 */
 #search_shape{
+    display: flex;
+    border-style: solid ;
+    border-color: #CCCCCC;
+    border-width: 1px;
+    border-radius: 30px;
+    width: 100%;
+    height: 80%;
+    z-index: 1;
+}
+#search_btn_text{
+    font-size: 15px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border: none;
+    z-index: -1;
+    width: 100%;
+    color: black;
+    outline: none;
+}
+
+#search_btn{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-style: solid ;
+    border-color: #CCCCCC;
+    border-width: 1px;
+    text-align: right;
+}
+
+#keyboard_btn{
+    border: none;
+    align-items: center;
+}
+
+#search_form{
+    display: flex;
     border-style: solid;
     border-color: #CCCCCC;
-    border-radius: 30px;
-    width: 60%;
-    height: 50%;
-    overflow: hidden;
+    border-width: 1px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 }
 
 /* 화면이 줄어들면 자연스럽게 줄어들게 하기 위함 */
@@ -72,29 +121,25 @@
     flex: 1;
 }
 
-.main_shape{
+#main{
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.text_shape{
+.main_group_shape{
     display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    max-width: fit-content;
+    flex: 1 1 300px;
+    flex-direction: column;
+    margin-right: 10px;
 }
 
 .main_img{
-    display: inline-flex;
-    flex: 1 100px;
     object-fit: cover;
 }
 
-.main_space{
-    background-color: red;
-}
 
 #main_group{
     margin-left: 80px;
 }
+
