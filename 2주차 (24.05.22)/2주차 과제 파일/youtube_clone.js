@@ -4,7 +4,10 @@ var search_form =document.getElementById('search_form')
 var search_shape =document.getElementById('search_shape')
 var search_event_btn =document.getElementById('search_event_btn')
 var space =document.getElementById('space')
-var search_shape = document.getElementById('search_shape')
+var youtube_logo = document.getElementById('youtube_logo')
+var focus_obj=true
+var length_width=0
+
 
 // 검색창 줄어들면 삭제하기
 const observer = new ResizeObserver(Obs => {
@@ -12,10 +15,13 @@ const observer = new ResizeObserver(Obs => {
     const length = Ob.contentRect
     var length_width=length.width
     if (length_width<113){
-      search_shape.style="display:none;"
-    }
-  }
-})
+        search_shape.style="display:none;"
+     }}})
+
+
+// 테스트코드
+// search_btn_text.setAttribute("value",length_width)
+// search_btn_text.setAttribute("value",innerWidth)
 
 // 윈도우 화면 통해 검색창 사라졌을때 다시 불러오기
 window.addEventListener("resize",function(){
@@ -28,7 +34,6 @@ window.addEventListener("resize",function(){
 observer.observe(search_shape)
 
 // 클릭했을때 검색 아이콘 + 파랑색 나타내기
-var focus_obj=true
 search_btn_text.onfocus=function(){
   if (focus_obj==true){
     search_form.style="border-color: #1d65b6; border-width : 2px;"
