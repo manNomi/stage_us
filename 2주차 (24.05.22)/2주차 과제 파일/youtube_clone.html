@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,31 +15,32 @@
     <script async src="youtube_clone.js"></script>
 </head>
 <body>
-    <aside class="container_column sidebar_shape h100 aside_font_size  "> 
+    <!-- 어사이드 -->
+    <aside class="aside_shape"> 
         <div class="container_center aside_img_margin_top"  >
             <img class="aside_width aside_img_margin_top" src="image/png/header.line_img.png" >
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.home.PNG">
             <P class="aside_img_margin_top">홈</P>
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.shorts.PNG">
             <P class="aside_img_margin_top">shorts</P>
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.subscribe.PNG">
             <P class="aside_img_margin_top">구독</P>
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.music.PNG">
             <P class="aside_img_margin_top">Youtube Mu...</P>
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.me.PNG">
             <P class="aside_img_margin_top">나</P>
         </div>
-        <div class="container_column container_center aside_margin_top">
+        <div class="aside_img">
             <img class="aside_width" src="image/png/aside.save.PNG">
             <P class="aside_img_margin_top">오프라인 저...</P>
         </div>
@@ -52,9 +53,13 @@
                 <img src="image/png/header.youtube_img.png">
             </div>
             <!-- 유튜브 검색창 -->
-            <div id="search_out_shape" class="container_center container_shirink">
+            <div id="search_out_shape">
+                <div id="space"></div>
                 <div id="search_shape">
                     <div id="search_form">
+                        <button id="search_event_btn" type="button">
+                            <img id= "search_event_btn_img" src="image/png/header.search_icon_img.png">
+                        </button>
                         <input id="search_btn_text" type="text"  placeholder="  검색">
                         <button id="keyboard_btn" type="button">
                             <img src="image/png/header.keyboard_img.PNG">
@@ -65,6 +70,7 @@
                     </button>
                 </div>
                 <img src="image/png/header.mic_img.png">
+
             </div>
             <!-- 우측 아이콘 -->
             <div class="container_center">
@@ -75,38 +81,235 @@
 
         </header>
 
+        <!-- 메인 페이지 -->
         <main id="main">
-            <div class=" main_group_shape" style="background-color: black;">
+            <!-- 유튜브 썸네일-->
+            <div class=" main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
-                <div class="text_shape container_center">
+                <div class="container_center">
                     <img src="image/png/main.playname_img.PNG">
-                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="main_group_shape">
+            <div class=" main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
-                <div class="text_shape container_center ">
+                <div class="container_center">
                     <img src="image/png/main.playname_img.PNG">
-                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="main_group_shape">
+            <div class=" main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
-                <div class="text_shape container_center">
+                <div class="container_center">
                     <img src="image/png/main.playname_img.PNG">
-                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="main_group_shape">
+            <div class=" main_group_shape">
                 <img class="main_img" src="image/png/main.play_img.PNG">
-                <div class="text_shape container_center">
+                <div class="container_center">
                     <img src="image/png/main.playname_img.PNG">
-                    <p>[#무도] 휴게소 음식은 못 참지🤤 '얼큰이 칼국수 vs 김치 버섯 라면' 명수의 선택으로 갈리는 준하와 멤버들의 희비ㅋㅋ '여섯이 네고향' 2편</p>
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" main_group_shape">
+                <img class="main_img" src="image/png/main.play_img.PNG">
+                <div class="container_center">
+                    <img src="image/png/main.playname_img.PNG">
+                    <div>
+                        <p>𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 돌아가고 싶은 그때 그 시절 2010년 감성힙합 I 다이나믹듀오, 프라이머리, 긱스, 개리, 빈지노</p>
+                        <p class="text_font">올끌 (All of MBClassic)</p>
+                        <div class="text_font">
+                            <span>조회수 44만회</span>
+                            <span>•</span>
+                            <span>8개월 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </main>
 </body>
 </html>
