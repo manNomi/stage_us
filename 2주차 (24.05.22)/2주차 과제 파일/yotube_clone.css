@@ -96,13 +96,16 @@
 /* 검색버튼 누르면 생기는 아이콘 */
 #search_event_btn{
     border-radius: 30px;
-    border: #CCCCCC;
-    align-items: center;
     display: none;
+    background-color: white;
+    outline: none;
+    border: none;
+    align-items: center;
 }
 #search_event_btn_img{
-    width: 40px;
+    width: 25px;
     object-fit: cover;
+    
 }
 
 /* text입력할 수 있는 검색창*/
@@ -111,16 +114,18 @@
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border: none;
+    outline: none;
     z-index: -1;
     width: 100%;
     color: black;
-    outline: none;
+    
 }
 
 /* 키보드 버튼 셋팅 */
 #keyboard_btn{
     border: none;
     align-items: center;
+    background-color: white;
 }
 
 /* 검색버튼 */
@@ -131,6 +136,15 @@
     border-color: #CCCCCC;
     border-width: 1px;
     text-align: right;
+    background-color: white;
+}
+
+#mic_btn{
+    background-color: white;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: none;
 }
 
 /* 좌우 마진용 */

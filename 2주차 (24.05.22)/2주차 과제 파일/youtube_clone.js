@@ -16,7 +16,7 @@ const observer = new ResizeObserver(Obs => {
     var length_width=length.width
     if (length_width<113){
         search_shape.style="display:none;"
-     }}})
+      }}})
 
 
 // 테스트코드
@@ -37,7 +37,7 @@ observer.observe(search_shape)
 search_btn_text.onfocus=function(){
   if (focus_obj==true){
     search_form.style="border-color: #1d65b6; border-width : 2px;"
-    search_event_btn.style="display:block;"
+    search_event_btn.style="display:flex;"
     space.style="width:0px;"
     focus_obj=false 
   }
