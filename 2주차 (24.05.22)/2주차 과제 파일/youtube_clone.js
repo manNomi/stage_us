@@ -10,19 +10,17 @@ var main=document.getElementById("main")
 var focus_obj=true
 var length_width=0
 
+// // 검색창 줄어들면 삭제하기
+// const observer = new ResizeObserver(Obs => {
+//   for (let Ob of Obs) {
+//     const length = Ob.contentRect
+//     var length_width=length.width
+//     if (length_width<123){
+//         search_shape.style="display:none;"
+//       }}})
 
-
-// 검색창 줄어들면 삭제하기
-const observer = new ResizeObserver(Obs => {
-  for (let Ob of Obs) {
-    const length = Ob.contentRect
-    var length_width=length.width
-    if (length_width<123){
-        search_shape.style="display:none;"
-      }}
-    }
-    )
-
+//       // 선언
+// observer.observe(search_shape)
 
 // 테스트코드
 // search_btn_text.setAttribute("value",length_width)
@@ -33,10 +31,12 @@ window.addEventListener("resize",function(){
   if (innerWidth>540){
     search_shape.style="display:flex;"
   }
+  else{
+    search_shape.style="display:none;" 
+  }
 })
 
-// 선언
-observer.observe(search_shape)
+
 
 // 클릭했을때 검색 아이콘 + 파랑색 나타내기
 search_btn_text.onfocus=function(){
@@ -58,7 +58,6 @@ search_btn_text.onblur=function(){
   }
 }
 
-
 // 유튜브 검색기능 구현
 search_btn.onclick=function(){
   // var text = document.getElementById("search_btn_text").value
@@ -71,9 +70,7 @@ search_btn_text.onkeydown=function(input){
   }
 }
 
-
 window.onload=function(){
-
   // 썸네일 개수
   var thumb_index=15
   var thumb_img= []

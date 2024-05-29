@@ -4,6 +4,10 @@
 body{
     overflow-x: hidden;
 }
+/* flex 정의 -> 자식의 display 속성이 무시된다 -> 부모에서 관리함 */
+/* flex 사용 : (기본웹) 바텀정렬 -> 탑정렬 */
+/* 이름 bem 설정 */
+
 
 /* 어사이드 테두리 설정 */
 .aside_shape{
@@ -25,6 +29,7 @@ body{
 }
 
 /* 어사이드 이미지 파일 설정*/
+/* asside_element */
 .aside_img{
     display: flex;
     flex-direction: column;
@@ -35,7 +40,6 @@ body{
 .aside_img_margin_top{
     margin-top: 5px;
 }
-
 
 /* 헤더 설정 */
 
@@ -60,7 +64,7 @@ body{
 
 /* 검색창 바깥 테두리 */
 #search_out_shape{
-    max-width: 60%;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +91,7 @@ body{
     height: 80%;
     z-index: 1;
 }
+/* z 인덱스 제외할것  */
 
 /* 검색 버튼 제외 검색창 */
 #search_form{
@@ -174,6 +179,7 @@ body{
     flex-direction: column;
     margin-right: 10px;
     min-width: 300px;
+    cursor: pointer;
 }
 
 /* 메인화면 조회수 글자 폰트 */
