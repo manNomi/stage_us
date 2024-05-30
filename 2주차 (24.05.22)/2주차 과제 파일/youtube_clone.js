@@ -6,7 +6,7 @@ var search_event_btn =document.getElementById('search_event_btn')
 var space =document.getElementById('space')
 var youtube_logo = document.getElementById('youtube_logo')
 var search_btn=document.getElementById("search_btn")
-var main=document.getElementById("main")
+var main_thumb=document.getElementById("main_thumb")
 var focus_obj=true
 var length_width=0
 
@@ -96,11 +96,10 @@ window.onload=function(){
   // 썸네일 큰테두리
   var new_mainGroupShape=document.createElement("div");
   new_mainGroupShape.setAttribute("class","main_group_shape")
-  main.appendChild(new_mainGroupShape)
+  main_thumb.appendChild(new_mainGroupShape)
 
   // 썸네일
   var new_mainImg=document.createElement("img");
-  new_mainImg.setAttribute("class","main_img")
   new_mainImg.setAttribute("src",thumb_img[i])
   new_mainGroupShape.appendChild(new_mainImg)
 
