@@ -1,8 +1,11 @@
+introEvent()
 var first_check=true
 var computer_number_list=[]
-var main_present_text_shape=document.getElementById("main_present_text_shape")
 btnMake()
 defaultTextMake(3)
+backPageEvent()
+setDate()
+setInterval(setDate,1000);
 
 function btnMake(){
     for(i=1;i<10;i++){
@@ -44,8 +47,6 @@ function textMake(wirte_list,value){
     }
 }
 
-
-
 function btnClickEvnet(btn){
     player_number_list=[]
     var present_text=document.getElementById("present")
@@ -60,7 +61,6 @@ function btnClickEvnet(btn){
                 textMake(player_number_list,btn.getAttribute("id"))
             }
         if(player_number_list.length==3){
-            main_present_text_shape.setAttribute("animation","vibration .1s infinite;")
             if (first_check==true){
                 randomNumber()
                 first_check=false
@@ -71,15 +71,38 @@ function btnClickEvnet(btn){
     }
 }
 
+function vibration(){
+    var result=document.getElementById("result")
+    result.setAttribute("style","animation: vibration 0.1s infinite;")
+    setTimeout(function() {
+        result.setAttribute("style","animation: none;")
+    }, 400);
+}
+
+function vibrationMain(){
+    var main=document.getElementById("main")
+    main.setAttribute("style","animation: vibration 0.1s infinite;")
+    setTimeout(function() {
+        main.setAttribute("style","animation: none;")
+    }, 400);
+}
+
 function repeatText(present_number,list){
     if (list.length==0){
         return true
     }
+    test=0
     for(i=0;i<list.length;i++){
-        if (present_number!=list[i])
-            return true
+        if (present_number!=list[i]){
+            test++
+        }
     }
-    return false
+    if (test==list.length){
+        return true
+    }
+    else{
+        return false
+    }
 }
 
 function randomNumber(){
@@ -122,8 +145,37 @@ function checkResult(player_number_list){
     if (strike==3){
         document.getElementById("result").innerHTML="맞췄습니다!"
         randomNumber()
+        vibrationMain()
     }
     else{
         document.getElementById("result").innerHTML=strike+"스트라이크"+ball+"볼"
+        vibration()
     }
 }
+
+function setDate(){
+    var now = new Date()
+    var hour=now.getHours()
+    var min=now.getMinutes()
+    header_present_time.innerHTML=hour+":"+min
+}
+
+function backPageEvent(){
+    document.getElementById("baseball_btn").onclick=function(){
+    document.getElementById("main_top").setAttribute("style","display:none;")
+    document.getElementById("main_bottom").setAttribute("style","display:none;")
+    }
+}
+
+function introEvent(){
+    var main=document.getElementById("main")
+    main.setAttribute("style","animation: brightness 5s infinite;")
+    setTimeout(
+        function(){
+    main.setAttribute("style","animation: none;")
+
+        document.getElementById("main_bottom").setAttribute("style","display:flex;")
+        document.getElementById("main_top").setAttribute("style","display:flex;")
+        document.getElementById("intro").setAttribute("style","display:none;")
+        },5000)
+    }

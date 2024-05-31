@@ -8,37 +8,20 @@
     <link rel="stylesheet" type="text/css" href="number_baseball.css">
 </head>
 <body>
-    <aside id="aside_shape">
-        <div>
-            <a class="aside_menu_direction">
-                <img class="aside_menu_img" src="image/menu_aside_img.png">
-                <div class="aside_menu_text">메뉴</div>
-            </a>
-        </div>
-
-        <div>
-            <a class="aside_menu_direction">
-                <img class="aside_menu_img" src="image/menu_aside_img.png">
-                <div class="aside_menu_text">기록</div>
-            </a>
-        </div>
-
-        <div>
-            <a class="aside_menu_direction">
-                <img class="aside_menu_img" src="image/menu_aside_img.png">
-                <div class="aside_menu_text">게임</div>
-            </a>
-        </div>
-        
-            
-        
-    </aside>
-
     <main id="main">
+        <div id="header">
+            <div id="header_present_time"></div>
+            <div>
+                <img class="header_img_size" src="image/header_network_img.png">
+                <img class="header_img_size" src="image/header_wifi_img.png">
+                <img class="header_img_size" src="image/header_charge_img.png">
+            </div>
+        </div>
+        
         <div id="main_top">
-            <a>
+            <button id="baseball_btn">
                 <img id="main_ball_img" src="image/baseball_icon_main.png">
-            </a>
+            </button>
             <p id="main_introduce_text">숫자를 눌러주세요</p>
             <div id="main_present_text_shape">
                 
@@ -47,9 +30,16 @@
             <div id="result">숫자야구</div>
             <p id="present"></p>
         </div>
+
         <div id="main_bottom">
-            
         </div>
+
+        <div id ="intro">
+            <img id="intro_img" src="image/baseball_icon_main.png">
+            <img id="intro_loading_img" src="image/intro_lading_gif.gif">
+        </div>
+
+        
     </main>
     <p id="solve"></p>
     <script src="number_baseball.js"></script>

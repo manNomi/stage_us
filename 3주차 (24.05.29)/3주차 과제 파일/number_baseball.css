@@ -7,36 +7,6 @@
     font-weight: 400;
     font-style: normal;
   }
-  
-
-/* aside */
-#aside_shape{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    background-color: blue;
-    width: 170px;
-    overflow: hidden;
-    transition: all 0.5s esae;
-    top: 0%;
-}
-
-.aside_menu_img{
-    width: 40%;
-}
-
-.aside_menu_direction{
-    display: flex;
-    align-items:center;
-    justify-content: center;
-}
-
-.aside_menu_text{
-    margin-left: 10px;
-    font-size: 30px;
-}
-
-
 /* main */
 #main{
     width: 300px;
@@ -45,10 +15,12 @@
     background-image: url("image/iphone_main_img.png");
     background-size: cover;
     padding: 30px;
+    border-radius: 30px;
 }
 
 #main_top{
-    display: flex;
+    /* display: flex; */
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -59,7 +31,8 @@
 #main_bottom{
     width: 100%;
     height: 50%;
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -79,13 +52,24 @@
     font-size: 30px;
 }
 
+@keyframes vibration {
+    from {
+      transform: rotate(1deg);
+    }
+    to {
+      transform: rotate(-1deg);
+    }
+  }
+
 #result{
     border-radius: 7px;
     color: white;
     background-color: #576173;
     font-size: 10px;
-    padding: 10px
+    padding: 10px;
 }
+
+
 #main_introduce_text{
     color: white
 }
@@ -102,3 +86,46 @@
     background-color: #495564;
     color: white;
 }
+
+#header_present_time{
+    color: white;
+    margin-left: 10px;
+}
+
+.header_img_size{
+    width: 20px;
+}
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#baseball_btn{
+    background-color: transparent;
+    border: none;
+}
+
+#intro{
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#intro_img{
+    width: 150px;
+}
+
+#intro_loading_img{
+    margin-top: 30px;
+    width: 100px;
+}
+
+@keyframes brightness {
+    from {
+        filter: brightness(10%)
+    }
+    to {
+        filter: brightness(100%)
+    }
+  }
