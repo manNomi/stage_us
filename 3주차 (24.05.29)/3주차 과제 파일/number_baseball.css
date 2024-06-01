@@ -18,19 +18,17 @@
     border-radius: 30px;
 }
 
-#main_top{
-    /* display: flex; */
+#main_game_top{
     display: none;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    height: 50%;
+    margin-top: 30%;
 }
 
-#main_bottom{
-    width: 100%;
-    height: 50%;
+#main_game_bottom{
+    margin-top: 40%;
     /* display: flex; */
     display: none;
     flex-wrap: wrap;
@@ -45,7 +43,8 @@
 .main_number_btn{
     width: 90px;
     height: 45px;
-    margin: 3px;
+    margin: 5px;
+    margin-top: 15px;
     background-color: transparent;
     color: white;
     border: none;
@@ -67,11 +66,12 @@
     background-color: #576173;
     font-size: 10px;
     padding: 10px;
+    margin: 10px;
 }
 
 
 #main_introduce_text{
-    color: white
+    color: white;
 }
 
 #main_present_text_shape{
@@ -79,6 +79,8 @@
     flex-direction: row;
     justify-content: space-between;
     width: 50%;
+    margin-top: 10px;
+    
 }
 
 .main_present_text{
@@ -129,3 +131,128 @@
         filter: brightness(100%)
     }
   }
+
+#main_page{
+    display: none;
+    margin-top: 10px;
+    height: 100%;
+}
+
+#main_page_logo{
+width: 100px;
+}
+
+#main_game_page{
+    width: 100%;
+    height: 100%;
+}
+
+#main_page_alert_icon{
+    width: 20px;
+}
+
+#main_top_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main_page_title{
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+#main_page_title_name{
+    line-height: 30px;
+    font-weight: 600;
+}
+
+#main_page_menu{
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.main_page_menu_left_box{
+    display: flex;
+    flex-direction: row;
+}
+.main_menu_item_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 9px 0 9px 0;
+}
+
+.menu_text_box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.main_menu_thumb{
+    width: 40px;
+    object-fit: cover;
+}
+
+.main_menu_text_top{
+    font-size: 10px;
+    margin-bottom: 2.5px;
+    font-weight: 200;
+}
+
+.main_menu_text_bottom{
+    font-size: 15px;
+    margin-top: 2.5px;
+    font-weight: 500;
+
+}
+
+.main_menu_btn{
+    border-radius: 7px;
+    color: white;
+    background-color: #616c7e;
+    font-size: 10px;
+    padding: 10px;
+    border: none;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items:center;    
+    justify-content: center;
+    cursor: pointer;
+}
+
+#main_page_line{
+    background-color: #616c7e;
+    height: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#score_check_btn{
+    color: white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: 200;
+}
