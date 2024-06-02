@@ -255,4 +255,44 @@ width: 100px;
     line-height: 30px;
     font-size: 13px;
     font-weight: 200;
+    cursor: pointer;
+}
+
+#score_board{
+    display: none;
+    flex-direction: column;
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    margin-top: 10px;
+}
+
+#score_board_title{
+    display: none;
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+}
+
+#score_board_title_text{
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.score_box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.new_score_text{
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 20px;
 }

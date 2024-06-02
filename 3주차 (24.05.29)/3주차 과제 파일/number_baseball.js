@@ -9,7 +9,7 @@ backPageEvent()
 setDate()
 setInterval(setDate,1000);
 mainMenuMake()
-
+scoreBtnEvent()
 stageUsTitleEvent()
 function btnMake(){
     for(i=1;i<10;i++){
@@ -126,6 +126,8 @@ function randomNumber(){
     solve.innerHTML=computer_number_list
     return(computer_number_list)
 }
+var rangking_score=0
+var rangking_list=[]
 
 function checkResult(player_number_list){
     var strike=0
@@ -148,8 +150,11 @@ function checkResult(player_number_list){
         document.getElementById("result").innerHTML="맞췄습니다!"
         randomNumber()
         vibrationMain()
+        rangking_list.push(["한만욱",rangking_score])
+        rangking_score=0
     }
     else{
+        rangking_score++
         document.getElementById("result").innerHTML=strike+"스트라이크"+ball+"볼"
         vibration()
     }
@@ -194,7 +199,6 @@ function mainMenuBtnEvent(btns){
     }
 }
 
-
 function introEvent(){
     var main=document.getElementById("main")
     main.setAttribute("style","animation: brightness 5s infinite;")
@@ -203,13 +207,9 @@ function introEvent(){
             main.setAttribute("style","animation: none;")
             document.getElementById("intro").setAttribute("style","display:none;")
             document.getElementById("main_page").setAttribute("style","display:block;")
-        },3000)
+        },1000)
     // 시간 설정
     }
-
-
-
-
 
 function mainMenuMake(){
     id_list=["baseball","soccer","bascket"]
@@ -278,3 +278,47 @@ function stageUsTitleEvent(){
         document.location.href="https://stageus.co.kr/faq";
     }
 }
+
+function scoreBtnEvent(){
+    var score_check_btn=document.getElementById("score_check_btn")
+    score_check_btn.onclick=function(){
+        document.getElementById("main_page_menu").setAttribute("style","display:none;")
+        document.getElementById("main_page_title").setAttribute("style","display:none;")
+        document.getElementById("score_board").setAttribute("style","display:flex")
+        document.getElementById("score_board_title").setAttribute("style","display:flex")
+        scoreBoardMake()
+    }
+}
+
+var score_board = document.getElementById("score_board")
+var new_score_box=document.createElement("div")
+
+function scoreBoardMake(){
+    new_score_box.setAttribute("class","score_box")
+    score_board.appendChild(new_score_box)
+    new_score_box.replaceChildren()
+    if (rangking_list.length!=0){
+        for(i=0;i<rangking_list.length;i++){
+            var new_score_text=document.createElement("p")
+            new_score_text.setAttribute("class","new_score_text")
+            new_score_text.innerHTML=rangking_list[i][0]+":"+rangking_list[i][1]
+            new_score_box.appendChild(new_score_text)
+        }
+    }
+
+}
+
+scoreBackEvent()
+function scoreBackEvent(){
+    document.getElementById("score_page_back_btn").onclick=function(){
+        document.getElementById("main_page_menu").setAttribute("style","display:flex;")
+        document.getElementById("main_page_title").setAttribute("style","display:flex;")
+        document.getElementById("score_board").setAttribute("style","display:none")
+        document.getElementById("score_board_title").setAttribute("style","display:none")
+    }
+}
+
+// window.close=function(){
+//     localStorage.setItem()
+
+// }
