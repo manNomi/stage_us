@@ -11,6 +11,9 @@ setInterval(setDate,1000);
 mainMenuMake()
 scoreBtnEvent()
 stageUsTitleEvent()
+clrearRangkingDataEvnet()
+
+
 function btnMake(){
     for(i=1;i<10;i++){
         var main_game_bottom=document.getElementById("main_game_bottom")
@@ -150,7 +153,7 @@ function checkResult(player_number_list){
         document.getElementById("result").innerHTML="맞췄습니다!"
         randomNumber()
         vibrationMain()
-        rangking_list.push(["한만욱",rangking_score])
+        dialogPageOpenEvent(rangking_score)
         rangking_score=0
     }
     else{
@@ -286,6 +289,7 @@ function scoreBtnEvent(){
         document.getElementById("main_page_title").setAttribute("style","display:none;")
         document.getElementById("score_board").setAttribute("style","display:flex")
         document.getElementById("score_board_title").setAttribute("style","display:flex")
+        document.getElementById("score_page_back_btn").setAttribute("style","display:block")
         scoreBoardMake()
     }
 }
@@ -315,10 +319,62 @@ function scoreBackEvent(){
         document.getElementById("main_page_title").setAttribute("style","display:flex;")
         document.getElementById("score_board").setAttribute("style","display:none")
         document.getElementById("score_board_title").setAttribute("style","display:none")
+        document.getElementById("score_page_back_btn").setAttribute("style","display:none")
+    
     }
 }
 
-// window.close=function(){
-//     localStorage.setItem()
+function dialogPageOpenEvent(point){
+    document.getElementById("dialog_box").setAttribute("style","display:flex;")
+    downGamePage()
+    var dialog_text=document.getElementById("dialog_text")
+    dialog_text.focus()
+    dialogEvent(point)
+}
 
-// }
+function dialogEvent(point){
+    var dialog_text=document.getElementById("dialog_text")
+    document.getElementById("dialog_btn").onclick=function(){
+        id= dialog_text.value
+        dialog_text.value=""
+        rangking_list.push([id,point])
+        dialogPageDownEvent()
+    }
+    dialog_text.onkeydown=function(input){
+        if(input.key=="Enter"){
+            id= dialog_text.value
+            dialog_text.value=""
+            rangking_list.push([id,point])
+            dialogPageDownEvent()
+    }
+}
+
+}
+function dialogPageDownEvent(){
+    document.getElementById("dialog_box").setAttribute("style","display:none;")
+    openGamePage()
+}
+
+
+function storeData(){
+    localStorage.setItem("score",JSON.stringify(rangking_list))
+}
+
+function getData(){
+    var data = JSON.parse(localStorage.getItem('score'))
+    rangking_list=data
+}
+window.onload=function(){
+    getData()
+}
+window.onbeforeunload=function(){
+    storeData()
+}
+
+
+function clrearRangkingDataEvnet(){
+    document.getElementById("score_board_title_text").onclick=function(){
+        rangking_list=[]
+        scoreBoardMake()
+    }
+}

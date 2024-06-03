@@ -265,7 +265,12 @@ width: 100px;
     color: white;
     background-color: #576173;
     margin-top: 10px;
+    overflow-y: scroll;
+    height: 400px;
 }
+#score_board::-webkit-scrollbar{
+    display:none;
+  }
 
 #score_board_title{
     display: none;
@@ -281,6 +286,7 @@ width: 100px;
     width: 100%;
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 .score_box{
@@ -295,4 +301,60 @@ width: 100px;
     margin-bottom: 10px;
     width: 100%;
     font-size: 20px;
+}
+
+
+#dialog_box{
+    display: none;
+    width: 100%;
+    height: 670px;
+    justify-content: center;
+    align-items: center;
+}
+
+#dialog_page{
+    display: flex;
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+#dialog_btn{
+    border: none;
+    color: white;
+    background-color: #616c7e;
+    
+}
+
+#dialog_text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    height: 10%;
+    width: 80%;
+    background-color: #616c7e;
+
+}
+
+#score_page_back_btn{
+    display: none;
+    background-color: #616c7e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+#score_page_back_btn_box{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
