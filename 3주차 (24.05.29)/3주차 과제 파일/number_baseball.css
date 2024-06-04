@@ -337,6 +337,7 @@ width: 100px;
     height: 10%;
     width: 80%;
     background-color: #616c7e;
+    color: white;
 
 }
 
@@ -357,4 +358,61 @@ width: 100px;
     justify-content: center;
     align-items: center;
 
+}
+
+#main_page_ad{
+    border-radius: 7px;
+    color: white;
+    background-color: #576173;
+    font-size: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    height: 90px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#main_page_ad_box{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 5px;
+}
+
+#main_page_coding_text_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+#main_page_coding_text{
+    width: 33%;
+    border: solid;
+    padding: 7px;
+    border-color: #616c7e;
+    border-top: none;
+    border-bottom: none;
+    text-align: center;
+
+}
+
+#main_page_ad_text_box{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#main_page_ad_text{
+    text-align: center;
+    font-weight: 600;
+}
+
+#main_page_ad_text_github{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #c3c3c3;
 }

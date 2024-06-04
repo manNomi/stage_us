@@ -12,6 +12,7 @@ mainMenuMake()
 scoreBtnEvent()
 stageUsTitleEvent()
 clrearRangkingDataEvnet()
+mainPageGithubEvent()
 
 
 function btnMake(){
@@ -376,5 +377,11 @@ function clrearRangkingDataEvnet(){
     document.getElementById("score_board_title_text").onclick=function(){
         rangking_list=[]
         scoreBoardMake()
+    }
+}
+
+function mainPageGithubEvent(){
+    document.getElementById("main_page_ad").onclick=function(){
+        document.location.href="https://github.com/";
     }
 }
