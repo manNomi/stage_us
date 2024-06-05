@@ -1,20 +1,45 @@
+// 시작화면 시작
 introEvent()
+
 var first_check=true
 var computer_number_list=[]
 var main_game_top=document.getElementById("main_game_top")
 var main_game_bottom=document.getElementById("main_game_bottom")
+var score_board = document.getElementById("score_board")
+var new_score_box=document.createElement("div")
+
+// 버튼만들기 
 btnMake()
 defaultTextMake(3)
-backPageEvent()
+mainMenuMake()
+
+// 날짜 설정
 setDate()
 setInterval(setDate,1000);
-mainMenuMake()
+
+// 이벤트 함수
 scoreBtnEvent()
 stageUsTitleEvent()
 clrearRangkingDataEvnet()
 mainPageGithubEvent()
+scoreBackEvent()
+backPageEvent()
+
+// 인트로
+function introEvent(){
+    var main=document.getElementById("main")
+    main.setAttribute("style","animation: brightness 5s infinite;")
+    setTimeout(
+        function(){
+            main.setAttribute("style","animation: none;")
+            document.getElementById("intro").setAttribute("style","display:none;")
+            document.getElementById("main_page").setAttribute("style","display:block;")
+        },3000)
+}
 
 
+
+// 게임 버튼
 function btnMake(){
     for(i=1;i<10;i++){
         var main_game_bottom=document.getElementById("main_game_bottom")
@@ -28,7 +53,7 @@ function btnMake(){
         btnClickEvnet(new_main_number_btn)
     }
 }
-
+// 게임 현재 숫자 틀만들기
 function defaultTextMake(number){
     i=1
     while (number!=0){
@@ -41,7 +66,7 @@ function defaultTextMake(number){
         i++
     }
 }
-
+// 게임 현재 숫자
 function textMake(wirte_list,value){
     var main_present_text_=document.getElementById("main_present_text_"+wirte_list.length)
     main_present_text_.innerHTML=value
@@ -51,7 +76,7 @@ function textMake(wirte_list,value){
         }
     }
 }
-
+// 게임 숫자 클릭 이벤트
 function btnClickEvnet(btn){
     player_number_list=[]
     var present_text=document.getElementById("present")
@@ -75,7 +100,8 @@ function btnClickEvnet(btn){
         }
     }
 }
-
+ 
+// 결과 후 진동
 function vibration(){
     var result=document.getElementById("result")
     result.setAttribute("style","animation: vibration 0.2s infinite;")
@@ -83,7 +109,7 @@ function vibration(){
         result.setAttribute("style","animation: none;")
     }, 800);
 }
-
+// 메인화면 진동
 function vibrationMain(){
     var main=document.getElementById("main")
     main.setAttribute("style","animation: vibration 0.1s infinite;")
@@ -91,7 +117,7 @@ function vibrationMain(){
         main.setAttribute("style","animation: none;")
     }, 400);
 }
-
+// 같은 숫자 입력하는지 확인
 function repeatText(present_number,list){
     if (list.length==0){
         return true
@@ -110,6 +136,7 @@ function repeatText(present_number,list){
     }
 }
 
+// 난수 생성
 function randomNumber(){
     computer_number_list=[]
     for (i=0;computer_number_list.length!=3;){
@@ -133,6 +160,7 @@ function randomNumber(){
 var rangking_score=0
 var rangking_list=[]
 
+// 결과 맞췄는지 확인
 function checkResult(player_number_list){
     var strike=0
     var ball=0
@@ -164,6 +192,7 @@ function checkResult(player_number_list){
     }
 }
 
+// 시간 설정 
 function setDate(){
     var now = new Date()
     var hour=now.getHours()
@@ -174,6 +203,7 @@ function setDate(){
     header_present_time.innerHTML=hour+":"+min
 }
 
+// 게임화면에서 뒤로가기
 function backPageEvent(){
     document.getElementById("baseball_btn").onclick=function(){
         document.getElementById("main_page").setAttribute("style","display:block;")
@@ -181,15 +211,33 @@ function backPageEvent(){
     }
 }
 
+// 게임페이지 종료
 function downGamePage(){
     main_game_top.setAttribute("style","display:none;")
     main_game_bottom.setAttribute("style","display:none;")
 }
+// 게임페이지 오픈
 function openGamePage(){
     main_game_top.setAttribute("style","display:flex;")
     main_game_bottom.setAttribute("style","display:flex;")
 }
 
+function openMainPage(){
+    document.getElementById("main_page_menu").setAttribute("style","display:flex;")
+    document.getElementById("main_page_title").setAttribute("style","display:flex;")
+    document.getElementById("score_board").setAttribute("style","display:none")
+    document.getElementById("main_page_ad").setAttribute("style","display:block")
+}
+
+function downMainPage(){
+    document.getElementById("main_page_menu").setAttribute("style","display:none;")
+    document.getElementById("main_page_title").setAttribute("style","display:none;")
+    document.getElementById("main_page_ad").setAttribute("style","display:none")
+
+}
+
+
+// 메인 화면 게임 시작 버튼 
 function mainMenuBtnEvent(btns){
     btns.onclick=function(){
         if(btns.getAttribute("id")=="baseball"){
@@ -203,18 +251,14 @@ function mainMenuBtnEvent(btns){
     }
 }
 
-function introEvent(){
-    var main=document.getElementById("main")
-    main.setAttribute("style","animation: brightness 5s infinite;")
-    setTimeout(
-        function(){
-            main.setAttribute("style","animation: none;")
-            document.getElementById("intro").setAttribute("style","display:none;")
-            document.getElementById("main_page").setAttribute("style","display:block;")
-        },1000)
-    // 시간 설정
+// 깃허브 버튼 이벤트
+function mainPageGithubEvent(){
+    document.getElementById("main_page_ad").onclick=function(){
+        document.location.href="https://github.com/";
     }
+}
 
+// 메인화면 게임버튼 생성기
 function mainMenuMake(){
     id_list=["baseball","soccer","bascket"]
     text_list=["숫자야구","미니축구","슬램덩크"]
@@ -276,6 +320,7 @@ function mainMenuMake(){
 
 }
 
+// 메뉴화면 타이틀 스테이지어스 버튼 이벤트
 function stageUsTitleEvent(){
     var main_page_title=document.getElementById("main_page_title")
     main_page_title.onclick=function(){
@@ -283,21 +328,24 @@ function stageUsTitleEvent(){
     }
 }
 
+
+function OpenRanngkingPage(){
+    document.getElementById("score_board").setAttribute("style","display:flex")
+    document.getElementById("score_board_title").setAttribute("style","display:flex")
+    document.getElementById("score_page_back_btn").setAttribute("style","display:block")
+}
+
+// 메인화면 -> 랭킹화면
 function scoreBtnEvent(){
     var score_check_btn=document.getElementById("score_check_btn")
     score_check_btn.onclick=function(){
-        document.getElementById("main_page_menu").setAttribute("style","display:none;")
-        document.getElementById("main_page_title").setAttribute("style","display:none;")
-        document.getElementById("score_board").setAttribute("style","display:flex")
-        document.getElementById("score_board_title").setAttribute("style","display:flex")
-        document.getElementById("score_page_back_btn").setAttribute("style","display:block")
+        downMainPage()
+        OpenRanngkingPage()
         scoreBoardMake()
     }
 }
 
-var score_board = document.getElementById("score_board")
-var new_score_box=document.createElement("div")
-
+// 랭킹 페이지 순위 만들기
 function scoreBoardMake(){
     new_score_box.setAttribute("class","score_box")
     score_board.appendChild(new_score_box)
@@ -312,19 +360,17 @@ function scoreBoardMake(){
     }
 
 }
-
-scoreBackEvent()
-function scoreBackEvent(){
+// 랭킹페이지-> 메인 페이지
+  function scoreBackEvent(){
     document.getElementById("score_page_back_btn").onclick=function(){
-        document.getElementById("main_page_menu").setAttribute("style","display:flex;")
-        document.getElementById("main_page_title").setAttribute("style","display:flex;")
-        document.getElementById("score_board").setAttribute("style","display:none")
+        openMainPage()
         document.getElementById("score_board_title").setAttribute("style","display:none")
         document.getElementById("score_page_back_btn").setAttribute("style","display:none")
-    
     }
 }
 
+
+// 다이얼로그 페이지
 function dialogPageOpenEvent(point){
     document.getElementById("dialog_box").setAttribute("style","display:flex;")
     downGamePage()
@@ -349,7 +395,6 @@ function dialogEvent(point){
             dialogPageDownEvent()
     }
 }
-
 }
 function dialogPageDownEvent(){
     document.getElementById("dialog_box").setAttribute("style","display:none;")
@@ -357,6 +402,7 @@ function dialogPageDownEvent(){
 }
 
 
+// 저장 및 삭제 시퀀스
 function storeData(){
     localStorage.setItem("score",JSON.stringify(rangking_list))
 }
@@ -365,14 +411,13 @@ function getData(){
     var data = JSON.parse(localStorage.getItem('score'))
     rangking_list=data
 }
+
 window.onload=function(){
     getData()
 }
 window.onbeforeunload=function(){
     storeData()
 }
-
-
 function clrearRangkingDataEvnet(){
     document.getElementById("score_board_title_text").onclick=function(){
         rangking_list=[]
@@ -380,8 +425,6 @@ function clrearRangkingDataEvnet(){
     }
 }
 
-function mainPageGithubEvent(){
-    document.getElementById("main_page_ad").onclick=function(){
-        document.location.href="https://github.com/";
-    }
-}
+// var - 재선언 재 변경가능
+// let - 재선언 불가 변경가능
+// const - 재선언 불가 변경불가
