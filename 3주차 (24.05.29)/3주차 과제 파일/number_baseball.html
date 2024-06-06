@@ -10,90 +10,87 @@
 <body>
     <main id="main">
         <div id="main_box">
-        <div id="header">
-            <div id="header_present_time"></div>
-            <div>
-                <img class="header_img_size" src="image/header_network_img.png">
-                <img class="header_img_size" src="image/header_wifi_img.png">
-                <img class="header_img_size" src="image/header_charge_img.png">
+            <div id="header">
+                <div id="header_present_time"></div>
+                <div>
+                    <img class="header_img_size" src="image/header_network_img.png">
+                    <img class="header_img_size" src="image/header_wifi_img.png">
+                    <img class="header_img_size" src="image/header_charge_img.png">
+                </div>
             </div>
-        </div>
         <!-- 로딩 창 -->
-        <div id ="intro">
-            <img id="intro_img" src="image/baseball_icon_main.png">
-            <img id="intro_loading_img" src="image/intro_lading_gif.gif">
-        </div>
-
-        <!-- 메인화면창  -->
-        <div id="main_page">
-            <div id="main_top_box">
-                <img id="main_page_logo" src="image/stageus_logo_white.png">
-                <span></span>
-                <img id="main_page_alert_icon" src="image/main_page_alert.png">
+            <div id ="intro">
+                <img id="intro_img" src="image/baseball_icon_main.png">
+                <img id="intro_loading_img" src="image/intro_lading_gif.gif">
             </div>
-            <div id="main_page_title">
-                <P id="main_page_title_name">스테이지어스</P>
-                <span></span>
-                <img id="right_icon_img" src="image/main_page_right_icon.png">
-            </div>
-            <div id="main_page_menu"></div>
 
-            <div id="main_page_ad">
-                <div id="main_page_ad_box">
-                    <div id="main_page_ad_text_box">
-                    <P id="main_page_ad_text">내 코딩 점수</P>
-                    <P id="main_page_ad_text_github">GitHub</P>
-                    </div>
+            <!-- 메인화면창  -->
+            <div id="main_page">
+                <div id="main_top_box">
+                    <img id="main_page_logo" src="image/stageus_logo_white.png">
+                    <span></span>
+                    <img id="main_page_alert_icon" src="image/main_page_alert.png">
+                </div>
+                <div id="main_page_title">
+                    <P id="main_page_title_name">스테이지어스</P>
                     <span></span>
                     <img id="right_icon_img" src="image/main_page_right_icon.png">
                 </div>
-                <div id="main_page_line"></div>
-                <div id="main_page_coding_text_box">
-                    <div>개발현황</div>
-                    <div id="main_page_coding_text">잔디깔기</div>
-                    <div>커밋횟수</div>
+                <div id="main_page_menu"></div>
+
+                <div id="main_page_ad">
+                    <div id="main_page_ad_box">
+                        <div id="main_page_ad_text_box">
+                        <P id="main_page_ad_text">내 코딩 점수</P>
+                        <P id="main_page_ad_text_github">GitHub</P>
+                        </div>
+                        <span></span>
+                        <img id="right_icon_img" src="image/main_page_right_icon.png">
+                    </div>
+                    <div id="main_page_line"></div>
+                    <div id="main_page_coding_text_box">
+                        <div>개발현황</div>
+                        <div id="main_page_coding_text">잔디깔기</div>
+                        <div>커밋횟수</div>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-
-    <!-- 게임창 -->
-        <div id="main_game_top">
-            <button id="baseball_btn">
-                <img id="main_ball_img" src="image/baseball_icon_main.png">
-            </button>
-            <p id="main_introduce_text">숫자를 눌러주세요</p>
-            <div id="main_present_text_shape">
+        <!-- 게임창 -->
+            <div id="main_game_top">
+                <button id="baseball_btn">
+                    <img id="main_ball_img" src="image/baseball_icon_main.png">
+                </button>
+                <p id="main_introduce_text">숫자를 눌러주세요</p>
+                <div id="main_present_text_shape">
+                </div>
+                <div id="result">숫자야구</div>
+            <div id="main_game_bottom">
             </div>
-            <div id="result">숫자야구</div>
-        <div id="main_game_bottom">
+            </div>
+
+        <!-- 점수창 -->
+        <div id="score_board_title">
+            <p id="score_board_title_text">-랭킹-</p>
         </div>
+        <div id="score_board">
+        </div>
+        <div id="score_page_back_btn_box">
+        <button id="score_page_back_btn">뒤로가기
+        </button>
         </div>
 
-    <!-- 점수창 -->
-    <div id="score_board_title">
-        <p id="score_board_title_text">-랭킹-</p>
-    </div>
-    <div id="score_board">
-    </div>
-    <div id="score_page_back_btn_box">
-    <button id="score_page_back_btn">뒤로가기
-    </button>
-    </div>
-
-    <!-- 이름 입력창-->
-    <div id="dialog_box">
-    <div id="dialog_page">
-            <p>기록할 이름을 입력하세요</p>
-            <input id="dialog_text" type="text">
-            <button id="dialog_btn">확인</button>
+        <!-- 이름 입력창-->
+        <div id="dialog_box">
+        <div id="dialog_page">
+                <p>기록할 이름을 입력하세요</p>
+                <input id="dialog_text" type="text">
+                <button id="dialog_btn">확인</button>
+            </div>
         </div>
-    </div>
-    </div>
-
+        </div>
     </main>
-    
     <p id="solve"></p>
     <p id="present"></p>
     <script src="number_baseball.js"></script>

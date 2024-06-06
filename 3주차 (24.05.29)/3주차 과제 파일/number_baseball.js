@@ -1,14 +1,17 @@
-// 시작화면 시작
-introEvent()
-
 var first_check=true
 var computer_number_list=[]
 var main_game_top=document.getElementById("main_game_top")
 var main_game_bottom=document.getElementById("main_game_bottom")
 var score_board = document.getElementById("score_board")
 var new_score_box=document.createElement("div")
+var rangking_score=0
+var rangking_list=[]
+
+// 시작화면 시작
+introEvent()
 
 // 버튼만들기 
+// 함수 : 동사 -> 명사 순서로
 btnMake()
 defaultTextMake(3)
 mainMenuMake()
@@ -17,7 +20,8 @@ mainMenuMake()
 setDate()
 setInterval(setDate,1000);
 
-// 이벤트 함수
+// 이벤트 함수 -> 이벤트 등록함수이기에 -> 전역함수로 만드는게 좋음 -> 재사용할것이 아니기 때문 
+// 최소한 함수를 합쳐 놓는것이 나을것
 scoreBtnEvent()
 stageUsTitleEvent()
 clrearRangkingDataEvnet()
@@ -25,7 +29,9 @@ mainPageGithubEvent()
 scoreBackEvent()
 backPageEvent()
 
-// 인트로
+
+
+// 인트로 introinit 등 
 function introEvent(){
     var main=document.getElementById("main")
     main.setAttribute("style","animation: brightness 5s infinite;")
@@ -42,7 +48,6 @@ function introEvent(){
 // 게임 버튼
 function btnMake(){
     for(i=1;i<10;i++){
-        var main_game_bottom=document.getElementById("main_game_bottom")
         var new_main_number_btn=document.createElement("button")
         new_main_number_btn.setAttribute("class","main_number_btn")
         new_main_number_btn.setAttribute("id",i)
@@ -100,7 +105,7 @@ function btnClickEvnet(btn){
         }
     }
 }
- 
+
 // 결과 후 진동
 function vibration(){
     var result=document.getElementById("result")
@@ -152,13 +157,11 @@ function randomNumber(){
         else if(i==2 && number!=0 && computer_number_list[0]!=number && computer_number_list[1]!=number){
             computer_number_list.push(number)
         }
-        
     }
     solve.innerHTML=computer_number_list
     return(computer_number_list)
 }
-var rangking_score=0
-var rangking_list=[]
+
 
 // 결과 맞췄는지 확인
 function checkResult(player_number_list){
@@ -222,6 +225,7 @@ function openGamePage(){
     main_game_bottom.setAttribute("style","display:flex;")
 }
 
+// 메인페이지 오픈
 function openMainPage(){
     document.getElementById("main_page_menu").setAttribute("style","display:flex;")
     document.getElementById("main_page_title").setAttribute("style","display:flex;")
@@ -229,6 +233,7 @@ function openMainPage(){
     document.getElementById("main_page_ad").setAttribute("style","display:block")
 }
 
+// 메인페이지 다운
 function downMainPage(){
     document.getElementById("main_page_menu").setAttribute("style","display:none;")
     document.getElementById("main_page_title").setAttribute("style","display:none;")
@@ -361,14 +366,13 @@ function scoreBoardMake(){
 
 }
 // 랭킹페이지-> 메인 페이지
-  function scoreBackEvent(){
+function scoreBackEvent(){
     document.getElementById("score_page_back_btn").onclick=function(){
-        openMainPage()
         document.getElementById("score_board_title").setAttribute("style","display:none")
         document.getElementById("score_page_back_btn").setAttribute("style","display:none")
+        openMainPage()
     }
 }
-
 
 // 다이얼로그 페이지
 function dialogPageOpenEvent(point){
@@ -384,6 +388,7 @@ function dialogEvent(point){
     document.getElementById("dialog_btn").onclick=function(){
         id= dialog_text.value
         dialog_text.value=""
+        console.log(rangking_list[0])
         rangking_list.push([id,point])
         dialogPageDownEvent()
     }
@@ -393,14 +398,14 @@ function dialogEvent(point){
             dialog_text.value=""
             rangking_list.push([id,point])
             dialogPageDownEvent()
-    }
+        }   
+    }   
 }
-}
+
 function dialogPageDownEvent(){
     document.getElementById("dialog_box").setAttribute("style","display:none;")
     openGamePage()
 }
-
 
 // 저장 및 삭제 시퀀스
 function storeData(){
@@ -412,17 +417,18 @@ function getData(){
     rangking_list=data
 }
 
-window.onload=function(){
-    getData()
-}
-window.onbeforeunload=function(){
-    storeData()
-}
 function clrearRangkingDataEvnet(){
     document.getElementById("score_board_title_text").onclick=function(){
         rangking_list=[]
         scoreBoardMake()
     }
+}
+
+window.onload=function(){
+    getData()
+}
+window.onbeforeunload=function(){
+    storeData()
 }
 
 // var - 재선언 재 변경가능
