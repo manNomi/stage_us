@@ -1,0 +1,27 @@
+#parent_box{
+    width: 300px;
+    height: 100px;
+    display: flex;
+}
+
+#red {
+    flex-grow: 1;
+    height: 100%;
+    background-color: red;
+}
+#orange {
+    flex-grow: 1;
+    height: 100%;
+    background-color: orange;
+
+}#yellow {
+    flex-grow: 1;
+    height: 100%;
+    background-color: yellow;
+}
+
+#dest_box{
+    width: 100px;
+    height: 100px;
+    border: solid 1px;
+}

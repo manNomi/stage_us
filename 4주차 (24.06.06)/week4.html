@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="week4.css">
+</head>
+<body>
+
+    <!-- <input id="number" type="text" onchange="calMul()">
+    <div id="result_box">
+    </div> -->
+    <!-- 굳이 button 안에 p 태그 넣을 필요 없음  -->
+
+    <!-- <input id="text_box" type="text">
+    <button id="input_btn">
+        <p>입력</p>
+    </button>
+    <button id="output_btn">
+        <p>출력</p>
+    </button> -->
+
+    <!-- 이벤트 객체 사용법 event 입력한다  -->
+    <div id="parent_box">
+        <div id="red" ondragstart="getColorEvent(event)" draggable="true"></div>
+        <div id="yellow" ondragstart="getColorEvent(event)" draggable="true"></div>
+        <div id="orange" ondragstart="getColorEvent(event)" draggable="true"></div>
+    </div>
+    <div id="dest_box" ondragover="dragOverEvent(event)" ondrop="setColorEvent(event)"></div>
+
+    <script src="week4.js"></script>
+</body>
+</html>
