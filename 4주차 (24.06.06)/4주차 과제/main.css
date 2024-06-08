@@ -1,8 +1,8 @@
+@import "./reset.css";
 #main_book_container{
     width: 820px;
     height: 600px;
     perspective: 1000px;
-    background-color: burlywood;
     position: relative;
 }
 #main_book_cover_container{
@@ -10,8 +10,6 @@
     height: 100%;
     background-image:url("image/book_cover.jpg");
     background-repeat: no-repeat;
-    background-color: black;
-
     position: absolute;
     left: 0;
     top: 0;
@@ -21,27 +19,63 @@
     transition-duration: 1s;
     transition-timing-function: ease-in;
     cursor: pointer;
+
+    backface-visibility: hidden;
+    border: solid 1px;
     
 }
+
+#main_book_cover_back_container{
+
+    width: 48%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transform-origin: left center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+    background-color: #d18d4e;
+}
+
 
 #main_book_content_container{
     width: 48%;
     height: 100%;
     background-repeat: no-repeat;
-    background-color: black;
-    cursor: pointer;
-
     position: absolute;
     left: 0;
     top: 0;
     z-index: 0;
-    
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+    background-color: #d18d4e;
+
 }
 
 
 .puzzle_img{
-    width: 33%;
-    height: 33%;
+    width: 30%;
+    height: 30%;
+    border: solid 2px;
+    cursor: pointer;
+}
+
+.puzzle_tmp_img{
+    width: 30%;
+    height: 30%;
+    border: solid 2px;
+    cursor: pointer;
+    transform: rotateY(-180deg);
 }
