@@ -4,6 +4,7 @@
     height: 600px;
     perspective: 1000px;
     position: relative;
+    margin-left: 200px;
 }
 #main_book_cover_container{
     width: 48%;
@@ -14,13 +15,12 @@
     left: 0;
     top: 0;
     z-index: 1;
-
+    backface-visibility: hidden;
     transform-origin: left center;
     transition-duration: 1s;
     transition-timing-function: ease-in;
     cursor: pointer;
 
-    backface-visibility: hidden;
     border: solid 1px;
     
 }
@@ -34,6 +34,7 @@
     left: 0;
     top: 0;
     z-index: 1;
+
     transform-origin: left center;
     transition-duration: 1s;
     transition-timing-function: ease-in;
@@ -62,6 +63,14 @@
     border: solid 1px;
     background-color: #d18d4e;
 
+    transform-origin: left center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+
+    backface-visibility: hidden;
+
+
+
 }
 
 
@@ -78,4 +87,65 @@
     border: solid 2px;
     cursor: pointer;
     transform: rotateY(-180deg);
+}
+
+
+#next_page_line{
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    cursor: pointer;;
+
+}
+
+
+
+.main_book_next_back_container{
+
+    width: 48%;
+    height: 100%;
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    transform-origin: left center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+    background-color: blue;
+
+
+
+}
+
+.main_next_book_content_container{
+    width: 48%;
+    height: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+    background-color: #d18d4e;
+
+    transform-origin: left center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+
+    backface-visibility: hidden;
+
+
+
 }
