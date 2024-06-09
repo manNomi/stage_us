@@ -4,7 +4,6 @@
     height: 600px;
     perspective: 1000px;
     position: relative;
-    margin-left: 200px;
 }
 #main_book_cover_container{
     width: 48%;
@@ -14,7 +13,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
     backface-visibility: hidden;
     transform-origin: left center;
     transition-duration: 1s;
@@ -33,7 +31,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
 
     transform-origin: left center;
     transition-duration: 1s;
@@ -55,7 +52,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -68,6 +64,9 @@
     transition-timing-function: ease-in;
 
     backface-visibility: hidden;
+    z-index: 0.5;
+
+    
 
 
 
@@ -109,7 +108,6 @@
     position: absolute;
     left: 50%;
     top: 0;
-    z-index: -1;
     transform-origin: left center;
     transition-duration: 1s;
     transition-timing-function: ease-in;
@@ -121,31 +119,25 @@
     border: solid 1px;
     background-color: blue;
 
-
-
 }
 
-.main_next_book_content_container{
+.main_book_next_content_container{
     width: 48%;
     height: 100%;
     background-repeat: no-repeat;
     position: absolute;
     left: 50%;
     top: 0;
-    z-index: -1;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     border: solid 1px;
-    background-color: #d18d4e;
+    background-color: black;
 
     transform-origin: left center;
     transition-duration: 1s;
     transition-timing-function: ease-in;
-
-    backface-visibility: hidden;
-
 
 
 }
