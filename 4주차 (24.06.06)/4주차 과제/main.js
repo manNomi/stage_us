@@ -108,17 +108,33 @@ var first_click_event=false
 var first_page_old=null
 var second_page_old=content
 function nextPageEvent(){
+    if (first_click_event!=false){
+        first_page_old.replaceChildren()
+        
+    }
+    else{
+        document.getElementById("main_book_cover_back_container").replaceChildren()
+        first_click_event=true
+    }
+
     var main_container=document.getElementById("main_book_container")
 
     var first_page_new=document.createElement("div")
+    first_page_new.id="first_page_new"
     first_page_new.classList="main_book_next_back_container"
 
     var second_page_new=document.createElement("div")
     second_page_new.classList="main_book_next_content_container"
+    puzzleImgMake("img",first_page_new,second_page_new)
     main_container.appendChild(first_page_new)
     main_container.appendChild(second_page_new)
-    puzzleImgMake("img",first_page_new,second_page_new)
     first_page_old=first_page_new
+
+    second_page_old.style="transform:rotateY(-180deg);"
+    first_page_new.style="transform:rotateY(-180deg);"
+
+    setTimeout(()=>second_page_old=second_page_new
+    ,1000)
 
     // var imgLoad=second_page_new.querySelectorAll("img")
     // console.log(imgLoad)
@@ -132,14 +148,14 @@ function nextPageEvent(){
     //     setTimeout(()=>second_page_old=second_page_new
     //     ,1000)
     // }
-    var imgLoad=second_page_new.querySelector("img")
-    imgLoad.onload=function(){
+    // var imgLoad=second_page_new.querySelector("img")
+    // imgLoad.onload=function(){
 
-    first_page_new.style="transform:rotateY(-180deg);"
-        second_page_old.style="transform:rotateY(-180deg);"
-        setTimeout(()=>second_page_old=second_page_new
-        ,1000)
-    }
+    //     first_page_new.style="transform:rotateY(-180deg);"
+    //     second_page_old.style="transform:rotateY(-180deg);"
+    //     setTimeout(()=>second_page_old=second_page_new
+    //     ,1000)
+    // }
 
 }
 
