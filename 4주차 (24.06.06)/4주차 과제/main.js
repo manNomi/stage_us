@@ -41,7 +41,6 @@ function puzzleImgMake(name,fist,second){
         var imgSrc="image/"+name+"_"+i+".webp"
         imgList.push(imgSrc)
     }
-    console.log(imgSrc)
     imgList.sort(() => Math.random()-0.5);
     for (i=0;i<9;i++){
         var imgTag=document.createElement("img")
@@ -52,28 +51,58 @@ function puzzleImgMake(name,fist,second){
     }
     
 }
-
 var focus_img=null
 var persent_img=null
 var result_img=null
+var dataURL = null
 
-function puzzleEventSet(e,name){
-    e.ondragstart=function getImgEvent(e){
+function newPuzzleEventSet(imgTag){
+    imgTag.ondragstart=function getImgEvent(e){
         persent_img=e.target
-        console.log(focus_img)
         focus_img=persent_img.src
     }
-    e.ondragover=function dragOverEvent(e){
-        e.preventDefault()
+    imgTag.ondragover=function dragOverEvent(event){
+        event.preventDefault()
     }
-    e.ondrop=function setImgEvent(e){
-        result_img=e.target
+    imgTag.ondrop=function setImgEvent(event){
+        result_img=event.target
         persent_img.src=result_img.src
         persent_img.style="opacity:1;"
         result_img.src=focus_img
-        puzzleFinish(name)
+        newPuzzleFinish()
     }
-    e.draggable="true"
+    imgTag.draggable="true"
+}
+
+function puzzleEventSet(e,name){
+        e.ondragstart=function getImgEvent(e){
+            persent_img=e.target
+            focus_img=persent_img.src
+        }
+        e.ondragover=function dragOverEvent(event){
+            event.preventDefault()
+        }
+        e.ondrop=function setImgEvent(event){
+            result_img=event.target
+            persent_img.src=result_img.src
+            persent_img.style="opacity:1;"
+            result_img.src=focus_img
+            puzzleFinish(name)
+        }
+        e.draggable="true"
+}
+
+function newPuzzleFinish(){
+    var result_index=[3,2,1,6,5,4,9,8,7]
+    for (i=0;i<9;i++){
+        var check_name=document.getElementById("tmpImg"+i).src
+        if(urlList[result_index[i]]!=check_name){
+            console.log(urlList[result_index[i]])
+            console.log(check_name)
+            return
+        }
+    }
+    alert("축하합니다")
 }
 
 function puzzleFinish(name){
@@ -91,7 +120,6 @@ function puzzleFinish(name){
             break
         }
     }
-    console.log(count)
     if(count==9){
         setTimeout(()=>alert("축하합니다")
     ,100)
@@ -124,8 +152,6 @@ function nextPageEvent(){
     second_page_new_text.innerHTML="-사진을 드래그해 넣으세요-"
     second_page_new.appendChild(second_page_new_text)
 
-    puzzleImgMake(nullImg,first_page_new,second_page_new_text)
-
     main_container.appendChild(first_page_new)
     main_container.appendChild(second_page_new)
 
@@ -156,7 +182,6 @@ function getImgEventSet(e){
 
 function contentPageSet(imgFile){
     var imgList=[]
-    console.log(imgFile)
     for (i=0; i<imgFile.length;i++){
         if(imgFile[i].type.match("image.*")===false){
             return
@@ -172,7 +197,10 @@ function contentPageSet(imgFile){
     }
 }
 
+var urlList=[]
+
 function imgCut(img){
+
     // 받아온 이미지 객체로 생성 
     var imgObj = new Image
     imgObj.src=img
@@ -215,8 +243,29 @@ function imgCut(img){
                 width,
                 height)
                 resultCanvas.classList.add("puzzle_cut_img")
-                puzzleEventSet(resultCanvas,"img")
-                second_page_old.appendChild(resultCanvas)
+                url=resultCanvas.toDataURL("image/png")
+                urlList.push(url)
         }
+        newPuzzleImgMake(urlList)
     }
+}
+function newPuzzleImgMake(imgUrlList){
+    for (i=0;i<9;i++){
+        var tmpImgTag=document.createElement("img")
+        tmpImgTag.setAttribute("class","puzzle_tmp_img")
+        tmpImgTag.id="tmpImg"+i
+        tmpImgTag.src="image/empty.png"
+        newPuzzleEventSet(tmpImgTag)
+        first_page_old.appendChild(tmpImgTag)
+    }
+    urlList=imgUrlList
+    imgUrlList.sort(() => Math.random()-0.5);
+    for (i=0;i<9;i++){
+        var imgTag=document.createElement("img")
+        imgTag.setAttribute("class","puzzle_img")
+        imgTag.src=imgUrlList[i]
+        newPuzzleEventSet(imgTag)
+        second_page_old.appendChild(imgTag)
+    }
+    
 }
