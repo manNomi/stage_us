@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 타이틀 설정 -->
     <title>만화퍼즐</title>
+    <link rel="icon" href="image/title_icon.png">
+    <!-- 리셋 CSS 설정 -->
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+    <!-- 책이 있는 모든 공간 -->
     <main id ="main_book_container">
-
-        <div id="main_book_content_container">
-        </div>
-        <div id="main_book_cover_back_container">
-        </div>
-        <div id="main_book_cover_container" onclick="openPage(event)">
-        </div>
-        
-        <div id="next_page_line" onclick="nextPageEvent()">
-        </div>
+        <!-- 책 우측 내용  -->
+        <div id="main_book_content_container" class="start_page_container"></div>
+        <!-- 책 좌측 표지 뒤편 -->
+        <div id="main_book_cover_back_container" class="start_page_container"></div>
+        <!-- 책 표지 클릭시 시작 -->
+        <div id="main_book_cover_container" onclick="openPage(event)"></div>
+        <!-- 책 넘기는 DIV -->
+        <div id="next_page_line" onclick="nextPageEvent()"></div>
     </main>
-
-
     <script src="main.js"></script>
-
-
-    
 </body>
 </html>

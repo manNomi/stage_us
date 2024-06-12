@@ -1,10 +1,13 @@
 @import "./reset.css";
+
+/* ID 메인화면 */
 #main_book_container{
     width: 820px;
     height: 600px;
     perspective: 1000px;
     position: relative;
 }
+/* ID 표지 */
 #main_book_cover_container{
     width: 48%;
     height: 100%;
@@ -21,28 +24,20 @@
     border: solid 1px;
 }
 
-#main_book_cover_back_container{
-    width: 48%;
-    height: 100%;
+/* ID 다음 페이지 넘어가는 버튼 크기,위치 설정 CSS */
+#next_page_line{
+    display: none;
     position: absolute;
-    left: 0;
-    top: 0;
-    transform-origin: left center;
-    transition-duration: 1s;
-    transition-timing-function: ease-in;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    border: solid 1px;
-    background-color: #d18d4e;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;;
 }
 
-
-#main_book_content_container{
+/* CLASS 내용 CSS*/
+.start_page_container{
     width: 48%;
     height: 100%;
-    background-repeat: no-repeat;
     position: absolute;
     left: 0;
     top: 0;
@@ -55,12 +50,9 @@
     transform-origin: left center;
     transition-duration: 1s;
     transition-timing-function: ease-in;
-    backface-visibility: hidden;
-    z-index: 0.5;
-
 }
 
-
+/* CLASS 퍼즐 이미지 CSS */
 .puzzle_img{
     width: 30%;
     height: 30%;
@@ -68,6 +60,7 @@
     cursor: pointer;
 }
 
+/* CLASS 퍼즐 이미지가 없는 CSS */
 .puzzle_tmp_img{
     width: 30%;
     height: 30%;
@@ -76,66 +69,33 @@
     transform: rotateY(-180deg);
 }
 
-#next_page_line{
-    position: absolute;
-    right: 0;
-    width: 30px;
-    height: 100%;
-    cursor: pointer;;
-}
-
-.main_book_next_back_container{
-    width: 48%;
-    height: 100%;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform-origin: left center;
-    transition-duration: 1s;
-    transition-timing-function: ease-in;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    border: solid 1px;
-    background-color: #d18d4e;
-
-}
-
-.main_book_next_content_container{
-    width: 48%;
-    height: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    border: solid 1px;
-    background-color: #d18d4e;
-
-    transform-origin: left center;
-    transition-duration: 1s;
-    transition-timing-function: ease-in;
-
-    background-size: cover;
-
-}
-
-.main_book_next_content_on_file{
-    opacity: 0.4;
-}
-
+/* CLASS 자르는 이미지 형식 CSS */
 .puzzle_cut_img{
     width: 30%;
     height: 30%;
     border: solid 2px;
     cursor: pointer;
-    background-size: cover;
 }
 
+/* CLASS 페이지 형식 CSS */
+.main_book_container{
+    width: 48%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: left center;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: solid 1px;
+    background-color: #d18d4e;
+}
+
+/* CLASS 드래그 해서 넣는 공간 CSS */
 .second_page_empty{
     width: 90%;
     height: 90%;
