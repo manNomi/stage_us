@@ -171,8 +171,8 @@ body{
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: auto;
-    width: 300px;
+    flex-basis: 300px;
+    width: 0px;
     flex-direction: column;
     margin-right: 10px;
     cursor: pointer;
