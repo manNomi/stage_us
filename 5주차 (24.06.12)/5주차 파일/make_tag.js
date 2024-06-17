@@ -9,6 +9,7 @@ function makeAsideIcon(){
     const logo_box=document.createElement("div")
     logo_box.id="aside_logo_box"
     const new_logo_icon = document.createElement("img")
+    new_logo_icon.id="instar_icon"
     new_logo_icon.src=`img/aside_long_icon/instargram_logo.png`
     new_logo_icon.classList="aside_icon"
     aside.appendChild(new_logo_icon)
@@ -41,20 +42,104 @@ function makeAsideIcon(){
     aside.appendChild(logo_text_box)
 }
 
-
 window.addEventListener("resize",function(){
-    const aside = document.getElementById("funciton_aside")
+    asideReSize()
+})
+  window.onload=function(){
+    var instar_icon = document.getElementById("instar_icon")
     if (window.innerWidth>700){
-        console.log("높음")
-        aside.style.width="160px"
-        for (i=0;i<logo_text_list.length;i++){
-            logo_text_list[i].style.display="block" 
-        }
+        instar_icon.src="img/aside_long_icon/instar_text_logo.png"
+        instar_icon.style.width="100px"
+        type_check="long"
     }
     else{
-        aside.style.width="80px"
-        for (i=0;i<logo_text_list.length;i++){
-            logo_text_list[i].style.display="none" 
-        }
+        instar_icon.src="img/aside_long_icon/instargram_logo.png"
+        instar_icon.style.width="30px"
+        type_check="short"
     }
-  })
+    asideReSize()
+}
+
+var text_present=null
+var type_check=""
+
+function postReSize(size){
+    const aside = document.getElementById("funciton_aside")
+    aside.style.width=`${size}px`
+    document.getElementById("posting_main").style.marginLeft=`${size}px`
+    document.getElementById("story_header").style.marginLeft=`${size}px`
+    var type=""
+    if(size>150){
+        type="block"
+    }
+    else{
+        type="none"
+    }
+    for (i=0;i<logo_text_list.length;i++){
+        logo_text_list[i].style.display=type
+    }
+}
+
+
+function asideReSize(){
+    var small_size=80
+    var big_size=160
+    if (window.innerWidth>700){
+        postReSize(big_size)
+        text_present="long"
+        instarLogoAnimate(text_present)
+
+    }
+    else{
+        postReSize(small_size)
+        text_present="short"
+        instarLogoAnimate(text_present)
+    }
+}
+
+function instarLogoAnimate(type){
+    if (type_check==type){
+        return
+    }
+    var img_url=null
+    var img_length=null
+    if (type=="long"){
+        img_url="img/aside_long_icon/instar_text_logo.png"
+        img_length="100px"
+    }
+    else{
+        img_url="img/aside_long_icon/instargram_logo.png"
+        img_length="30px"
+    }
+    type_check=type
+
+    var instar_icon = document.getElementById("instar_icon")
+    instar_icon.animate([
+        {transform:"scale(1.0)"}, 
+        {transform:"scale(0.0)"}],
+        {
+        duration: 800,
+        easing: "ease",
+    });
+    setTimeout(()=>
+        {
+            instar_icon.src=img_url
+            instar_icon.style.width=img_length
+        }
+        ,800)
+}
+
+// -----------------------------------------aside---------------------------------------------
+
+makePost()
+function makePost(){
+    const post_container=document.getElementById("posting_main")
+
+    var tmp_post=document.createElement("div")
+    tmp_post.classList="post_box"
+    post_container.appendChild(tmp_post)
+
+    var tmp_post=document.createElement("div")
+    tmp_post.classList="post_box"
+    post_container.appendChild(tmp_post)
+}
