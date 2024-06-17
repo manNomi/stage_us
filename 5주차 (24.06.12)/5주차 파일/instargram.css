@@ -1,0 +1,107 @@
+/* html,body{
+    height: 100%;
+}
+
+#page_container{
+    display: grid;
+    grid-template-areas: 
+    "left_aside header right_aside"
+    "left_aside main right_aside"
+    ;
+    width: 100%;
+    height: 100%;
+}
+#long_funciton_aside{
+    width: 10%;
+    grid-area: left_aside;
+    background-color: blue;
+}
+#short_funciton_aside{
+    display: none;
+}
+#friend_aside{
+    grid-area: right_aside;
+    background-color: green;
+}
+#story_header{
+    grid-area: header;
+    background-color: red;
+}
+#posting_main{
+    grid-area: main;
+    background-color: yellow;
+}
+#funciton_footer{
+    display: none;
+} */
+
+@import "./reset.css";
+
+.html,body{
+    background-color: black;
+}
+.funciton_aside{
+    width: 160px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid 1px;
+    border-color: white;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+
+}
+#friend_aside{
+    position: fixed;
+    width: 10%;
+    height: 100%;
+    margin-left: 90%;
+    background-color: green;
+    top: 0;
+
+}
+#story_header{
+    margin-left: 20%;
+    position: fixed;
+    width: 80%;
+    height: 100px;
+    background-color: red;
+    top: 0;
+}
+#posting_main{
+    margin-left: 20%;
+    width: 80%;
+    height: 100%;
+    background-color: yellow;
+}
+#funciton_footer{
+    display: none;
+}
+
+.aside_icon{
+    width: 30px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#aside_logo_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo_text_box{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+.logo_text{
+    color: white;
+    cursor: pointer;
+}
