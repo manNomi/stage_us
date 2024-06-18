@@ -62,7 +62,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: solid 1px;
+    /* border: solid 1px; */
     border-color: white;
     border-left: none;
     border-top: none;
@@ -75,17 +75,14 @@
     width: 100%;
     height: 100px;
     background-color: black;
-    border-bottom: solid 1px;
-    border-left: solid 1px;
+    /* border-bottom: solid 1px; */
+    /* border-left: solid 1px; */
     border-color: white;
     top: 0;
     display: flex;
     flex: 1;
 }
 
-#funciton_footer{
-    display: none;
-}
 
 .aside_icon{
     width: 30px;
@@ -118,15 +115,96 @@
 #posting_main{
     margin-top: 100px;
     height: 100%;
-    background-color: black;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .post_box{
-    width: 500px;
-    height: 700px;
-    background-color: white;
-    margin-bottom: 20px;
+    width:750px;
+    height: 530px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.thumb_and_title{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+
+}
+.post_title{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+.title_user{
+    display: flex;
+    flex-direction: row;
+}
+.post_comment{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_specific{
+    display: flex;
+    flex-direction: row;
+}
+
+.comment_id{
+    margin-right: 5px;
+}
+.title_icon_box{
+    display: flex;
+    flex-direction: row;
+}
+
+.title_icon{
+    width: 40px;
+}
+.title_icon:hover{
+    opacity: 0.4;
+    transform: scale(1.2);
+}
+
+.save_icon{
+    right: 0;
+}
+.title_icon_btn{
+    border: none;
+    background-color: black;
+    cursor: pointer;
+}
+.post_title_sentence{
+    margin-right: 5px;
+
+}
+.post_title_plus{
+    color: gray;
+}
+.comment_plus{
+    color: gray;
+}
+
+#funciton_footer{
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+}
+.footer_icon{
+    width: 30px;
+}
+
+.footer_btn{
+    background-color: black;
+    cursor: pointer;
+    border: none;
 }
