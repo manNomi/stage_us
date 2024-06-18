@@ -182,16 +182,15 @@ function createPost() {
         const thumbAndTitle = document.createElement('div');
         thumbAndTitle.className = 'thumb_and_title';
         
-
+        
         // Create and append post thumbnail image
         const postThumb = document.createElement('img');
         postThumb.className = 'post_thumb';
-        postThumb.src = `img/post_icon/post_thumb/${thumb_img_list[i]}.PNG`;
-        postThumbList.push(postThumb)
-        postThumbList[i].onclick=function(){
-            location.href=""
+        postThumb.src = `img/post_thumb/${thumb_img_list[i]}.png`;
+        thumb_list.push(postThumb)
+        thumb_list[i].onclick=function(){
+            location.href=`week${i+1}_report/main.html`
         }
-
         
         // Create post title container
         const postTitle = document.createElement('div');
@@ -339,8 +338,7 @@ function createPost() {
     }
 }
 
-var postThumbList=[]
-
+var thumb_list=[]
 var heart_icon_list=[]
 createPost()
 // -----------------------------------------main---------------------------------------------

@@ -1,0 +1,191 @@
+@import "/reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Orbit&display=swap');
+* {
+    font-family: "Orbit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+  }
+
+.html,body{
+    background-color: black;
+    overflow-x: hidden;
+}
+.funciton_aside{
+    width: 160px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-color: white;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+
+}
+
+#story_header{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    top: 0;
+    display: flex;
+    flex: 1;
+}
+
+
+.aside_icon{
+    width: 30px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#aside_logo_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo_text_box{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.2s linear;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo_text_box:hover{
+    opacity: 0.4;
+    transform: scale(1.2);
+}
+
+#posting_main{
+    margin-top: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post_box{
+    width:750px;
+    height: 530px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.thumb_and_title{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+
+}
+.post_title{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+.title_user{
+    display: flex;
+    flex-direction: row;
+}
+.post_comment{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_specific{
+    display: flex;
+    flex-direction: row;
+}
+
+.comment_id{
+    margin-right: 5px;
+}
+.title_icon_box{
+    display: flex;
+    flex-direction: row;
+}
+
+.title_icon{
+    transition: all 0.2s linear;
+    overflow: hidden;
+    width: 40px;
+}
+.title_icon:hover{
+    opacity: 0.4;
+    transform: scale(1.2);
+}
+
+.save_icon{
+    right: 0;
+}
+.title_icon_btn{
+    border: none;
+    background-color: #00ff0000;
+    cursor: pointer;
+}
+.post_title_sentence{
+    margin-right: 5px;
+
+}
+.post_title_plus{
+    color: gray;
+}
+.comment_plus{
+    color: gray;
+}
+
+#funciton_footer{
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+}
+.footer_icon{
+    width: 30px;
+    transition: all 0.2s linear;
+    overflow: hidden;
+}
+.footer_icon:hover{
+    opacity: 0.4;
+    transform: scale(1.2);
+}
+.footer_btn{
+    background-color: #00ff0000;
+    cursor: pointer;
+    border: none;
+}
+
+.post_thumb{
+    width: 65%;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    overflow: hidden;
+}
+.post_thumb:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.post_title_thumb{
+    width: 30px;
+    background-color: white;
+}
+
+.post_user{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
