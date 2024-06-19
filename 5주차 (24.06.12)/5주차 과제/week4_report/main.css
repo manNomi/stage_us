@@ -105,3 +105,9 @@
     line-height: 500px;
     text-align: center;
 }
+
+
+.hedaer_story_user{
+    width: 30px;
+    object-fit: cover;
+}

@@ -1,4 +1,4 @@
-@import "/reset.css";
+@import "../reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Orbit&display=swap');
 * {
     font-family: "Orbit", sans-serif;
@@ -10,6 +10,8 @@
 .html,body{
     background-color: black;
     overflow-x: hidden;
+    overflow-y: hidden;
+
 }
 .funciton_aside{
     width: 160px;
@@ -28,14 +30,23 @@
 
 #story_header{
     position: fixed;
-    width: 100%;
-    height: 100px;
-    background-color: black;
+    width: 800px;
+    height: 60px;
     top: 0;
+    cursor: pointer;
+    background-color: black;
     display: flex;
     flex: 1;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
 }
 
+.hedaer_story_user{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
 
 .aside_icon{
     width: 30px;
@@ -66,9 +77,14 @@
 
 #posting_main{
     margin-top: 100px;
-    height: 100%;
+    height: 800px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+}
+/* 스크롤바 안보이게 설정 */
+#posting_main::-webkit-scrollbar{
+    display: none;
 }
 
 .post_box{

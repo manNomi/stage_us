@@ -1,7 +1,7 @@
 var logo_text_list=[]
 makeAsideIcon()
 function makeAsideIcon(){
-    const aside_icon_list = ["home_icon","search_icon","compass_icon","video_icon","dm_icon","heart_icon","plus_icon"]
+    const aside_icon_list_img = ["home_icon","search_icon","compass_icon","video_icon","dm_icon","heart_icon","plus_icon"]
     const aside_text=["홈","검색","탐색 탭","릴스","메시지","알림","만들기","프로필"]
     const aside = document.getElementById("funciton_aside")
     aside.style="display:flex;"
@@ -13,11 +13,12 @@ function makeAsideIcon(){
     new_logo_icon.src=`img/aside_long_icon/instargram_logo.png`
     new_logo_icon.classList="aside_icon"
     aside.appendChild(new_logo_icon)
-    for (var i=0;i<aside_icon_list.length;i++){
+    for (var i=0;i<aside_icon_list_img.length;i++){
         const logo_text_box=document.createElement("div")
         logo_text_box.classList="logo_text_box"
+        logo_text_box.id=aside_icon_list_img[i].split("_")[0]
         const new_icon = document.createElement("img")
-        new_icon.src=`img/aside_long_icon/${aside_icon_list[i]}.png`
+        new_icon.src=`img/aside_long_icon/${aside_icon_list_img[i]}.png`
         new_icon.classList="aside_icon"
         const text_box=document.createElement("div")
         text_box.innerHTML=aside_text[i]
@@ -25,6 +26,12 @@ function makeAsideIcon(){
         logo_text_list.push(text_box)
         logo_text_box.appendChild(new_icon)
         logo_text_box.appendChild(text_box)
+
+        logo_text_box.addEventListener("click",()=>{
+            iconClickEvnet(logo_text_box.id)
+            
+        })
+
         logo_box.appendChild(logo_text_box)
     }
     aside.appendChild(logo_box)
@@ -41,12 +48,20 @@ function makeAsideIcon(){
     logo_text_list.push(text_box)
     aside.appendChild(logo_text_box)
 }
-
+function iconClickEvnet(btn_type){
+    if (btn_type=="home"){
+        console.log()
+        postScrollToTop()
+    }
+}
 
 window.addEventListener("resize",function(){
     asideReSize()
 })
   window.onload=function(){
+    postScrollToTop()
+    windoScrollToTop()
+
     var instar_icon = document.getElementById("instar_icon")
     if (window.innerWidth>1000){
         instar_icon.src="img/aside_long_icon/instar_text_logo.png"
@@ -89,7 +104,7 @@ function postReSize(size){
 
 
 function asideReSize(){
-    console.log(innerWidth)
+    // console.log(innerWidth)
     var small_size=80
     var big_size=160
     if (window.innerWidth>1000){
@@ -307,8 +322,6 @@ function createPost() {
         heart_icon_list.push(heart_icon)
 
         heart_icon_list[i].onclick=function(){
-            console.log(heart_icon.childNodes[0].src.toString().split("post_icon/")[1])
-    
             if(heart_icon_list[i].childNodes[0].src.toString().split("post_icon/")[1]=='heart_icon.png'){
                 heart_icon_list[i].childNodes[0].src="img/post_icon/red_heart_icon.png"
             }
@@ -348,10 +361,15 @@ function makeFooterIcon(){
     function btnMake(img_src){
         var button=document.createElement("button")
         button.classList="footer_btn"
+        button.id=img_src.split("_")[0]
         var img=document.createElement("img")
         img.classList="footer_icon"
         img.src=`img/footer_icon/${img_src}.png`
         button.appendChild(img)
+
+        button.addEventListener("click",(e)=>{
+            iconClickEvnet(button.id)
+        })
         return button
     }
     const footer = document.getElementById("funciton_footer")
@@ -360,3 +378,106 @@ function makeFooterIcon(){
         
     }
 }
+
+// -----------------------------------------header---------------------------------------------
+makeStory()
+
+function makeStory(){
+    var container = document.getElementById("story_header");
+    var story_id_list=["none","gae_geol","yongjun_kim","stage_us"]
+
+    for (i=0;i<4;i++){
+        story_id_list=story_id_list.concat(story_id_list)
+    }
+
+    var story_list=[]
+    for (let i=0; i<story_id_list.length;i++){
+        var img = document.createElement("img");
+        
+        img.className = "hedaer_story_user"
+        img.src = `img/user/${story_id_list[i]}.PNG`
+
+        story_list.push(img)
+
+        story_list[i].ondragstart=function(e){
+            e.preventDefault()
+        }
+
+        story_list[i].onerror=function(){
+            story_list[i].src = `img/user/none.PNG`
+        }
+        
+        // 이미지 컨테이너에 추가
+        container.appendChild(img);
+    }
+}
+
+scrollStoryEvent()
+function scrollStoryEvent(){
+    var scroll_container=document.getElementById("story_header")
+    var isScrolling=false
+    var startX, scrollLeft
+
+    // 드래그가 끝나거나 드래그 중이지 않을때 값들을 모두 false 로 넣어둔다 
+    // 
+
+    // 마우스 클릭시 이벤트 
+    scroll_container.addEventListener("mousedown",(e)=>{
+        isScrolling = true;
+        // 시작 위치 저장 
+        // offset -> 부모요소와의 거리 
+        startX = e.pageX - scroll_container.offsetLeft;
+
+        // scrollLeft -> 스크롤의 가로요소를 가져오는것
+        scrollLeft = scroll_container.scrollLeft;
+    })
+    // 마우스가 클릭한 태그내에서 이동시 
+    scroll_container.addEventListener('mousemove', (e) => {
+        if (!isScrolling) return;
+        // 마우스 이벤트가 발생 한 위치 - 현재 위치 
+        const x = e.pageX - scroll_container.offsetLeft;
+
+        const walkX = x - startX;
+        scroll_container.scrollLeft = scrollLeft - walkX;
+    });
+    // 마우스를 손에서 뗄뗴
+    scroll_container.addEventListener('mouseup', () => {
+        isScrolling = false;
+    });
+
+    // 마우스가 태그 밖으로 벗어났을때
+    scroll_container.addEventListener('mouseleave', () => {
+        isScrolling = false;
+    });
+
+}
+// -----------------------------------------ㅡmain scroll---------------------------------------------
+postScrollEvent()
+function postScrollEvent(){
+    var post_container=document.getElementById("posting_main")
+    post_container.addEventListener("scroll",(e)=>{
+        console.log(post_container.scrollTop)
+    })
+}
+
+
+
+// -----------------------------------------start scroll---------------------------------------------
+
+// 시작 이벤트 설정
+
+function windoScrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 부드럽게 스크롤 이동하도록 설정 (선택사항)
+    });
+}
+
+
+function postScrollToTop() {
+    document.getElementById("posting_main").scrollTo({
+        top: 0,
+        behavior: 'smooth' // 부드럽게 스크롤 이동하도록 설정 (선택사항)
+    });
+}
+
