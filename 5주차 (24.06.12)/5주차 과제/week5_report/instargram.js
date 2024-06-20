@@ -76,8 +76,6 @@ window.addEventListener("resize",function(){
     else{
         document.getElementById("funciton_aside").style.display="none"
         document.getElementById("funciton_footer").style.display="flex"
-        document.getElementById("posting_main").style.marginLeft=0
-        document.getElementById("story_header").style.marginLeft=0
     }
     asideReSize()
 }
@@ -88,8 +86,6 @@ var type_check=""
 function postReSize(size){
     const aside = document.getElementById("funciton_aside")
     aside.style.width=`${size}px`
-    document.getElementById("posting_main").style.marginLeft=`${size}px`
-    document.getElementById("story_header").style.marginLeft=`${size}px`
     var type=""
     if(size>150){
         type="block"
@@ -123,8 +119,6 @@ function asideReSize(){
     else{
         document.getElementById("funciton_aside").style.display="none"
         document.getElementById("funciton_footer").style.display="flex"
-        document.getElementById("posting_main").style.marginLeft=0
-        document.getElementById("story_header").style.marginLeft=0
     }
 }
 
@@ -452,15 +446,37 @@ function scrollStoryEvent(){
 
 }
 // -----------------------------------------ㅡmain scroll---------------------------------------------
+var old_thumb_index=0
+
 postScrollEvent()
 function postScrollEvent(){
+    var animatedBox=document.querySelectorAll(".post_box")
+    animatedBox[0].style="opacity:1"
     var post_container=document.getElementById("posting_main")
+    var present_content=null
+    var old_content=null
     post_container.addEventListener("scroll",(e)=>{
+
         console.log(post_container.scrollTop)
+        var present_thumb_index=Math.floor(post_container.scrollTop/500)
+        present_content=animatedBox[present_thumb_index]
+
+        if (present_thumb_index>old_thumb_index){
+            old_content=animatedBox[present_thumb_index-1]
+            present_content.style="opacity:1"
+            present_content.style.animation = 'brighten 2s linear 1'
+            old_content.style="opacity:0"
+        }
+        else if (present_thumb_index<old_thumb_index){
+            old_content=animatedBox[present_thumb_index+1]
+            present_content.style="opacity:1"
+            present_content.style.animation = 'brighten 2s linear 1'
+            old_content.style="opacity:0"
+        }
+        old_thumb_index=present_thumb_index
     })
+
 }
-
-
 
 // -----------------------------------------start scroll---------------------------------------------
 

@@ -11,41 +11,43 @@
     background-color: black;
     overflow-x: hidden;
     overflow-y: hidden;
+}
 
+#page_container{
+    display: grid;
+    grid-template-areas: 
+                "aside header"
+                "aside main " ;
 }
 .funciton_aside{
+    grid-area: aside;
     width: 160px;
     height: 100%;
-    position: fixed;
-    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-color: white;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
+    border-right: solid 1px;
+    border-color: gray;
 
 }
 
 #story_header{
-    position: fixed;
+    grid-area: header;
     width: 800px;
     height: 60px;
-    top: 0;
     cursor: pointer;
     background-color: black;
     display: flex;
     flex: 1;
     flex-direction: row;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .hedaer_story_user{
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 }
 
 .aside_icon{
@@ -59,6 +61,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
 }
 .logo_text_box{
@@ -76,7 +79,8 @@
 }
 
 #posting_main{
-    margin-top: 100px;
+    grid-area: main;
+    margin-top: 20px;
     height: 800px;
     display: flex;
     flex-direction: column;
@@ -93,6 +97,8 @@
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    margin-left: 30px;
+    opacity:0;
 }
 .thumb_and_title{
     width: 100%;
@@ -205,3 +211,24 @@
     flex-direction: row;
     width: 100%;
 }
+
+
+
+@keyframes brighten {
+    0% {
+        filter: brightness(0%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
+}
+
+@keyframes dark {
+    0% {
+        filter: brightness(100%);
+    }
+    100% {
+        filter: brightness(0%);
+    }
+}
+
