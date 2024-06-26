@@ -1,0 +1,248 @@
+** 프로토콜 
+
+- 정의 
+ㄴ 개발하는 데에는 몰라도 문제가 없다 ( 전형적인 CS 지식 )
+ㄴ CS 지식을 공부하는 이유? -> 개발을 더 체계적으로 하기 위해서 
+프로토콜이란 - > 인터넷 통신 표준 
+ㄴ 인터넷 통신에 대해서 전세계가 정해둔 표준 
+
+- 종류 
+ㄴ 통신 방법마다 한 개 씩 규칙이 정해져 있다 
+예시 ) HTTP 프로토콜 , FTP , SSH 등 
+ㄴ cs 지식이기에 직접 구현할 일은 없다 
+ㄴ 이 프로토콜로 구현된 프로그램을 쓴다 
+
+http -> tomcat 이듯이 프로토콜 쓰기 위한 프로그램 쓴다 
+
+왜 알아야할까 
+-> 그래야 더 좋은 설계가 가능하며 , 기술 선택을 할 수 있다 
+예시 ) HTTP / HTTPS 쓰는 이유 
+	왜 HTTP / TCP 인 이유 
+	우리가 브라우저에서 TCP 통신을 할 일이 있는가 ? 
+
+- 알아야 하는 것  
+1. 개수는 정해져 있지 않음
+2. 각 프로토콜의 정의 , 필요성 + 정해진 포트 번호 
+
+http 특징 -> 단 방향 통신 
+브라우저 -> 서버 
+브라우저는 요청만 서버는 응답만 
+
+- 통신이 빠르고 가볍다 
+- 단방향 통신인 것이 단점 
+
+
+**SFTP
+
+- 정의 
+ㄴ 두개의 프로토콜이 합쳐진 프로토콜 
+ㄴ ssh + FTP 
+원격 접속 한 상태로 파일 전송 
+
+- 활용 
+ㄴ 직접구현은 안하며 파일질라 활용하고 있음 
+ㄴ 파일질라 단점 -> 개발 작업에 적합하지 않다 
+
+1. 매번 수정할때마다 파일질라를 통해 올려야 하기 때문 
+2. 내 프로젝트의 버전이 두개가 되어버림 
+( 내 폴더 VS 서버에 있는 폴더 )
+
+- SFTP Extension 
+ㄴ SFTP 프로토콜로 되어 있음 
+ㄴ VSC 에서 저장을 누르면 실시간으로 서버에 업로드가 됨 
+ㄴ 서버에 있는 프로젝트를 공유폴더의 개념으로 내 노트북에 내려받는 구조 
+( 서버가 중심이 된다 / 더 이상 프로젝트 버전이 2개가 되지 않는다 )
+
+vs -> sftp나티즈 꺼 설치 
+f1 누르고 다시 config 누르면 json 파일 나온다 
+    "host": "localhost", 서버 ip 
+
+privatekeypath 
+-> 키페어 파일
+
+-> 키페어 파일을 변환 하는 방법 
+putty gen 
+file load 하고 ppk 가져와서 pem 으로 바꾼다 .pem을 꼭 적고 저장할 것 
+
+pem만 사용가능 
+
+f1 누르고 sftp list all 
+-> 원격접속이 된다 
+
+apache -> ROOT -> choose current tomcat 
+
+- > crtl + s 눌렀을때 올라감 
+
+-> 파일 삭제는 putty 에서 해야함 
+
+실시간 통신이 아니다 -> 파일위치나 이름을 바꾸면 두개가 생김 유남쌩? 
+
+
+** 데이터베이스 
+
+- 정의 : 데이터 저장소 
+- > 반 영구적으로 저장하기 위해 사용 
+ㄴ 보조 메모리에 만들어 짐 
+
+- 종류 
+1. Relational DB ( RDB ) -> 체계적
+2. NoSQL DB (NO DB) -> 유연함 
+ㄴ 이 둘의 차이는 데이터가 얼마나 체계적으로 / 유연하게 관리 되냐 
+
+* 전체 DB의 80프로는 RDB 
+-> 데이터의 무결성 위함 
+
+RDB 종류 
+1. MySQL 
+ㄴ 가정 보편적이다 가장 많이 씀
+2. Oracle
+ㄴ 성능이 좋지만 유료 
+3. PostgreSQL
+ㄴ MySQL 과 비교해서 데이터가 많을 수록 빠르다 
+4. SQLite
+ㄴ 로컬 데이터베이스 전용 -> 바운스볼 , 앵그리 버드 
+5. Maria DB 
+
+db 가 많은 이유 -> 장단점이 있음
+
+Maria DB 
+- 소개 : MySQL 을 그대로 클론한 DB -> mySQL 은 유료화 그래서 클론한 DB가 생김 
+- MySQL과 성능은 완전히 동일 
+
+** 데이터베이스 통신 구조 
+
+클라이언트 -> 웹 -> 서버 -> DB 
+
+웹 -> DB 직접 접근 불가 
+
+프론트엔드에서 DB 직접 연결 불가 
+
+table 
+-> 표 들이 빼곡히 모인게 DB다 
+가로 ROW ( 1개의 데이터 ) -> 신규 데이터를 의미 
+세로 COLUMN ( 데이터 타입 )
+
+SQL 
+-> RDB 전용 언어
+ㄴ 서버가 DB한테 요청을 보낼때 SQL로 보내게 된다
+ㄴ 개발에서 가장 동작이 오래걸리는 작업 ? -> DB 통신
+ㄴ SQL을 얼마나 잘짜느냐에 따라 이 속도를 줄일 수 있다 
+
+
+putty 
+
+sudo apt install mariadb-server 
+
+서버 -> 서버 로 DB 연결해야함 
+
+DB의 보안을 위해서 
+
+DB는 또다른 서버다 
+
+따라서 서버로 설치를 하게 되는것 
+ 
+maria db - u 아이디 -p 
+-> 아이디 : maria db의 아이디를 적어야함 
+-> 연결 방법 
+-> 처음에 아이디가 없기 때문에 sudo mariadb 통해서 접속한다 
+-> ROOT 관리자 계정으로 접속 
+-> 처음에 들어오면 관리자만 사용가능하게 접속이 된다 
+
+마리아 디비 안에 새로운 디비 만들고 이 디비를 마리아 디비한테 권한을 준다 
+
+데이터베이스 신규계정 만들기 
+CREATE DATABASE web;
+
+@<- 그룹지정 
+CREATE USER 'stageus'@'%' IDENTIFIED BY '1234';
+-> % : 그룹을 지정하지 않겠다 
+-> IDENTIFIED BY : 비밀번호 설정 
+
+GRANT ALL PRIVILEGES ON web.* TO 'stageus'@'%';
+-> 모든 권한을 준다 
+
+SHOW DATABASES; 
+-> 권한을 출력해준다 
+
+quit 
+->접속을 종료 
+
+maria db -u stageus -p 
+-> 만든 계정으로 접속 
+- 비밀번호 물어볼것임 
+-> 입력 : 입력이 안보임 원래 
+
+show database
+-> 이제 관리자가 아닌 계정으로 쓸 수 있는 권한 보여짐 
+
+USE web; 
+-> 사용할 데이터베이스 선택 
+
+CREATE TABLE account (id TEXT, pw TEXT, name TEXT);
+-> 테이블 생성 
+
+SHOW TABLES;
+-> 현재 table 들이 보임 
+
+
+**CRUD 
+ㄴ 데이터베이스가 해줘야하는 기본적인 4개의 기능 
+
+C reate
+R ead 
+U pdate
+D elete 
+
+INSERTE INTO account (id, pw ,name) VALUES ('test' ,'1234' ,'만욱');
+
+-> sql 용어와 text 간 구분을 위해 대소문자 구분함 
+- sql은 대소문자 구분을 하지 않음 
+
+- 세미클론을 적지않으면 ; 찍고 엔터 쳐도 됨 
+-> 이어쓰기 
+
+SELECT id,pw,name
+
+
+
+SELECT * FROM account WHERE id='test';
+
+SELECT * FROM account WHERE id='test' AND pw ='1234';
+
+UPADTE account SET pw ='1111';
+-> 다 데이터가 바뀜 
+
+UPADTE account SET pw ='1111' WHERE id = 'test' ;
+
+-> UPDATE는 WHERE과 항상 같이 써야함 
+
+DELETE FROM account ;
+-> 전체 row가 사라짐 
+-> where 같이 쓸것
+
+DELETE FROM account WHERE id='test' ;
+
+insert 제외 하고는 모두 where 사용 
+
+pk는 과제때 해오기 
+-> 식별을 위함 
+
+-> 테이블 설계를 잘하자 
+
+
+fk -> foreign key 외래키 
+
+-> 테이블을 어떻게 분리할지 과제로 
+
+
+
+
+
+
+
+
+
+
+
+
+

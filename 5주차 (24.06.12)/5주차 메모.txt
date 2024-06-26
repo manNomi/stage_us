@@ -72,6 +72,7 @@ JSP (JAVA) -> Java 를 쓸때에는 Tomcat이라는 WAS 사용
 이미지 올리지말것 
 
 
+
 서버 호스팅 서비스 
 -> EC2 (엘라스틱 컴퓨팅 )
 
@@ -170,14 +171,8 @@ wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.2
 tar -zxvf
 
 bin -> 톰캣관련 실행파일이 들어가있다  웹서버 키는 파일, 끄는 파일 들어가 있음 
-./startup.sh -> 하면 시작됨
 lib -> 톰캣에 추가로 무언가를 설치할때 lib에 설치가 된다 
 webapps -> 작성한 코드가 저장되는 곳 
-
-인스턴스 보안그룹 
-->인바운드 규칙 편집 
-규칙 추가 사용자 지정  TCP 8080 포트 추가  
-
  
 cd bin 
 
