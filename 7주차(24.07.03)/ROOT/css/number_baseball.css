@@ -1,0 +1,408 @@
+/* reset css 참조 */
+@import "../common/reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* main */
+#main {
+  width: 300px;
+  height: 670px;
+  margin-left: 170px;
+  background-image: url("../image/baseball/iphone_main_img.png");
+  background-size: cover;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+#main_game_top {
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30%;
+}
+
+#main_game_bottom {
+  margin-top: 40%;
+  /* display: flex; */
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#main_ball_img {
+  width: 100px;
+}
+
+.main_number_btn {
+  width: 90px;
+  height: 45px;
+  margin: 5px;
+  margin-top: 15px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}
+
+#result {
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  font-size: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#main_introduce_text {
+  color: white;
+}
+
+#main_present_text_shape {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.main_present_text {
+  border-radius: 50%;
+  background-color: #495564;
+  color: white;
+}
+
+#header_present_time {
+  color: white;
+  margin-left: 10px;
+}
+
+.header_img_size {
+  width: 20px;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#baseball_btn {
+  background-color: transparent;
+  border: none;
+}
+
+#intro {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#intro_img {
+  width: 150px;
+}
+
+#intro_loading_img {
+  margin-top: 30px;
+  width: 100px;
+}
+
+@keyframes brightness {
+  from {
+    filter: brightness(10%);
+  }
+  to {
+    filter: brightness(100%);
+  }
+}
+
+#main_page {
+  display: none;
+  margin-top: 10px;
+  height: 100%;
+}
+
+#main_page_logo {
+  width: 100px;
+}
+
+#main_game_page {
+  width: 100%;
+  height: 100%;
+}
+
+#main_page_alert_icon {
+  width: 20px;
+}
+
+#main_top_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main_page_title {
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  font-size: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#main_page_title_name {
+  line-height: 30px;
+  font-weight: 600;
+}
+
+#main_page_menu {
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  font-size: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.main_page_menu_left_box {
+  display: flex;
+  flex-direction: row;
+}
+.main_menu_item_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 9px 0 9px 0;
+}
+
+.menu_text_box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.main_menu_thumb {
+  width: 40px;
+  object-fit: cover;
+}
+
+.main_menu_text_top {
+  font-size: 10px;
+  margin-bottom: 2.5px;
+  font-weight: 200;
+}
+
+.main_menu_text_bottom {
+  font-size: 15px;
+  margin-top: 2.5px;
+  font-weight: 500;
+}
+
+.main_menu_btn {
+  border-radius: 7px;
+  color: white;
+  background-color: #616c7e;
+  font-size: 10px;
+  padding: 10px;
+  border: none;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#main_page_line {
+  background-color: #616c7e;
+  height: 3px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#score_check_btn {
+  color: white;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+#score_board {
+  display: none;
+  flex-direction: column;
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  margin-top: 10px;
+  overflow-y: scroll;
+  height: 400px;
+}
+#score_board::-webkit-scrollbar {
+  display: none;
+}
+
+#score_board_title {
+  display: none;
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+}
+
+#score_board_title_text {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.score_box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.new_score_text {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 20px;
+}
+
+#dialog_box {
+  display: none;
+  width: 100%;
+  height: 670px;
+  justify-content: center;
+  align-items: center;
+}
+
+#dialog_page {
+  display: flex;
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#dialog_btn {
+  border: none;
+  color: white;
+  background-color: #616c7e;
+}
+
+#dialog_text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  height: 10%;
+  width: 80%;
+  background-color: #616c7e;
+  color: white;
+}
+
+#score_page_back_btn {
+  display: none;
+  background-color: #616c7e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+}
+
+#score_page_back_btn_box {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main_page_ad {
+  border-radius: 7px;
+  color: white;
+  background-color: #576173;
+  font-size: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  height: 90px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#main_page_ad_box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 5px;
+}
+
+#main_page_coding_text_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#main_page_coding_text {
+  width: 33%;
+  border: solid;
+  padding: 7px;
+  border-color: #616c7e;
+  border-top: none;
+  border-bottom: none;
+  text-align: center;
+}
+
+#main_page_ad_text_box {
+  display: flex;
+  flex-direction: column;
+}
+
+#main_page_ad_text {
+  text-align: center;
+  font-weight: 600;
+}
+
+#main_page_ad_text_github {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #c3c3c3;
+}
