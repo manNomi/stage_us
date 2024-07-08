@@ -491,6 +491,7 @@ function scrollStoryEvent() {
 var old_thumb_index = 0;
 
 postScrollEvent();
+
 function postScrollEvent() {
   var animatedBox = document.querySelectorAll(".post_box");
   animatedBox[0].style = "opacity:1";

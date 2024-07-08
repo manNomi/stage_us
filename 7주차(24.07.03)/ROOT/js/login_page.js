@@ -3,8 +3,6 @@ function setBtnText() {
   var findBtn = document.getElementById("find_btn");
   loginBtn.innerHTML = "로그인";
   findBtn.innerHTML = "비밀번호를 잊으셨나요?";
-  var findPwBtn = document.getElementById("find_page_btn");
-  findPwBtn.innerHTML = "비밀번호 찾기";
   var loginId = document.getElementById("login_id");
   var loginPw = document.getElementById("login_pw");
   loginId.value = "";
@@ -56,7 +54,10 @@ function setLoginBtnEvent() {
     loginEvent();
   });
   document.getElementById("find_btn").addEventListener("click", function () {
-    findEvent();
+    findBtnEvent();
+  });
+  document.getElementById("join_btn").addEventListener("click", function () {
+    joinBtnEvent();
   });
 }
 
@@ -65,18 +66,20 @@ function loginEvent() {
   location.href = "../html/index.html";
 }
 
-function findEvent() {
-  findPageMoveEvent();
-}
-
-function findPageMoveEvent() {
+function findBtnEvent() {
   var loginContainer = document.getElementById("login_container");
   loginContainer.style.borderRight = "solid 1px white";
   loginContainer.style.animation = "width_to_0 1s forwards";
-
   var findContainer = document.getElementById("find_container");
-  findContainer.style.display = "flex";
   findContainer.style.animation = "width_to_100 1s forwards";
+}
+
+function joinBtnEvent() {
+  var loginContainer = document.getElementById("login_container");
+  loginContainer.style.borderRight = "solid 1px white";
+  loginContainer.style.animation = "width_to_0 1s forwards";
+  var joinContainer = document.getElementById("join_container");
+  joinContainer.style.animation = "width_to_100 1s forwards";
 }
 
 function startPage() {
@@ -93,7 +96,7 @@ function makeLoginContainer() {
 
   var logoImg = document.createElement("img");
   logoImg.className = "logo";
-  logoImg.src = "../image/instargram/aside/instar_text_logo.png";
+  logoImg.src = "../image/instargram/login/instar_text_logo.png";
   loginContainer.appendChild(logoImg);
 
   // 또는 특정 부모 요소에 추가 (예: 특정 div에 추가하려면)
@@ -135,136 +138,35 @@ function makeLoginContainer() {
   // 버튼 생성
   var loginBtn = document.createElement("button");
   loginBtn.id = "login_btn";
-  loginBtn.classList = "tmp_btn";
+  loginBtn.classList = "blue_btn";
 
   var findBtn = document.createElement("button");
   findBtn.id = "find_btn";
-  findBtn.classList = "find_btn";
+  findBtn.classList = "text_btn";
+
+  var joinBtn = document.createElement("button");
+  joinBtn.id = "join_btn";
+  joinBtn.classList = "text_btn";
+  joinBtn.style.marginBottom = "200px";
 
   // DOM에 추가
   loginContainer.appendChild(container1);
   loginContainer.appendChild(container2);
   loginContainer.appendChild(loginBtn);
   loginContainer.appendChild(findBtn);
+  loginContainer.appendChild(joinBtn);
 }
 
-function makeFindContainer() {
-  var findContainer = document.getElementById("find_container");
-
-  // 이미지 요소 생성
-  var logoImg = document.createElement("img");
-  logoImg.className = "logo";
-  logoImg.src = "../image/instargram/login/instar_text_logo.png";
-
-  // 첫 번째 placehorder_parent 생성 및 자식 요소 추가
-  var container1 = document.createElement("div");
-  container1.className = "placehorder_parent";
-
-  var placeholderJoinId = document.createElement("p");
-  placeholderJoinId.id = "placehorder_join_id";
-  placeholderJoinId.className = "placehorder";
-
-  var loginJoinId = document.createElement("input");
-  loginJoinId.id = "join_id";
-  loginJoinId.className = "login_box";
-  loginJoinId.setAttribute("autocomplete", "off");
-
-  container1.appendChild(placeholderJoinId);
-  container1.appendChild(loginJoinId);
-
-  // 두 번째 placehorder_parent 생성 및 자식 요소 추가
-  var container2 = document.createElement("div");
-  container2.className = "placehorder_parent";
-
-  var placeholderJoinPhone = document.createElement("p");
-  placeholderJoinPhone.id = "placehorder_join_phone";
-  placeholderJoinPhone.className = "placehorder";
-
-  var loginJoinPhone = document.createElement("input");
-  loginJoinPhone.id = "join_phone";
-  loginJoinPhone.className = "login_box";
-  loginJoinPhone.setAttribute("autocomplete", "off");
-
-  container2.appendChild(placeholderJoinPhone);
-  container2.appendChild(loginJoinPhone);
-
-  // 세 번째 placehorder_parent 생성 및 자식 요소 추가
-  var container3 = document.createElement("div");
-  container3.className = "placehorder_parent";
-
-  var placeholderJoin = document.createElement("p");
-  placeholderJoin.id = "placehorder_join_name";
-  placeholderJoin.className = "placehorder";
-
-  var loginJoin = document.createElement("input");
-  loginJoin.id = "join_name";
-  loginJoin.className = "login_box";
-  loginJoin.setAttribute("autocomplete", "off");
-
-  container3.appendChild(placeholderJoin);
-  container3.appendChild(loginJoin);
-
-  // 로그인 버튼 생성
-  var findPageBtn = document.createElement("button");
-  findPageBtn.id = "find_page_btn";
-  findPageBtn.classList = "tmp_btn";
-  findPageBtn.style.marginBottom = "200px";
-
-  //   // 찾기 버튼 생성
-  //   var findBtn = document.createElement("button");
-  //   findBtn.id = "find_pw_btn";
-  //   findBtn.classList = "find_btn";
-  //   findContainer.appendChild(loginBtn);
-
-  findContainer.appendChild(logoImg);
-  findContainer.appendChild(container1);
-  findContainer.appendChild(container2);
-  findContainer.appendChild(container3);
-  findContainer.appendChild(findPageBtn);
-}
-
-function setJoinPlacehorder() {
-  var placehorderId = document.getElementById("placehorder_join_id");
-  placehorderId.textContent = "아이디";
-  var placehorderPhone = document.getElementById("placehorder_join_phone");
-  placehorderPhone.textContent = "전화번호";
-  var placehorderName = document.getElementById("placehorder_join_name");
-  placehorderName.textContent = "이름";
-
-  var joinId = document.getElementById("join_id");
-  var joinPhone = document.getElementById("join_phone");
-  var joinName = document.getElementById("join_name");
-
-  const joinPlaceHorder = [placehorderId, placehorderPhone, placehorderName];
-  const joinValue = [joinId, joinPhone, joinName];
-
-  for (let i = 0; i < joinPlaceHorder.length; i++) {
-    joinValue[i].addEventListener("input", function () {
-      joinPlaceHorder[i].style.animation = "placehorder_to_small 0.3s forwards";
-      joinValue[i].style = "font-size:13px";
-      joinValue[i].style.paddingTop = "25px";
-      const inputValue = joinValue[i].value.trim();
-      if (inputValue === "") {
-        joinPlaceHorder[i].style.animation = "placehorder_to_big 0.3s forwards";
-        joinValue[i].style = "font-size:15px";
-        joinValue[i].style.paddingTop = "0px";
-      }
+function instargramLogoEvent() {
+  document.querySelectorAll(".logo").forEach(function (e) {
+    e.addEventListener("click", function () {
+      location.href = "../html/index.html";
     });
-  }
-}
-
-function findPageBtn() {
-  var findPageBtn = document.getElementById("find_page_btn");
-  findPageBtn.addEventListener("click", function () {
-    location.href = "../html/instargram.html";
   });
 }
 
-makeLoginContainer();
-makeFindContainer();
-setBtnText();
-setJoinPlacehorder();
-setLoginPlacehorder();
 startPage();
+makeLoginContainer();
 placehorderEvnet();
-findPageBtn();
+instargramLogoEvent();
+setBtnText();
