@@ -2,6 +2,7 @@
 
 body {
   background-color: #262626;
+  display: flex;
 }
 
 #login_container {
@@ -16,6 +17,24 @@ body {
   overflow: hidden;
   position: relative;
 }
+
+#login_container * {
+  white-space: nowrap;
+}
+
+#find_container {
+  width: 0%;
+  height: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: solid white 1px;
+  border-bottom: solid white 1px;
+  overflow: hidden;
+  position: relative;
+}
+
 .child {
   width: 100%;
   height: 100%;
@@ -24,7 +43,7 @@ body {
   left: 0;
 }
 
-#logo {
+.logo {
   width: 250px;
 }
 
@@ -83,7 +102,7 @@ body {
   }
 }
 
-#login_btn {
+.tmp_btn {
   width: 300px;
   height: 30px;
   background-color: #3875b9;
@@ -95,7 +114,7 @@ body {
   cursor: pointer;
 }
 
-#find_btn {
+.find_btn {
   justify-content: end;
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -111,14 +130,32 @@ body {
   border-top: solid white 1px;
 }
 
-@keyframes opacity_box {
+/* 키프레임은 중첩된다 
+from에 처음 넣어놓은게 중첩되니까 인지하고 사용하자
+*/
+@keyframes width_to_0 {
   from {
     height: 100vh;
+    width: 100%;
     opacity: 1;
   }
   to {
-    opacity: 0;
+    width: 00%;
     height: 100vh;
+    opacity: 0;
+  }
+}
+
+@keyframes width_to_100 {
+  from {
+    height: 100vh;
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
   }
 }
 

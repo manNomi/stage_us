@@ -499,7 +499,7 @@ function postScrollEvent() {
   var old_content = null;
   post_container.addEventListener("scroll", (e) => {
     console.log(post_container.scrollTop);
-    var present_thumb_index = Math.floor(post_container.scrollTop / 500);
+    var present_thumb_index = Math.floor(post_container.scrollTop / 400);
     present_content = animatedBox[present_thumb_index];
 
     if (present_thumb_index > old_thumb_index) {
@@ -536,7 +536,7 @@ function postScrollToTop() {
 }
 
 // -----------------------------------------aside_right---------------------------------------------
-makeCategoryList();
+// makeCategoryList();
 function makeCategoryList() {
   var aside_category = document.getElementById("category_aside");
   var category_list = [];
@@ -549,4 +549,23 @@ function makeCategoryList() {
   }
 }
 
-// -----------------------------------------login page 이동---------------------------------------------
+// 페이지 시작 이벤트
+startPageEvent();
+function startPageEvent() {
+  var main = document.getElementById("posting_main");
+  var header = document.getElementById("story_header");
+  main.style.borderRight = "solid 1px white";
+  main.style.borderLeft = "solid 1px white";
+  header.style.borderRight = "solid 1px white";
+  header.style.borderLeft = "solid 1px white";
+
+  main.style.animation = "width_to_100 1s forwards";
+  header.style.animation = "width_to_100 1s forwards";
+  main.addEventListener("animationend", function () {
+    main.style.border = "none";
+    header.style.border = "none";
+    main.style.animation = "margin_event 1s forwards";
+  });
+}
+
+//
