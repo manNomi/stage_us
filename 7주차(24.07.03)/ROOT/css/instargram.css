@@ -9,7 +9,7 @@
 
 .html,
 body {
-  background-color: black;
+  background-color: #262626;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -32,53 +32,11 @@ body {
   border-color: gray;
 }
 
-/* 미디어 쿼리 
-() 안의 값이 작동하면 아래 코드가 쓰인다 
-*/
-/* @media (max-width: 600px) {
-  .funciton_aside {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-} */
-
-/* #category_aside {
-  grid-area: aside_right;
-  width: 160px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border-left: solid 1px;
-  border-color: gray;
-  opacity: 0;
-  cursor: pointer;
-}
-
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#category_aside:hover {
-  animation: fadeInAnimation 1s forwards;
-}
-.category_box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-} */
-
 #story_header {
   grid-area: header;
   width: 100%;
   height: 60px;
   cursor: pointer;
-  background-color: black;
   display: flex;
   flex: 1;
   flex-direction: row;

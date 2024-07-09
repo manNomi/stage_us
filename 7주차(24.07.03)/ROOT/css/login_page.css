@@ -215,3 +215,8 @@ input[type="radio"]:checked {
   border: 3px solid white;
   box-shadow: 0 0 0 1.6px #161616;
 }
+
+.message {
+  color: red;
+  font-size: 10px;
+}

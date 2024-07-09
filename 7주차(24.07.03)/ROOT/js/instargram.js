@@ -235,6 +235,7 @@ function createPost() {
 
     const postTitleThumb = document.createElement("img");
     postTitleThumb.className = "post_title_thumb";
+    postTitleThumb.style.backgroundColor = "#00ff0000";
     postTitleThumb.src = img_file_path + `/user/${thumb_id_list[i]}.PNG`;
     postTitleThumb.onerror = function () {
       postTitleThumb.src = img_file_path + `/user/none.PNG`;

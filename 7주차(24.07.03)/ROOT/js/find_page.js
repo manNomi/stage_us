@@ -63,7 +63,7 @@ function makeFindContainer() {
 
   // 로그인 버튼 생성
   var findPageBtn = document.createElement("button");
-  findPageBtn.id = "find_page_btn";
+  findPageBtn.id = "findpage_move_btn";
   findPageBtn.classList = "blue_btn";
   findContainer.appendChild(logoImg);
   findContainer.appendChild(container1);
@@ -104,14 +104,14 @@ function setFindPlacehorder() {
 }
 
 function findPageBtn() {
-  var findPageBtn = document.getElementById("find_page_btn");
+  var findPageBtn = document.getElementById("findpage_move_btn");
   findPageBtn.addEventListener("click", function () {
     location.href = "../html/index.html";
   });
 }
 
 function setBtnText() {
-  var findPwBtn = document.getElementById("find_page_btn");
+  var findPwBtn = document.getElementById("findpage_move_btn");
   findPwBtn.innerHTML = "비밀번호 찾기";
   var findBackBtn = document.getElementById("find_from_back_btn");
   findBackBtn.innerHTML = "뒤로가기";
