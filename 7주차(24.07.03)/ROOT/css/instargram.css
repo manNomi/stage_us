@@ -28,8 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: solid 1px;
-  border-color: gray;
 }
 
 #story_header {

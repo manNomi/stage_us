@@ -175,6 +175,11 @@ function setEmptyText() {
   radioBtns.forEach(function (element) {
     element.checked = false;
   });
+
+  var allInvalidText = document.querySelectorAll(".message");
+  allInvalidText.forEach(function (element) {
+    element.remove();
+  });
 }
 startPage();
 makeLoginContainer();

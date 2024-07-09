@@ -61,13 +61,31 @@ function makeJoinContainer() {
   joinPw.id = "join_pw";
   joinPw.className = "login_box";
   joinPw.setAttribute("autocomplete", "off");
+  joinPw.type = "password";
   joinPw.classList.add("join");
 
   container3.appendChild(placeholderJoinPw);
   container3.appendChild(joinPw);
 
   var container4 = document.createElement("div");
-  container4.className = "placehorder_parent";
+  container4.className = "placehorder_pw_check";
+
+  var placeholderJoinPwChek = document.createElement("p");
+  placeholderJoinPwChek.id = "placehorder_join_pw_check";
+  placeholderJoinPwChek.className = "placehorder";
+
+  var joinPwCheck = document.createElement("input");
+  joinPwCheck.id = "join_pw_check";
+  joinPwCheck.className = "login_box";
+  joinPwCheck.setAttribute("autocomplete", "off");
+  joinPwCheck.type = "password";
+  joinPwCheck.classList.add("check");
+
+  container4.appendChild(placeholderJoinPwChek);
+  container4.appendChild(joinPwCheck);
+
+  var container5 = document.createElement("div");
+  container5.className = "placehorder_parent";
 
   var placeholderJoinPhone = document.createElement("p");
   placeholderJoinPhone.id = "placehorder_join_phone";
@@ -79,11 +97,11 @@ function makeJoinContainer() {
   joinPhone.setAttribute("autocomplete", "off");
   joinPhone.classList.add("join");
 
-  container4.appendChild(placeholderJoinPhone);
-  container4.appendChild(joinPhone);
+  container5.appendChild(placeholderJoinPhone);
+  container5.appendChild(joinPhone);
 
-  var container5 = document.createElement("div");
-  container5.className = "placehorder_parent";
+  var container6 = document.createElement("div");
+  container6.className = "placehorder_parent";
 
   var placeholderJoin = document.createElement("p");
   placeholderJoin.id = "placehorder_join_name";
@@ -95,12 +113,12 @@ function makeJoinContainer() {
   joinName.setAttribute("autocomplete", "off");
   joinName.classList.add("join");
 
-  container5.appendChild(placeholderJoin);
-  container5.appendChild(joinName);
+  container6.appendChild(placeholderJoin);
+  container6.appendChild(joinName);
 
-  var container6 = document.createElement("div");
-  container6.className = "placehorder_parent";
-  container6.style.position = "relative";
+  var container7 = document.createElement("div");
+  container7.className = "placehorder_parent";
+  container7.style.position = "relative";
 
   var joinGender = document.createElement("div");
   joinGender.id = "join_gender";
@@ -134,8 +152,8 @@ function makeJoinContainer() {
     genderBox.style.marginLeft = "20px";
     genderContainer.appendChild(genderBox);
   }
-  container6.appendChild(joinGender);
-  container6.appendChild(genderContainer);
+  container7.appendChild(joinGender);
+  container7.appendChild(genderContainer);
 
   var backBtn = document.createElement("button");
   backBtn.id = "join_from_back_btn";
@@ -153,6 +171,7 @@ function makeJoinContainer() {
   joinContainer.appendChild(container4);
   joinContainer.appendChild(container5);
   joinContainer.appendChild(container6);
+  joinContainer.appendChild(container7);
   joinContainer.appendChild(joinPageBtn);
   joinContainer.appendChild(backBtn);
 }
@@ -195,28 +214,33 @@ function setJoinEvent() {
 
 function checkExceptJoin(list) {
   var containerList = document.querySelectorAll(".placehorder_parent");
+  if (containerList.querySelectorAll("message") == null) {
+    console.log("완료");
+  }
+}
 
-  const nickname = list[0];
+function repeatCheck() {
+  var containerList = document.querySelectorAll(".placehorder_parent");
+  var inputTextList = document.querySelectorAll(".join");
+
   const regexNickname = /^(?=.*[a-zA-Z0-9_])[a-zA-Z0-9_]{5,20}$/;
   const validNickname = "영어 , 숫자 '_'  사용가능  5~20글자 ";
 
-  const ID = list[1];
   const regexID = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{5,20}$/;
   const validID = "5~20자 영어 숫자 포함";
 
-  const password = list[2];
-  const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/;
-  const validPassword = "대소문자와 숫자를 포함하며, 길이가 8에서 20자 사이";
+  const regexPassword =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[a-zA-Z\d!@#$%^&*(),.?":{}|<>]{8,20}$/;
+  const validPassword =
+    "영어 대,소문자 , 숫자 , 특수문자 포함하며, 길이가 8에서 20자 사이";
 
-  const phoneNumber = list[3];
+  const validPasswordCheck = "비밀번호가 일치하지 않습니다";
+
   const regexPhone = /^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/;
   const validPhone = "예시)01012345678";
-
-  const name = list[4];
   var regexName = /^[가-힣]{2,10}$/;
   const validName = "예시)홍길동";
 
-  const enterText = [nickname, ID, password, phoneNumber, name];
   const regexList = [
     regexNickname,
     regexID,
@@ -232,24 +256,50 @@ function checkExceptJoin(list) {
     validName,
   ];
 
-  for (let i = 0; i < enterText.length; i++) {
-    if (regexList[i].test(enterText[i])) {
-      var text = containerList[i].querySelector(".message");
-      if (text != null) {
-        text.remove();
-      }
-    } else {
-      var message = containerList[i].querySelector(".message");
-      if (message == null) {
-        var messageElement = document.createElement("p");
-        messageElement.textContent = errorMessage[i];
-        messageElement.classList = "message";
-        containerList[i].appendChild(messageElement);
+  var checkContainer = document.querySelector(".placehorder_pw_check");
+  var pwCheck = document.querySelector(".check");
+  pwCheck.addEventListener("blur", function (event) {
+    if (event.target.value != "") {
+      var present_pw = document.getElementById("join_pw");
+      if (present_pw.value == event.target.value) {
+        var message = checkContainer.querySelector(".message");
+        console.log("message");
+        if (message != null) {
+          message.remove();
+        }
+      } else {
+        var message = checkContainer.querySelector(".message");
+        if (message == null) {
+          var messageElement = document.createElement("p");
+          messageElement.textContent = validPasswordCheck;
+          messageElement.classList = "message";
+          checkContainer.appendChild(messageElement);
+        }
       }
     }
-  }
-}
+  });
 
+  inputTextList.forEach(function (element, inedex) {
+    element.addEventListener("blur", function (event) {
+      if (event.target.value != "") {
+        if (regexList[inedex].test(event.target.value)) {
+          var text = containerList[inedex].querySelector(".message");
+          if (text != null) {
+            text.remove();
+          }
+        } else {
+          var message = containerList[inedex].querySelector(".message");
+          if (message == null) {
+            var messageElement = document.createElement("p");
+            messageElement.textContent = errorMessage[inedex];
+            messageElement.classList = "message";
+            containerList[inedex].appendChild(messageElement);
+          }
+        }
+      }
+    });
+  });
+}
 function setJoinPlacehorder() {
   var placehorderNickname = document.getElementById(
     "placehorder_join_nickname"
@@ -265,6 +315,10 @@ function setJoinPlacehorder() {
   placehorderPW.textContent = "비밀번호";
   var joinPw = document.getElementById("join_pw");
 
+  var placehorderPWCheck = document.getElementById("placehorder_join_pw_check");
+  placehorderPWCheck.textContent = "비밀번호 확인";
+  var joinPwCheck = document.getElementById("join_pw_check");
+
   var placehorderPhone = document.getElementById("placehorder_join_phone");
   placehorderPhone.textContent = "전화번호";
   var joinPhone = document.getElementById("join_phone");
@@ -277,10 +331,18 @@ function setJoinPlacehorder() {
     placehorderNickname,
     placehorderId,
     placehorderPW,
+    placehorderPWCheck,
     placehorderPhone,
     placehorderName,
   ];
-  const joinValue = [joinNickname, joinId, joinPw, joinPhone, joinName];
+  const joinValue = [
+    joinNickname,
+    joinId,
+    joinPw,
+    joinPwCheck,
+    joinPhone,
+    joinName,
+  ];
 
   for (let i = 0; i < joinPlaceHorder.length; i++) {
     joinValue[i].addEventListener("input", function () {
@@ -318,3 +380,4 @@ setText();
 setBtnEvent();
 setJoinPlacehorder();
 raidoBtnRepeatCheck();
+repeatCheck();

@@ -83,7 +83,7 @@ function iconClickEvnet(btn_type) {
     console.log();
     postScrollToTop();
   } else if (btn_type == "login") {
-    location.href = "../html/login.html";
+    location.href = "../jsp/profile_page.jsp";
   }
 }
 
@@ -556,16 +556,18 @@ startPageEvent();
 function startPageEvent() {
   var main = document.getElementById("posting_main");
   var header = document.getElementById("story_header");
-  main.style.borderRight = "solid 1px white";
-  main.style.borderLeft = "solid 1px white";
-  header.style.borderRight = "solid 1px white";
-  header.style.borderLeft = "solid 1px white";
+  var aside = document.getElementById("funciton_aside");
+  main.style.borderRight = "solid 1px gray";
+  main.style.borderLeft = "solid 1px gray";
+  header.style.borderRight = "solid 1px gray";
+  header.style.borderLeft = "solid 1px gray";
 
   main.style.animation = "width_to_100 1s forwards";
   header.style.animation = "width_to_100 1s forwards";
   main.addEventListener("animationend", function () {
     main.style.border = "none";
     header.style.border = "none";
+    aside.style.borderRight = "solid 1px gray";
     main.style.animation = "margin_event 1s forwards";
   });
 }
