@@ -87,22 +87,6 @@ function makeJoinContainer() {
   var container5 = document.createElement("div");
   container5.className = "placehorder_parent";
 
-  var placeholderJoinPhone = document.createElement("p");
-  placeholderJoinPhone.id = "placehorder_join_phone";
-  placeholderJoinPhone.className = "placehorder";
-
-  var joinPhone = document.createElement("input");
-  joinPhone.id = "join_phone";
-  joinPhone.className = "login_box";
-  joinPhone.setAttribute("autocomplete", "off");
-  joinPhone.classList.add("join");
-
-  container5.appendChild(placeholderJoinPhone);
-  container5.appendChild(joinPhone);
-
-  var container6 = document.createElement("div");
-  container6.className = "placehorder_parent";
-
   var placeholderJoin = document.createElement("p");
   placeholderJoin.id = "placehorder_join_name";
   placeholderJoin.className = "placehorder";
@@ -113,8 +97,24 @@ function makeJoinContainer() {
   joinName.setAttribute("autocomplete", "off");
   joinName.classList.add("join");
 
-  container6.appendChild(placeholderJoin);
-  container6.appendChild(joinName);
+  container5.appendChild(placeholderJoin);
+  container5.appendChild(joinName);
+
+  var container6 = document.createElement("div");
+  container6.className = "placehorder_parent";
+
+  var placeholderJoinPhone = document.createElement("p");
+  placeholderJoinPhone.id = "placehorder_join_phone";
+  placeholderJoinPhone.className = "placehorder";
+
+  var joinPhone = document.createElement("input");
+  joinPhone.id = "join_phone";
+  joinPhone.className = "login_box";
+  joinPhone.setAttribute("autocomplete", "off");
+  joinPhone.classList.add("join");
+
+  container6.appendChild(placeholderJoinPhone);
+  container6.appendChild(joinPhone);
 
   var container7 = document.createElement("div");
   container7.className = "placehorder_parent";
@@ -185,6 +185,10 @@ function setBtnEvent() {
   joinBtn.addEventListener("click", function () {
     setJoinEvent();
   });
+  var instarLogoBtn = document.getElementById("join_logo");
+  instarLogoBtn.addEventListener("click", function () {
+    location.href = "../jsp/index.jsp";
+  });
 }
 
 function setInstargramLogoEvent() {
@@ -205,17 +209,41 @@ function setJoinEvent() {
   var inputRadio = document.querySelectorAll(".gender_radio");
   inputRadio.forEach(function (element) {
     if (element.checked) {
-      joinTextList.push(element.id);
+      joinTextList.push(element.id.charAt(0));
     }
   });
-  console.log(joinTextList);
   checkExceptJoin(joinTextList);
 }
 
 function checkExceptJoin(list) {
-  var containerList = document.querySelectorAll(".placehorder_parent");
-  if (containerList.querySelectorAll("message") == null) {
-    console.log("완료");
+  var message = document.querySelectorAll(".message");
+  console.log(message);
+  var listLegnth = 0;
+  list.forEach(function (element) {
+    if (element != "") {
+      listLegnth++;
+    }
+  });
+  if (message.length == 0 && listLegnth == 6) {
+    var textValues = [
+      "nickname",
+      "login_id",
+      "login_pw",
+      "name",
+      "phone",
+      "gender",
+    ];
+    var url = "./action/signupAction.jsp?";
+    textValues.forEach(function (e, index) {
+      url = url + textValues[index] + "=" + list[index];
+      if (index != textValues.length - 1) {
+        url = url + "&";
+      }
+    });
+    console.log(url);
+    location.href = url;
+  } else {
+    alert("입력을 해주세요");
   }
 }
 
@@ -245,15 +273,15 @@ function repeatCheck() {
     regexNickname,
     regexID,
     regexPassword,
-    regexPhone,
     regexName,
+    regexPhone,
   ];
   const errorMessage = [
     validNickname,
     validID,
     validPassword,
-    validPhone,
     validName,
+    validPhone,
   ];
 
   var checkContainer = document.querySelector(".placehorder_pw_check");
@@ -381,3 +409,4 @@ setBtnEvent();
 setJoinPlacehorder();
 raidoBtnRepeatCheck();
 repeatCheck();
+// findEnterEvnet();

@@ -74,6 +74,7 @@ function makeAsideIcon() {
   new_list_icon.classList = "aside_icon";
 
   logo_text_box.appendChild(new_list_icon);
+  logo_text_box.id = "list_icon";
   logo_text_box.appendChild(text_box);
   logo_text_list.push(text_box);
   aside.appendChild(logo_text_box);
@@ -83,7 +84,7 @@ function iconClickEvnet(btn_type) {
     console.log();
     postScrollToTop();
   } else if (btn_type == "login") {
-    location.href = "../jsp/profile_page.jsp";
+    location.href = "../jsp/login_page.jsp";
   }
 }
 
@@ -94,19 +95,22 @@ window.onload = function () {
   postScrollToTop();
   windoScrollToTop();
 
-  var instar_icon = document.getElementById("instar_icon");
-  if (window.innerWidth > 1000) {
-    instar_icon.src = img_file_path + "/aside/instar_text_logo.png";
-    instar_icon.style.width = "100px";
-    type_check = "long";
-  } else if (window.innerWidth > 850) {
-    instar_icon.src = img_file_path + "/aside/instargram_logo.png";
-    instar_icon.style.width = "30px";
-    type_check = "short";
-  } else {
-    document.getElementById("funciton_aside").style.display = "none";
-    document.getElementById("funciton_footer").style.display = "flex";
-  }
+  setTimeout(() => {
+    var instar_icon = document.getElementById("instar_icon");
+    if (window.innerWidth > 1000) {
+      instar_icon.src = img_file_path + "/aside/instar_text_logo.png";
+      instar_icon.style.width = "100px";
+      type_check = "long";
+    } else if (window.innerWidth > 850) {
+      instar_icon.src = img_file_path + "/aside/instargram_logo.png";
+      instar_icon.style.width = "30px";
+      type_check = "short";
+    } else {
+      document.getElementById("funciton_aside").style.display = "none";
+      document.getElementById("funciton_footer").style.display = "flex";
+    }
+  }, 1000);
+
   asideReSize();
 };
 
@@ -177,17 +181,23 @@ function instarLogoAnimate(type) {
 }
 
 // -----------------------------------------aside---------------------------------------------
+var img_list = ["001", "002", "003", "004"];
+var text_list = [
+  "1주차 과제 결과...",
+  "2주차 실력이 늘었...",
+  "3주차 이를 갈고온...",
+  "논란 코드 복붙...",
+];
+var id_list = ["wook_10000", "gae_geol", "yongjun_kim", "stage_us"];
 
 // makePost()
-function createPost() {
-  var thumb_img_list = ["001", "002", "003", "004"];
-  var thumb_text_list = [
-    "1주차 과제 결과...",
-    "2주차 실력이 늘었...",
-    "3주차 이를 갈고온...",
-    "논란 코드 복붙...",
-  ];
-  var thumb_id_list = ["wook_10000", "gae_geol", "yongjun_kim", "stage_us"];
+var thumb_list = [];
+var heart_icon_list = [];
+createPost(img_list, text_list, id_list);
+function createPost(img, text, id) {
+  var thumb_img_list = img;
+  var thumb_text_list = text;
+  var thumb_id_list = id;
 
   var user_wook = {
     name: "wook_10000",
@@ -221,6 +231,9 @@ function createPost() {
     const postThumb = document.createElement("img");
     postThumb.className = "post_thumb";
     postThumb.src = img_file_path + `/post_thumb/${thumb_img_list[i]}.png`;
+    postThumb.onerror = function () {
+      postTitleThumb.src = img_file_path + `/post_thumb/001.png`;
+    };
     thumb_list.push(postThumb);
     thumb_list[i].onclick = function () {
       location.href = `../html/${html_path[i]}`;
@@ -236,9 +249,9 @@ function createPost() {
     const postTitleThumb = document.createElement("img");
     postTitleThumb.className = "post_title_thumb";
     postTitleThumb.style.backgroundColor = "#00ff0000";
-    postTitleThumb.src = img_file_path + `/user/${thumb_id_list[i]}.PNG`;
+    postTitleThumb.src = img_file_path + `/user/${thumb_id_list[i]}.png`;
     postTitleThumb.onerror = function () {
-      postTitleThumb.src = img_file_path + `/user/none.PNG`;
+      postTitleThumb.src = img_file_path + `/user/none.png`;
     };
     postUser.appendChild(postTitleThumb);
 
@@ -382,11 +395,9 @@ function createPost() {
     const postingMain = document.getElementById("posting_main");
     postingMain.appendChild(postBox);
   }
+  postScrollEvent();
 }
 
-var thumb_list = [];
-var heart_icon_list = [];
-createPost();
 // -----------------------------------------main---------------------------------------------
 makeFooterIcon();
 function makeFooterIcon() {
@@ -407,7 +418,7 @@ function makeFooterIcon() {
     button.appendChild(img);
 
     button.addEventListener("click", (e) => {
-      iconClickEvnet(button.id);
+      iconClickEvnet(e.target.id);
     });
     return button;
   }
@@ -433,7 +444,7 @@ function makeStory() {
     var img = document.createElement("img");
 
     img.className = "hedaer_story_user";
-    img.src = img_file_path + `/user/${story_id_list[i]}.PNG`;
+    img.src = img_file_path + `/user/${story_id_list[i]}.png`;
 
     story_list.push(img);
 
@@ -442,7 +453,7 @@ function makeStory() {
     };
 
     story_list[i].onerror = function () {
-      story_list[i].src = img_file_path + `/user/none.PNG`;
+      story_list[i].src = img_file_path + `/user/none.png`;
     };
 
     // 이미지 컨테이너에 추가
@@ -491,8 +502,6 @@ function scrollStoryEvent() {
 // -----------------------------------------ㅡmain scroll---------------------------------------------
 var old_thumb_index = 0;
 
-postScrollEvent();
-
 function postScrollEvent() {
   var animatedBox = document.querySelectorAll(".post_box");
   animatedBox[0].style = "opacity:1";
@@ -501,7 +510,7 @@ function postScrollEvent() {
   var old_content = null;
   post_container.addEventListener("scroll", (e) => {
     console.log(post_container.scrollTop);
-    var present_thumb_index = Math.floor(post_container.scrollTop / 400);
+    var present_thumb_index = Math.floor(post_container.scrollTop / 500);
     present_content = animatedBox[present_thumb_index];
 
     if (present_thumb_index > old_thumb_index) {
@@ -562,14 +571,217 @@ function startPageEvent() {
   header.style.borderRight = "solid 1px gray";
   header.style.borderLeft = "solid 1px gray";
 
+  aside.childNodes.forEach(function (e) {
+    e.style.opacity = "0";
+  });
   main.style.animation = "width_to_100 1s forwards";
   header.style.animation = "width_to_100 1s forwards";
   main.addEventListener("animationend", function () {
     main.style.border = "none";
     header.style.border = "none";
     aside.style.borderRight = "solid 1px gray";
+
     main.style.animation = "margin_event 1s forwards";
+    aside.childNodes.forEach(function (e) {
+      e.style.animation = "opacity0to100 1s forwards";
+    });
+
+    aside.addEventListener("animationend", function () {});
   });
 }
 
-//
+function modalCategoryOpen(list) {
+  var categoryList = [];
+  categoryList = list.split("/"); // '/'를 기준으로 문자열을 배열로 분리
+  categoryList.pop("");
+  var modalBody = document.createElement("div");
+  modalBody.id = "modalBody";
+  modalBody.style.width = "100%";
+  modalBody.style.height = "100%";
+  modalBody.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // 반투명 배경을 위해 빨간색 대신 rgba 사용
+  modalBody.style.position = "fixed";
+  modalBody.style.top = "0";
+  modalBody.style.left = "0";
+  modalBody.style.zIndex = "1"; // 모달을 다른 요소 위에 표시하기 위한 z-index 설정
+  document.body.appendChild(modalBody);
+
+  var modalContainer = document.createElement("div");
+  modalContainer.id = "category_container"; // id를 "category_container"로 설정
+  modalContainer.classList.add("modal_body"); // classList에 "modal_body" 클래스 추가
+  modalBody.appendChild(modalContainer); // body에 모달 컨테이너 추가
+
+  var modalBox = document.createElement("div");
+  modalBox.id = "category_box";
+  modalContainer.appendChild(modalBox); // 모달 박스를 모달 컨테이너에 추가
+
+  console.log(categoryList);
+  categoryList.forEach(function (categoryName) {
+    var modalCategory = document.createElement("div");
+    modalCategory.innerHTML = categoryName; // innerHTML로 내용을 설정
+    modalCategory.classList = "category_list";
+    modalCategory.addEventListener("click", function () {
+      var url =
+        "../jsp/action/postSetAction.jsp?postListName=" +
+        modalCategory.innerHTML;
+      location.href = url;
+    });
+    modalBox.appendChild(modalCategory); // 모달 카테고리를 모달 박스에 추가
+  });
+
+  var backButton = document.createElement("button");
+  backButton.innerHTML = "뒤로가기";
+  backButton.classList = "blue_btn";
+  backButton.onclick = function () {
+    document.body.removeChild(modalContainer); // 모달 컨테이너 제거
+  };
+  modalContainer.appendChild(modalBody); // 뒤로가기 버튼을 모달 컨테이너에 추가
+}
+
+function developerModalOpen(list) {
+  console.log(list);
+  var categoryList = [];
+  categoryList = list.split("/"); // '/'를 기준으로 문자열을 배열로 분리
+  categoryList.pop("");
+  var modalBody = document.createElement("div");
+  modalBody.id = "modalBody";
+  modalBody.style.width = "100%";
+  modalBody.style.height = "100%";
+  modalBody.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // 반투명 배경을 위해 빨간색 대신 rgba 사용
+  modalBody.style.position = "fixed";
+  modalBody.style.top = "0";
+  modalBody.style.left = "0";
+  modalBody.style.zIndex = "1"; // 모달을 다른 요소 위에 표시하기 위한 z-index 설정
+  document.body.appendChild(modalBody);
+
+  var modalContainer = document.createElement("div");
+  modalContainer.id = "category_container"; // id를 "category_container"로 설정
+  modalContainer.classList.add("modal_body"); // classList에 "modal_body" 클래스 추가
+  modalBody.appendChild(modalContainer);
+
+  var modalBox = document.createElement("div");
+  modalBox.id = "category_box";
+
+  var guideTagTitle = document.createElement("p");
+  guideTagTitle.textContent = "-관리자 모드-";
+  guideTagTitle.style.margin = "10px";
+  modalContainer.appendChild(guideTagTitle);
+
+  var guideTagDel = document.createElement("p");
+  guideTagDel.textContent = "-클릭시 삭제됩니다-";
+  modalContainer.appendChild(guideTagDel);
+
+  categoryList.forEach(function (categoryName) {
+    var modalCategory = document.createElement("div");
+    modalCategory.innerHTML = categoryName; // innerHTML로 내용을 설정
+    modalCategory.classList = "category_list";
+    modalCategory.style.cursor = "pointer";
+    modalBox.appendChild(modalCategory); // 모달 카테고리를 모달 박스에 추가
+    modalCategory.addEventListener("click", function (e) {
+      var url =
+        "../jsp/action/categoryListDel.jsp?postListName=" +
+        modalCategory.innerHTML;
+      location.href = url;
+    });
+  });
+  modalContainer.appendChild(modalBox); // 모달 박스를 모달 컨테이너에 추가
+
+  var guideTag = document.createElement("p");
+  guideTag.textContent = "-카테고리 추가-";
+  modalContainer.appendChild(guideTag); // 뒤로가기 버튼을 모달 컨테이너에 추가
+
+  var container1 = document.createElement("div");
+  container1.style.position = "relative";
+  container1.style.padding = "10px";
+
+  var placeholderInput = document.createElement("p");
+  placeholderInput.id = "placehorder_input";
+  placeholderInput.className = "placehorder";
+
+  var categoryPlusInput = document.createElement("input");
+  categoryPlusInput.classList = "category_list";
+  categoryPlusInput.id = "category_input";
+  categoryPlusInput.setAttribute("autocomplete", "off");
+
+  container1.appendChild(placeholderInput);
+  container1.appendChild(categoryPlusInput);
+  modalContainer.appendChild(container1);
+  placehorderEvnet();
+
+  var categoryPlustBtn = document.createElement("button");
+  categoryPlustBtn.id = "category_plust_btn";
+  categoryPlustBtn.innerHTML = "추가";
+  categoryPlustBtn.classList = "blue_btn";
+
+  modalContainer.appendChild(categoryPlustBtn); // 뒤로가기 버튼을 모달 컨테이너에 추가
+
+  var backButton = document.createElement("button");
+  backButton.innerHTML = "뒤로가기";
+  backButton.classList = "blue_btn";
+  backButton.onclick = function () {
+    document.body.removeChild(modalBody); // 모달 컨테이너 제거
+  };
+  modalContainer.appendChild(backButton); // 뒤로가기 버튼을 모달 컨테이너에 추가
+  categoryNameEvent();
+}
+
+function placehorderEvnet() {
+  var categoryPlusInput = document.getElementById("category_input");
+  var placehorderId = document.getElementById("placehorder_input");
+  placehorderId.style.textAlign = "left";
+  placehorderId.textContent = "추가할 목록을 넣으세요";
+
+  categoryPlusInput.addEventListener("input", function () {
+    placehorderId.style.animation = "placehorder_to_small 0.3s forwards";
+    categoryPlusInput.style = "font-size:13px";
+    categoryPlusInput.style.paddingTop = "25px";
+    const inputValue = categoryPlusInput.value.trim();
+    if (inputValue === "") {
+      placehorderId.style.animation = "placehorder_to_big 0.3s forwards";
+      categoryPlusInput.style = "font-size:15px";
+      categoryPlusInput.style.paddingTop = "0px";
+    }
+  });
+}
+
+function categoryNameEvent() {
+  document
+    .getElementById("category_plust_btn")
+    .addEventListener("click", function () {
+      var modalBody = document.getElementById("modalBody");
+      var input = document.getElementById("category_input").value;
+      var url = "../jsp/action/categoryListAction.jsp?postListName=" + input;
+      location.href = url;
+      document.body.removeChild(modalBody); // 모달 컨테이너 제거
+    });
+}
+
+function postMake(list) {
+  var postContent = list.split("-");
+
+  postContent.pop("");
+  var title = [];
+  var content = [];
+  var user = [];
+  var set = [];
+  console.log(list);
+  console.log(postContent);
+  postContent.forEach(function (ele, index) {
+    set = ele.split("/");
+    set.pop();
+    console.log(set);
+    set.forEach(function (e, index) {
+      if (index % 3 == 0) {
+        user.push(e);
+      } else if (index % 3 == 1) {
+        title.push(e);
+      } else {
+        content.push(e);
+      }
+    });
+  });
+  console.log(user);
+  console.log(title);
+  console.log(content);
+
+  createPost(img_list, title, user);
+}

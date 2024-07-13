@@ -62,7 +62,14 @@ function setLoginBtnEvent() {
 
 // 정규표현식으로 한번 거르기
 function loginEvent() {
-  location.href = "../html/index.html";
+  var present_id = document.getElementById("login_id").value;
+  var present_pw = document.getElementById("login_pw").value;
+  var url =
+    "../jsp/action/loginAction.jsp?login_id=" +
+    present_id +
+    "&login_pw=" +
+    present_pw;
+  location.href = url;
 }
 
 function findBtnEvent() {
@@ -91,7 +98,6 @@ function startPage() {
     setLoginBtnEvent();
   });
 }
-
 function makeLoginContainer() {
   var loginContainer = document.getElementById("login_container");
 
@@ -161,7 +167,7 @@ function makeLoginContainer() {
 function instargramLogoEvent() {
   document.querySelectorAll(".logo").forEach(function (e) {
     e.addEventListener("click", function () {
-      location.href = "../html/index.html";
+      location.href = "../jsp/index.jsp";
     });
   });
 }
@@ -181,8 +187,25 @@ function setEmptyText() {
     element.remove();
   });
 }
+
+function loginEnterEvnet() {
+  var inputTextID = document.getElementById("login_id");
+  var inputTextPW = document.getElementById("login_pw");
+
+  var list = [inputTextID, inputTextPW];
+
+  list.forEach(function (ele) {
+    ele.addEventListener("keypress", function (e) {
+      if (e.keyCode === 13) {
+        loginEvent();
+      }
+    });
+  });
+}
+
 startPage();
 makeLoginContainer();
 placehorderEvnet();
 instargramLogoEvent();
 setBtnText();
+loginEnterEvnet();

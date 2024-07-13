@@ -103,11 +103,25 @@ function setFindPlacehorder() {
   }
 }
 
-function findPageBtn() {
+function findPageBtnSet() {
   var findPageBtn = document.getElementById("findpage_move_btn");
   findPageBtn.addEventListener("click", function () {
-    location.href = "../html/index.html";
+    findEvent();
   });
+}
+
+function findEvent() {
+  var id = document.getElementById("find_id").value;
+  var phone = document.getElementById("find_phone").value;
+  var name = document.getElementById("find_name").value;
+  var url =
+    "../jsp/action/findAction.jsp?login_id=" +
+    id +
+    "&phone=" +
+    phone +
+    "&name=" +
+    name;
+  location.href = url;
 }
 
 function setBtnText() {
@@ -129,8 +143,25 @@ function setInstargramLogoEvent() {
   });
 }
 
+function findEnterEvnet() {
+  var inputTextID = document.getElementById("find_id");
+  var inputTextPhone = document.getElementById("find_phone");
+  var inputTextName = document.getElementById("find_name");
+
+  var list = [inputTextID, inputTextPhone, inputTextName];
+
+  list.forEach(function (ele) {
+    ele.addEventListener("keypress", function (e) {
+      if (e.keyCode === 13) {
+        findEvent();
+      }
+    });
+  });
+}
+
 makeFindContainer();
-findPageBtn();
+findPageBtnSet();
 setFindPlacehorder();
 setBtnText();
 setInstargramLogoEvent();
+findEnterEvnet();
