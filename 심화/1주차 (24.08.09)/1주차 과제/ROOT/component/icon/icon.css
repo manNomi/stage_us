@@ -1,0 +1,10 @@
+.icon_logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border: none;
+  background-color: #00ff0000;
+  cursor: pointer;
+}

@@ -6,10 +6,10 @@ export const makeThumbText = (VideoData) => {
 
   var userImg = document.createElement("img");
   userImg.setAttribute("src", VideoData.userImg);
-  newThumb.appendChild(userImg);
+  videoText.appendChild(userImg);
 
   var title = document.createElement("p");
-  videoText.classList = "main_text_line";
+  title.classList = "main_text_line";
   title.innerHTML = VideoData.title;
   newThumb.appendChild(title);
 

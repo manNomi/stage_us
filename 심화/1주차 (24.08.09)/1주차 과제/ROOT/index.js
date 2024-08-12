@@ -1,4 +1,5 @@
-import { makeThumb } from "./domain/main/main.js";
+import { makeMain } from "./domain/main/main.js";
+import { makeAside } from "./domain/aside/aside.js";
 
 const getData = () => {
   const thumb_index = 15;
@@ -20,4 +21,5 @@ const getData = () => {
 
 const rootTag = document.getElementById("root");
 
-rootTag.appendChild(makeThumb(getData()));
+rootTag.appendChild(makeMain([...getData()]));
+rootTag.appendChild(makeAside());
