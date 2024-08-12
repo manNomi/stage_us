@@ -5,6 +5,8 @@ export const makeIcon = (data) => {
   iconBox.classList = "icon_logo";
   const { content, resource } = data;
   iconBox.appendChild(makeIconImg(resource));
-  iconBox.appendChild(makeIconText(content));
+  if (content != null) {
+    iconBox.appendChild(makeIconText(content));
+  }
   return iconBox;
 };

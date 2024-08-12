@@ -1,4 +1,4 @@
-import { makeIcon } from "../../component/aside_icon/icon.js";
+import { makeIcon } from "./aside_icon/icon.js";
 
 const iconData = {
   home: { content: "홈", resource: "/image/aside/home.svg" },

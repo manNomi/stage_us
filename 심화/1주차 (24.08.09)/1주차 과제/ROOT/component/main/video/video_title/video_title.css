@@ -1,5 +1,3 @@
-@import "../../reset.css";
-
 /* 아이템들 가운데 정렬하기 */
 .container_center {
   display: flex;

@@ -1,5 +1,3 @@
-@import "../reset.css";
-
 .video_group {
   display: flex;
   flex-direction: column;

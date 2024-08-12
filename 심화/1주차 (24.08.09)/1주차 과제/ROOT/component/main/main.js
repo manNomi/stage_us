@@ -1,4 +1,4 @@
-import { makeVideo } from "../../component/video/video.js";
+import { makeVideo } from "./video/video.js";
 
 export const makeMain = (videoList) => {
   const main_thumb = document.createElement("main");
