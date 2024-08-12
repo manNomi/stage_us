@@ -1,0 +1,223 @@
+@import url("../common/reset.css");
+
+body {
+  background-color: #262626;
+  display: flex;
+}
+
+#login_container {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: solid white 1px;
+  border-bottom: solid white 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+#login_container * {
+  white-space: nowrap;
+}
+
+.except_login_container {
+  width: 0%;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: solid white 1px;
+  border-bottom: solid white 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.except_login_container * {
+  white-space: nowrap;
+}
+.child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  width: 250px;
+}
+
+.login_box {
+  width: 300px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #161616;
+  color: white;
+  line-height: 30px;
+}
+
+#gender_container {
+  position: fixed;
+}
+
+.placehorder {
+  position: fixed;
+  width: 300px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  pointer-events: none;
+  color: #262626;
+}
+.placehorder_parent {
+  position: relative;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes placehorder_to_small {
+  from {
+    font-size: 16px;
+  }
+  to {
+    font-size: 9px;
+  }
+}
+
+@keyframes placehorder_to_big {
+  from {
+    font-size: 9px;
+  }
+  to {
+    font-size: 16px;
+  }
+}
+
+.blue_btn {
+  width: 300px;
+  height: 30px;
+  background-color: #3875b9;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.text_btn {
+  justify-content: end;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  color: #bccad7;
+  margin: 5px;
+}
+
+#tmp_bot {
+  width: 600px;
+  height: 1px;
+  border-bottom: solid white 1px;
+  border-top: solid white 1px;
+}
+
+/* 키프레임은 중첩된다 
+from에 처음 넣어놓은게 중첩되니까 인지하고 사용하자
+*/
+@keyframes width_to_0 {
+  from {
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+  }
+  to {
+    width: 00%;
+    height: 100vh;
+    opacity: 0;
+  }
+}
+
+@keyframes width_to_100 {
+  from {
+    height: 100vh;
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+  }
+}
+
+@keyframes start_container {
+  from {
+    height: 0px;
+    margin-top: 50vh;
+    opacity: 0;
+  }
+  to {
+    height: 100vh;
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes width_to_0123 {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    height: 100vh;
+    opacity: 1;
+  }
+}
+
+#gender_container {
+  display: flex;
+  flex-direction: row;
+}
+.gender_box {
+  margin: 5px;
+  color: white;
+}
+
+/* // 기본스타일을 없애고, 버튼모양을 구현한다. */
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid white;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="radio"]:checked {
+  background-color: white;
+  border: 3px solid white;
+  box-shadow: 0 0 0 1.6px #161616;
+}
+
+.message {
+  color: red;
+  font-size: 10px;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placeholder Input Example</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <div id="username_container" class="placeholder-container">
+      <p id="username_text" class="placehorder">사용자 이름</p>
+      <input
+        id="username_box"
+        class="placehorder_box"
+        type="text"
+        autocomplete="off"
+        oninput="handleInputBlur()" />
+      <p class="error_guide_message"></p>
+    </div>
+
+    <script src="test.js"></script>
+  </body>
+</html>
