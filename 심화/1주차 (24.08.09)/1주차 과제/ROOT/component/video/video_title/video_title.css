@@ -1,16 +1,4 @@
-@import "./reset.css";
-
-/* 메인화면 큰테두리 */
-.video_group {
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 300px;
-  width: 0px;
-  flex-direction: column;
-  margin-right: 10px;
-  cursor: pointer;
-}
+@import "../../reset.css";
 
 /* 아이템들 가운데 정렬하기 */
 .container_center {

@@ -1,6 +1,6 @@
 export const makeThumbText = (VideoData) => {
   var videoText = document.createElement("div");
-  videoText.setAttribute("class", "container_center");
+  videoText.classList = "container_center";
 
   var newThumb = document.createElement("div");
 
@@ -9,7 +9,7 @@ export const makeThumbText = (VideoData) => {
   newThumb.appendChild(userImg);
 
   var title = document.createElement("p");
-  title.setAttribute("class", "main_text_line");
+  videoText.classList = "main_text_line";
   title.innerHTML = VideoData.title;
   newThumb.appendChild(title);
 
@@ -20,10 +20,10 @@ export const makeThumbText = (VideoData) => {
   var smallTextBox = document.createElement("div");
   newThumb.appendChild(smallTextBox);
 
-  var new_mainTextView = document.createElement("span");
+  var new_mainTextView = document.createElement("p");
   new_mainTextView.innerHTML = VideoData.thumbView;
 
-  var dateText = document.createElement("span");
+  var dateText = document.createElement("p");
   dateText.innerHTML = VideoData.thumbDate;
 
   smallTextBox.appendChild(new_mainTextView);
