@@ -2,8 +2,14 @@ import { makeIcon } from "../../aside_icon/index.js";
 import css from "./aside_module.css";
 
 const iconData = {
-  home: { content: "홈", resource: "../public/image/aside/home.svg" },
-  shorts: { content: "숏츠", resource: "../public/image/aside/shorts.svg" },
+  home: {
+    content: "홈",
+    resource: `../public/image/aside/home.svg`,
+  },
+  shorts: {
+    content: "숏츠",
+    resource: "../public/image/aside/shorts.svg",
+  },
   subscription: {
     content: "구독",
     resource: "../public/image/aside/subscribe.svg",
