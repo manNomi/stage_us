@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 50px;
+  height: 100%;
+  color: #626262;
+  margin-top: 56px;
+  font-size: 13px;
+  text-align: center;
+  top: 0;
+}

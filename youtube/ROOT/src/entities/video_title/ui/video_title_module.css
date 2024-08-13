@@ -1,0 +1,12 @@
+/* 아이템들 가운데 정렬하기 */
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text_line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
