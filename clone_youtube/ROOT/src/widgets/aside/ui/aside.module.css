@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 var(--aside-size); /* 사이드바의 너비를 250px로 고정 */
+  position: fixed;
+  height: 100%;
+  color: #626262;
+  margin-top: var(--header-size);
+  font-size: 13px;
+  text-align: center;
+  top: 0;
+}

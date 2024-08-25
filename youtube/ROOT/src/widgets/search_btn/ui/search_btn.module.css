@@ -1,0 +1,16 @@
+.root {
+  width: 64px;
+  height: 80%;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border: 1px solid var(--color-placeHorder);
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.img {
+  width: var(--logo-size-small);
+  height: var(--logo-size-small);
+}

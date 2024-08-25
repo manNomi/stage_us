@@ -1,0 +1,9 @@
+.root {
+  border: none;
+  outline: none;
+  background-size: contain; /* 이미지 크기 조정 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  background-position: center; /* 이미지 중앙 정렬 */
+  width: var(--logo-size-small);
+  height: var(--logo-size-small);
+}

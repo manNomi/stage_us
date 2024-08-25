@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 리액트 사용 위한 임포트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel 임포트 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+    <div id="root"></div>
+    <!-- 바벨패키지 적용 type을 적어준다  -->
+    <script type="text/babel">
+
+        // props 기법
+      const Button= (props)=>{
+        const {data, message,highlight} = props 
+
+        // const button = document.createElement("button")
+        // button.innerHTML=value
+        const value=data
+
+        const clickEvent=(value)=>{
+            alert(message)
+        }
+        return(
+            // 데이터 바인딩 
+            // 중괄호를 넣으면 자바스크립트 문법을 쓸 수 있다 
+
+            // ()를 넣어주는게 익명함수 
+            // 익명함수 안쓸 경우 event 객체가 자동으로 넘어간다 
+        <>
+          <button onClick={()=>{clickEvent("버튼")}}>{value}</button>
+          {highlight && <p>{data}하이라이트임</p>}
+          {
+            highlight 
+            ? <p>{data} 하이라이트임 </p>
+            : <p>{data} 하이라이트아님 </p>
+          }
+          </>
+        //   컨디셔널 렌더링 
+
+        // && 앞이 트루면 해달라 
+        )
+
+      }
+
+      const App= ()=>{
+
+        const dataList = [
+            {
+                "data": "1번",
+                "message":"1을 누름",
+                "higilight":true
+            },
+            {
+                "data": "2번",
+                "message":"2을 누름",
+                "higilight":false
+            },
+            {
+                "data": "3번",
+                "message":"3을 누름",
+                "higilight":true
+            },
+            {
+                "data": "4번",
+                "message":"4을 누름",
+                "higilight":false
+            }
+        ]
+
+        return(
+        //   <div>
+        //     <Button data ="1번" message="1을 누름" highlight={true}/>
+        //     <Button data ="2번" message="2를 누름"/>
+        //     <Button data ="3번" message="3를 누름" highlight={true}/>
+        //     <Button data ="4번" message="4를 누름"/>
+        //   </div>
+          <>
+          {
+            // key 는 안써도 된다 
+            // map을 사용해야한다 새로 만들어서 반환해야하기 때문에 
+                dataList.map(elem => <Button data ={elem.data} message={elem.message} highlight={elem.higilight} />
+                )
+          }
+            </>
+        )
+      }
+      // document.getElementById("root").appendChild(App())
+      // 리액트 문법 
+      // 가상돔을 쓰겠다 
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+    </script>
+  </body>
+</html>
+
+<!-- 프롭스 기법 
+const Button= ({data})=>
+-->
