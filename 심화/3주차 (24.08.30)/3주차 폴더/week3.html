@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 리액트 사용 위한 임포트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel 임포트 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Calculator=()=>{
+
+            // let number1 = 0
+            // let number2 = 0
+            const [number1,setNumber1]=React.useState(0)
+            const [number2,setNumber2]=React.useState(0)
+            // number1=2
+            // 변수값 변경
+            // setNumber1(2) 
+            // 변수값을 쓰는데 Virtual DOM 을 동작 시킴 
+
+            const setNumberEvent = (e) => {
+                switch(e.target.id){
+                    case "number1":
+                        // number1=parseInt(e.target.value)
+                        setNumber1(parseInt(e.target.value))
+                        break
+                    case "number2":
+                        // number2=parseInt(e.target.value)
+                        setNumber2(parseInt(e.target.value))
+                        break
+                }
+                // document.getElementById("add_result").innerHTML=number1+number2
+                // document.getElementById("sub_result").innerHTML=number1-number2
+                // document.getElementById("mul_result").innerHTML=number1*number2
+                // document.getElementById("div_result").innerHTML=number1/number2
+                // ->사용하지 않아도 된다 
+
+            }
+                  // p 태그가 state를 number1 , number2 구독중임 
+                  // state를 부모에서 만들어서 props를 넘겨줘도 선언된 부모에서 렌더링 된다 
+                  // 선언을 state가 필요한 부분에서 해주어야 한다 
+                  // 필요한 컴포넌트에서 state 선언해야함 
+          return(
+            <>
+                <input id="number1" type="text" onChange={setNumberEvent}></input>
+                <input id="number2" type="text" onChange={setNumberEvent}></input>
+                <p id="add_result">{number1 + number2}</p>
+                <p id="sub_result">{number1 - number2}</p>
+                <p id="mul_result">{number1 * number2}</p>
+                <p id="div_result">{number1 / number2}</p>
+            </>
+            )
+        }
+      const App= ()=>{
+        return(
+          <>
+            <Calculator />
+          </>
+        )
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+    </script>
+  </body>
+</html>

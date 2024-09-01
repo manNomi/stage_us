@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 리액트 사용 위한 임포트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel 임포트 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+    <div id="root"></div>
+    <script type="text/babel">
+        // const clickEvent=(e)=>{
+        //     console.log(e.target.innerHTML)
+        // }
+        // document.getElementById("btn").addEventListener("click",(e)=>{
+        //     console.log(e.target.innerHTML)
+        // })
+        // 태그가 그려지기 전이기 때문에 위 코드는 동작하지 않는다 
+
+        // 컴포넌트가 렌더링 된 직후에 아래코드를 해주세요 
+        // React.useEffect(()=>{
+        //     document.getElementById("btn").addEventListener("click",(e)=>{
+        //     console.log(e.target.innerHTML)
+        // })
+        // },[])
+        // 기본적인 형태 
+        // React.useEffect(()=>{},[])
+        // 빈 리스트를 넣어주면 재 실행이 안됨 
+        // 랜더링 되도 다시 실행되지 않음 
+        // 리스트에 state를 넣을 수 있다 
+        // 리스트 안에 들어간 state가 변화되면 다시 실행해준다 
+
+        const App= ()=>{
+            const [isClick1,setIsClick1]=React.useState(false)
+            const [isClick2,setIsClick2]=React.useState(false)
+            const [isClick3,setIsClick3]=React.useState(false)
+
+            const [totalClick,setTotalClick] = React.useState(false)
+
+            React.useEffect(()=>{
+                isClick1 &&isClick2&& isClick3
+                ?setTotalClick(true)
+                :setTotalClick(false)
+            },[isClick1,isClick2,isClick3])
+            // 위 세개로 인해서 렌더링 될때에는 useEffect가 실행된다 
+            
+         return(
+          <>
+          <button id="btn"> 버튼 </button>
+          <button id="btn1" onClick={()=>{setIsClick1(!isClick1)}}> {isClick1?"눌러짐":"안눌러짐"} </button>
+          <button id="btn2" onClick={()=>{setIsClick2(!isClick2)}}> {isClick2?"눌러짐":"안눌러짐"} </button>
+          <button id="btn3" onClick={()=>{setIsClick3(!isClick3)}}> {isClick3?"눌러짐":"안눌러짐"} </button>
+          <p id="btn4"> 전체가 눌러짐? </p>
+          {totalClick&&<p>전체 눌러짐</p>}
+          </>
+        )
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+    </script>
+  </body>
+</html>

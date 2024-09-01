@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 리액트 사용 위한 임포트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel 임포트 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+    <div id="root"></div>
+    <script type="text/babel">
+                const VisibleElement=()=>{
+        const [isVisible ,setIsVisible]=React.useState(true)
+        // setIsVisible(false)
+        // -> 위 코드는 렌더링을 무한반복시킴 
+
+        const changeVisible=()=>{
+            setIsVisible(!isVisible)
+            // false일때는 true 
+            // true일때는 false가 되는 방법 
+        }
+
+        return(
+            <>
+            {
+                isVisible && <p>세 번째</p>
+            }
+            <button onClick={changeVisible}>출력 변경</button>
+            </>)
+    }
+      const App= ()=>{
+         return(
+          <>
+            <p>첫 번째</p>
+            <p>두 번째</p>
+            <VisibleElement />
+          </>
+        )
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+    </script>
+  </body>
+</html>
