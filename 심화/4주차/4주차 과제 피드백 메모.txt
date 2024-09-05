@@ -1,0 +1,77 @@
+어사이드 큰거 작은거는 두개의 컴포넌트로 만드는게 좋아보임. 
+스위치 잘 안쓴다 
+댓글은 분리하는게 좋음 
+백엔드 통신이 이루어질 가능성 있는것은 다분리하는 원칙 
+한개라고 생각하고 분리가 필요할때 분리하자 
+
+Ref -> 백엔드에 넘겨줄떄 
+특정태그를 담아둘때 사용한다 
+
+커스텀 훅 만들어서 반환할때를 위해 return은 [] 붙여씀 
+버튼 이벤트도 리턴을 해주기 위해서 
+
+List ? -> 앞에 값이 null 이면 넘어감 
+내로윙 
+useEffect 안에서 state set 해주지 말고 
+통신해주는 곳에서 후처리 해주는게 좋다 
+즉 getData 해주는곳에서 커스텀 훅 으로 만들어주는 방식이 더 좋음 
+
+이벤트로 태그를 직접 조작하는 방식을 피하자 
+
+
+뷰와 로직 분리 = jsx와 데이터 불러오는 것 같은 함수들 
+Jsx return 부분을 제외한 부분 없애는것 
+
+내 피드백 : 
+
+이미지를 오브젝트 방식이 아니라 리스트 방식으로 사용함
+리스트 방식으로 쓰지 않을때는 img 이름을 잘 설정해서 고정시켜 놓자 
+검색 컨테이너 -> 아이콘 props 로 받을 필요가 없음
+재사용이 필요할경우에만 props로 받는게 맞고 img 리소스를 fix해두는 것이 옳다 
+header_icon_list -> fad 패턴에서 header 파일 안에 hader를 두번쓰는게 어색함 
+따라서 icon_container 같은 방식으로 명명하는것이 좋아보임 
+
+
+setState를 바로 내려주는 방식은 좋지 않음 
+setState를 다루는 이벤트 함수를 내려주는 방식이 좋음
+EX 
+  const pageChangeEvent = (page) => {
+    setPageState(page);
+  };
+이벤트 함수로 감싸면 나중에 예외처리도 가능함 
+값을 조작해야할때 이벤트로 할 수 있기 때문에 setState자체를 내려주는 방식을 안쓴다 
+
+getData -> 커스텀훅이 되어야함 
+useData 로 바꾸고 데이터 불러오는 곳에서 useEffect 실행시키자 
+Fallback -> 으로 아래 코드 대체가능 
+
+Return 삼항연산자로 error와 loading 처리 
+이유 : 로직이 나눠져 있음 
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = getData();
+        setVideoList(data);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+      }
+    };
+    fetchData();
+  }, []);
+  // 안되는 코드
+  if (loading) {
+    return <div>로딩중</div>;
+  }
+  if (error) {
+    return <div>오류 입니다</div>;
+  }
+
+
+디테일페이지 -> 댓글 무한 스크롤시 댓글이 계속 새로고침 될텐데 이경우 
+video까지 리렌더링 되는 상황이 발생함 이를 해결하기 위해 댓글부분 따로 빼주는 것을 요함 
+        {contentDataList.map((contentData) => (
+          <Comment {...contentData} />
+        ))}
+이 세줄이 다른 컴포넌트로 빠져야함 

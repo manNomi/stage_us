@@ -1,9 +1,0 @@
-.root {
-  top: 0;
-  width: 100%;
-  position: fixed;
-  height: var(--header-size);
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--back-color);
-}

@@ -1,0 +1,166 @@
+** 프로젝트 구축 
+
+- 현재 우리가 개발하는 방법 
+ㄴ 개인 노트북에서 (로컬 환경) 프론트엔드만 개발하고 있음 
+ㄴ 우리가 개발한 React를 해석하는건 누구인가 ( 브라우저 )
+-> 현재 우리의 자바스크립트는 브라우저가 모든 것을 책임지고 해석하고 있다 
+
+- Node.js 
+ㄴ 자바스크립트 런타임 ( js 구동기 )
+-> 더이상 자바스크립트를 해석할때 브라우저만 쓸 필요가 없다 
+-> 그래서 업데이트가 느린 브라우저 대신해서 , js만 전문적으로 해석하는 node.js 덕분에 기술발전이 많이 되었음
+(React , Express) -> Event 싸개 였던 js를 프로젝트에서 사용할 수 있게 되었다 
+
+- Node.js 쓰면 뭐가 좋은가 ? 
+
+1. 브라우저 종속성 해결할 수 있다 
+-> node.js 통해 우리 프로젝트를 구동시킬 것 
+ㄴ 구동시킨 것을 띄워주는 역할이 이제 브라우저다 
+
+2. Node.js 의 유용한 기능을 쓸 수 있게 됨 
+ㄴ JS의 모듈 기능 ( js에서 다른 js를 import 할 수 있음 )
+ㄴ 완벽한 파일분할 장점을 가져갈 수 있다 
+( 변수 등의 증복 문제 해결 , 메모리 문제 해결 - 특정 js 키면 임포트 된것만 올림 )
+
+3. Node.js의 EcoSystem을 이용할 수 있음 
+ㄴ npm (자바스크립트 라이브러리 관리)
+ㄴ Node.js 기반 프로젝트의 구조 자체 
+( 같은 폴더 구조 , 종속성 맞추는데 쉬움 )
+
+
+* 더잇상 브라우저 기반이 아닌 , node.js 기반으로 프로젝트 만들어볼것 
+로컬에서 개발하고 -> 올리자 
+
+Npm 으로 설치하면 프로젝트에 npm이 설치되는것 
+
+
+-CRA 
+ㄴ Create React App 약자 
+ㄴ node.js 기반으로 react 프로젝트를 만들려면 준비해야 할게 많음 
+ㄴ 이러한 준비를 자동으로 해주는 패키지 
+( Meta에서 만든 패키지 )
+
+Npx -> 설치안하고 사용이 가능하도록 클라우드에서 다운로드함 
+
+ npx create-react-app lecture
+Sudo 로 하면 안된다 혹여나 sudo로 했을경우 
+sudo chown -R $(whoami) lecture
+위 코드로 권한을 변경하자 
+
+
+Package.json 
+-> 우리 프로젝트에 대한 소개서 
+디펜던시 -> 먼저 설치해준 패키지들 
+packageLock.json 
+: npm 으로 설치할 수 있는 프로젝트를 만든 오늘 날짜 기준으로 모든 패키지의 경로와 버전 
+패지키 락 제이슨 관리 잘하면 -> 몇년이 지나도 사용이 가능함 
+node_modules -> npm으로 설치하면 모이는곳 
+
+Npm install -> pacakge.json을 참고해서 폴더에 node 모듈들을 다운로드해줌 
+
+노드 js는 경로 접근이 안됨 
+Index.html은 경로 접근 필요 그래서 
+
+Src -> 경로접근 안되는 파일 넣음
+public -> 경로접근이 된다 
+Index.html -> index.css 쓴다 그러면 퍼블릭에 넣어야함 
+
+
+- HMR 
+ㄴ Hot Module Reload 
+ㄴ 코드가 바뀌면 화면에 인지해서 즉각 반영을 해줌 
+
+- Dev Server 
+ㄴ 개발용 웹 서버를 자동으로 제공해준다 
+
+터미널에서 npm start 해주면 됨 index.js 파일만들고 
+
+브라우저 종속성도 고려하지 않고 있음 
+ㄴ CRA 자동으로 설정되어 있는 babel이 ES5로 변경이 자동으로 되어서 브라우저에 전달된다 
+
+
+**FSD 
+- 소개 
+ㄴ 디자인 패턴 
+ㄴ React를 설계하는 디자인 패턴 
+- 응징도와 결합도 
+ㄴ React는 응집도를 추구하는 패키지 
+ㄴ 응집도가 높으면 재사용성 높아짐 , 테스트성 좋아짐 
+ㄴ 대신 코드의 흐름을 해석하기가 힘들다 
+
+ㄴ React는 기본적으로 응집도를 높게 설계해야만 하지만 , 그렇다고 결합도를 버릴 수 없음 
+ㄴ 게다가 React는 자유도가 매우 높음 
+ㄴ 디자인 패턴이 필요한 것 
+
+- 결합도가 높은 대표적인 구조 
+
+결합도 높으면 -> 한 파일에 코드가 너무 많음 
+
+Component 
+Hook
+Constant 
+Asset 
+
+1. 뭐 한개를 수정하려면 위 폴더를 다 뒤져봐야 한다 
+2. 뭐 하나를 수정했을 때 , 어디에 영향 갈지 특정이 어렵다 
+
+- FSD Pattern 
+ㄴ 응집도와 결합도를 둘다 사용하며 
+ㄴ 레이어라는 가상의 단위를 두고 , 레이어 등급이 높은 쪽으로 갈수록 결합도가 높아지며 레이어 등급이 낮은 쪽으로 갈 수 록 
+응집도가 높아지게 설계 
+
+- 구조 
+Layer -> Slice -> Segment 
+
+Layer : 응집도와 결합도의 단계를 나타내는 단위 
+ㄴ 상위 레이어는 하위 레이어를 쓸 수 있음 
+ㄴ 반대의 경우는 불가함 
+App -> Page -> Process -> widgets -> features -> entities -> shared 
+
+App -> () -> Process -> widgets -> () -> entity -> shared 
+
+Widgets -> 혼자서 동작할수 있는 컴포넌트 
+Ex commentList 
+
+Page -> Home Shorts Detail 
+
+App -> Page를 합쳐주고 전반적인 앱의 설명 
+
+위로 갈수록 결합도가 높아짐 
+
+Shared- 공용파일 
+EX ) 정규표현식 체크 
+
+Slice : 해당 레이어에 포함되는 종류 
+ㄴ Page 레이어에 존재할 수 있는 Slice 
+: HomePage / shortsPage / myPage
+ㄴ widgets Slice
+:LoginArea / SignupForm / CommentList 
+ㄴ어떤 slice는 같은 레이어에 있는 Slice를 참조하면 무조건 안됨
+예시) Login페이지 -> 가입페이지 
+ㄴ loginPage 에ㅐ서 signupPage를 임포트 하는게 아닌 상위인 app애서 합치는 구조 
+Slice 안에있는걸 아무리 수정해도 밖은 영향이 안감 
+
+* 이런 복잡한 규칙등을 통해 , 내가 뭔가를 수정하면 영향이 가는건 이를 사용하는 상위 레이어로 한정짓겠다는 의미 
+
+Segment : 해당 Slice를 구성하는 파일 종류
+ㄴ UI , style , model , lib ,asset 
+ㄴ Segment는 해당 Segment 안에 간지고 있는 slice에서만 참조 가능하다 
+
+FSD 정리 : 역할에 맞게 "고립" 시킨다  
+
+app 레이어는 슬라이스 존재 X 
+-> index.js 는 app 의 세그먼트를 모아주는 역할 
+
+1. 상위 레이어에서는 하위 레이어 접근이 가능하지만 , 하위 레이어에서는 상위 레이어를 접근하면 안된다 
+- 상위 레이어가 하위레이어의 slice를 가져다 씀 
+1-2. App 과 Page 레이어에서만 index.js 가 존재함 
+2. 같은 레이어의 slice들 끼리는 접근되면 안되며 , 오직 상위 레이어에서 조립이 되어야함 
+3. segment 들끼리는 서로 접근될 수 있다 . 단 , 다른 slice의 segment는 접근 할 수 없다 
+
+* 같은 역할에 맞게 "고립" 을 시킨다 
+
+* 재사용이 안된다 ?? Slice 안에 slice를 넣더라도 fix 박는다 
+
+Shorts index.js 합쳐주고 
+Shorts comment , shorts video 파일 다르니까 slice가 두개임 
